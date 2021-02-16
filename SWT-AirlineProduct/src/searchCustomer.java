@@ -391,9 +391,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                 baos.write(buff,0,readNum);
             }
             userimage=baos.toByteArray();
-              
-              
-              
+
         } catch (IOException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -423,8 +421,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
          String address = txtaddress.getText();
         
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-        //String date = da.format(txtdob.getDate());
-        String date = "";
+        String date = da.format(txtdob.getDate());
         String Gender;
         
         if(r1.isSelected())
@@ -514,11 +511,12 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                  
                 Blob blob = rs.getBlob("photo");
                 byte[ ]  _imagebytes=blob.getBytes( 1, (int) blob.length( ) );
+                userimage = _imagebytes;
                 ImageIcon image = new ImageIcon(_imagebytes);
                 Image im = image.getImage();
                 Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(),Image.SCALE_SMOOTH);
                 ImageIcon newImage = new ImageIcon(myImg);
-                 
+
                  
                  
                  
