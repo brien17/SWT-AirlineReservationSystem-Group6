@@ -75,7 +75,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem3.setText("Book Ticket");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                bookTicketButtonClicked(evt);
             }
         });
         jMenu2.add(jMenuItem3);
@@ -157,7 +157,7 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void bookTicketButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
          ticket t = new ticket();
         jDesktopPane1.add(t);
