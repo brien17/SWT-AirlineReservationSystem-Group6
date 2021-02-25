@@ -95,7 +95,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem4.setText("Add Flight");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                addFlightButtonClicked(evt);
             }
         });
         jMenu3.add(jMenuItem4);
@@ -149,7 +149,7 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void addFlightButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         addflight f = new addflight();
         jDesktopPane1.add(f);
