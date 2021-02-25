@@ -15,7 +15,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -31,13 +30,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * and open the template in the editor.
  */
 
+//TODO Add code to make all views singletons
 
-public class addCustomer extends javax.swing.JInternalFrame {
+public class CustomerCreationController extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form addCustomer
+     * Creates new form CustomerCreationController
      */
-    public addCustomer() {
+    public CustomerCreationController() {
         initComponents();
         autoID();
     }
@@ -259,7 +259,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         jButton2.setText("Add");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                addCustomerActionPerformed(evt);
             }
         });
 
@@ -360,22 +360,16 @@ public class addCustomer extends javax.swing.JInternalFrame {
             
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
         
         
     }
-    
-    
-    
-    
-    
-    
-    
+
     
     
     private void txtlastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
@@ -418,7 +412,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
               
               
         } catch (IOException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
        
@@ -435,7 +429,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void addCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
         String id = txtid.getText();
@@ -482,9 +476,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
             
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
             
          

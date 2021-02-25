@@ -18,12 +18,12 @@ import javax.swing.JOptionPane;
  */
 
 
-public class addflight extends javax.swing.JInternalFrame {
+public class FlightAdditionController extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form addflight
+     * Creates new form FlightAdditionController
      */
-    public addflight() {
+    public FlightAdditionController() {
         initComponents();
         autoID();
     }
@@ -251,9 +251,9 @@ public class addflight extends javax.swing.JInternalFrame {
             
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     
     
@@ -309,9 +309,9 @@ public class addflight extends javax.swing.JInternalFrame {
             
             JOptionPane.showMessageDialog(null,"Flight Createdd.........");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
         }
            
             

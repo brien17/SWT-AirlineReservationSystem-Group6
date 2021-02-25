@@ -104,7 +104,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenu4.setText("User");
 
-        jMenuItem5.setText("UserCreation");
+        jMenuItem5.setText("UserCreationController");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -133,7 +133,7 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         
-        addCustomer cus = new addCustomer();
+        CustomerCreationController cus = new CustomerCreationController();
         jDesktopPane1.add(cus);
         cus.setVisible(true);
         
@@ -142,7 +142,7 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         
-        searchCustomer scus = new searchCustomer();
+        CustomerSearchController scus = new CustomerSearchController();
         jDesktopPane1.add(scus);
         scus.setVisible(true);
         
@@ -151,7 +151,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        addflight f = new addflight();
+        FlightAdditionController f = new FlightAdditionController();
         jDesktopPane1.add(f);
         f.setVisible(true);
         
@@ -178,7 +178,7 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         
-         userCreation u = new userCreation();
+         UserCreationController u = new UserCreationController();
         jDesktopPane1.add(u);
         u.setVisible(true);
         
