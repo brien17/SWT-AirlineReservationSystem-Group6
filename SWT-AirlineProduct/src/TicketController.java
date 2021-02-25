@@ -22,12 +22,12 @@ import javax.swing.table.DefaultTableModel;
  */
 
 
-public class ticket extends javax.swing.JInternalFrame {
+public class TicketController extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ticket
+     * Creates new form TicketController
      */
-    public ticket() {
+    public TicketController() {
         initComponents();
         autoID();
     }
@@ -469,9 +469,9 @@ public class ticket extends javax.swing.JInternalFrame {
              
              
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
          
         
@@ -568,9 +568,9 @@ public class ticket extends javax.swing.JInternalFrame {
       
                 
             } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         

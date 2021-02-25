@@ -17,12 +17,12 @@ import javax.swing.table.DefaultTableModel;
  */
 
 
-public class ticketreport extends javax.swing.JInternalFrame {
+public class TicketReportController extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ticketreport
+     * Creates new form TicketReportController
      */
-    public ticketreport() {
+    public TicketReportController() {
         initComponents();
         LoadData();
     }
@@ -135,9 +135,9 @@ PreparedStatement pst;
              
              
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         

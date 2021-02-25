@@ -159,7 +159,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-         ticket t = new ticket();
+         TicketController t = new TicketController();
         jDesktopPane1.add(t);
         t.setVisible(true);
         
@@ -168,7 +168,7 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
         
-        ticketreport ti = new ticketreport();
+        TicketReportController ti = new TicketReportController();
         jDesktopPane1.add(ti);
         ti.setVisible(true);
         
