@@ -105,12 +105,11 @@ public class Main extends javax.swing.JFrame {
 
     userMenu.setText("User");
 
-    userCreationMenuItem.setText("UserCreation");
-    userCreationMenuItem.addActionListener(
-        new java.awt.event.ActionListener() {
-          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            createUserButtonClicked(evt);
-          }
+        jMenuItem5.setText("UserCreationController");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
         });
     userMenu.add(userCreationMenuItem);
 

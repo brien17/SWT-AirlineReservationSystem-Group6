@@ -79,7 +79,7 @@ INSERT INTO `flight` (`id`, `flightname`, `source`, `depart`, `date`, `deptime`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ticket`
+-- Table structure for table `TicketController`
 --
 
 CREATE TABLE `ticket` (
@@ -93,7 +93,7 @@ CREATE TABLE `ticket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ticket`
+-- Dumping data for table `TicketController`
 --
 
 INSERT INTO `ticket` (`id`, `flightid`, `custid`, `class`, `price`, `seats`, `date`) VALUES
