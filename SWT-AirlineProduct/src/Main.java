@@ -105,11 +105,12 @@ public class Main extends javax.swing.JFrame {
 
     userMenu.setText("User");
 
-        jMenuItem5.setText("UserCreationController");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
+    userCreationMenuItem.setText("Add User");
+    userCreationMenuItem.addActionListener(
+        new java.awt.event.ActionListener() {
+          public void actionPerformed(java.awt.event.ActionEvent evt) {
+            createUserButtonClicked(evt);
+          }
         });
     userMenu.add(userCreationMenuItem);
 
@@ -133,84 +134,84 @@ public class Main extends javax.swing.JFrame {
 
   /**
    * This method runs when the add customer button is clicked, it creates a new instance of the
-   * addCustomer class and sets it as visible on the screen.
+   * CustomerCreationController class and sets it as visible on the screen.
    *
    * @param evt The click event provided by the user clicking the button
    */
   private void addCustomerButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem1ActionPerformed
 
-    addCustomer cus = new addCustomer();
+    CustomerCreationController cus = new CustomerCreationController();
     jDesktopPane1.add(cus);
     cus.setVisible(true);
   } // GEN-LAST:event_jMenuItem1ActionPerformed
 
   /**
    * This method runs when the search customer button is clicked, it creates a new instance of the
-   * searchCustomer class and sets it as visible on the screen.
+   * CustomerSearchController class and sets it as visible on the screen.
    *
    * @param evt The click event provided by the user clicking the button
    */
   private void searchCustomerButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem2ActionPerformed
 
-    searchCustomer scus = new searchCustomer();
+    CustomerSearchController scus = new CustomerSearchController();
     jDesktopPane1.add(scus);
     scus.setVisible(true);
   } // GEN-LAST:event_jMenuItem2ActionPerformed
 
   /**
    * This method runs when the add flight button is clicked, it creates a new instance of the
-   * addflight class and sets it as visible on the screen.
+   * FlightAdditionController class and sets it as visible on the screen.
    *
    * @param evt The click event provided by the user clicking the button
    */
   private void addFlightButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem4ActionPerformed
 
-    addflight f = new addflight();
+    FlightAdditionController f = new FlightAdditionController();
     jDesktopPane1.add(f);
     f.setVisible(true);
   } // GEN-LAST:event_jMenuItem4ActionPerformed
 
   /**
    * This method runs when the book ticket button is clicked, it creates a new instance of the
-   * ticket class and sets it as visible on the screen.
+   * TicketController class and sets it as visible on the screen.
    *
    * @param evt The click event provided by the user clicking the button
    */
   private void bookTicketButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem3ActionPerformed
 
-    ticket t = new ticket();
+    TicketController t = new TicketController();
     jDesktopPane1.add(t);
     t.setVisible(true);
   } // GEN-LAST:event_jMenuItem3ActionPerformed
 
   /**
    * This method runs when the search ticket report button is clicked, it creates a new instance of
-   * the ticketreport class and sets it as visible on the screen.
+   * the TicketReportController class and sets it as visible on the screen.
    *
    * @param evt The click event provided by the user clicking the button
    */
   private void ticketReportButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem6ActionPerformed
 
-    ticketreport ti = new ticketreport();
+    TicketReportController ti = new TicketReportController();
     jDesktopPane1.add(ti);
     ti.setVisible(true);
   } // GEN-LAST:event_jMenuItem6ActionPerformed
 
   /**
    * This method runs when the create user button is clicked, it creates a new instance of the
-   * userCreation class and sets it as visible on the screen.
+   * UserCreationController class and sets it as visible on the screen.
    *
    * @param evt The click event provided by the user clicking the button
    */
   private void createUserButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem5ActionPerformed
 
-    userCreation u = new userCreation();
+    UserCreationController u = new UserCreationController();
     jDesktopPane1.add(u);
     u.setVisible(true);
   } // GEN-LAST:event_jMenuItem5ActionPerformed
