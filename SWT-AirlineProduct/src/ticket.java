@@ -575,10 +575,10 @@ public class ticket extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        
+
+
+
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
