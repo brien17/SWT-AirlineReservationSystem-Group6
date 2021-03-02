@@ -105,6 +105,8 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
     addButton = new javax.swing.JButton();
     closeButton = new javax.swing.JButton();
     dateOfBirthInput = new com.toedter.calendar.JDateChooser();
+    lastNameInput = new javax.swing.JTextField();
+    passportIDInput = new javax.swing.JTextField();
 
     jPanel1.setBackground(new java.awt.Color(51, 0, 255));
 
@@ -127,19 +129,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
     addressLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
     addressLabel.setForeground(new java.awt.Color(255, 255, 255));
     addressLabel.setText("Address");
-
-    lastNameInput.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        txtlastnameActionPerformed(evt);
-      }
-    });
-
-    passportIDInput.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        txtpassportActionPerformed(evt);
-      }
-    });
-
+    
     addressInput.setColumns(20);
     addressInput.setRows(5);
     addressBox.setViewportView(addressInput);
@@ -434,21 +424,6 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
 
   }
 
-
-  private void txtlastnameActionPerformed(
-      java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_txtlastnameActionPerformed
-
-  /**
-   *
-   * @param evt
-   */
-  private void txtpassportActionPerformed(
-      java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpassportActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_txtpassportActionPerformed
-
   /**
    * This method allows the user to pick and upload an image for the customer
    * record to be stored in the database.
@@ -548,7 +523,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
   }//GEN-LAST:event_jButton2ActionPerformed
 
   /**
-   * 
+   * Closes the customer Creation window
    * @param evt
    */
   private void closeButtonActionPerformed(
