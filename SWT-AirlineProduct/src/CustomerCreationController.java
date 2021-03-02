@@ -129,7 +129,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
     addressLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
     addressLabel.setForeground(new java.awt.Color(255, 255, 255));
     addressLabel.setText("Address");
-    
+
     addressInput.setColumns(20);
     addressInput.setRows(5);
     addressBox.setViewportView(addressInput);
