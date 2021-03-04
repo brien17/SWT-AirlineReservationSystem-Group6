@@ -16,7 +16,7 @@ import javax.swing.*;
 public class Login extends javax.swing.JFrame {
 
   /** Creates new form Login */
-  private Login() {
+  Login() {
     initComponents();
   }
 
@@ -199,8 +199,20 @@ public class Login extends javax.swing.JFrame {
     String username = txtuser.getText();
     String password = txtpass.getText();
 
+    login(username, password, con);
+  } // GEN-LAST:event_jButton1ActionPerformed
+
+  /**
+   * This method is called from within the method loginButtonClicked. It uses the information
+   * provided to log the user in if the username and password are a valid pair.
+   *
+   * @param username the username of the user to log in
+   * @param password the password of the user to log in
+   */
+  String login(String username, String password, Connection con) {
     if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
+      return "blank";
     } else {
       try {
         Class.forName("com.mysql.jdbc.Driver");
@@ -216,19 +228,22 @@ public class Login extends javax.swing.JFrame {
           Main m = new Main();
           this.dispose();
           m.setVisible(true);
+          return "valid";
 
         } else {
           JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
           txtuser.setText("");
           txtpass.setText("");
           txtuser.requestFocus();
+          return "invalid";
         }
 
       } catch (ClassNotFoundException | SQLException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        return "sql error";
       }
     }
-  } // GEN-LAST:event_jButton1ActionPerformed
+  }
 
   /** @param args the command line arguments */
   public static void main(String args[]) {
