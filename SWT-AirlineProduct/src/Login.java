@@ -238,7 +238,7 @@ public class Login extends javax.swing.JFrame {
           return "invalid";
         }
 
-      } catch (ClassNotFoundException | SQLException ex) {
+      } catch (ClassNotFoundException | SQLException | NullPointerException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         return "sql error";
       }
