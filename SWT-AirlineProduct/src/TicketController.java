@@ -22,19 +22,19 @@ import javax.swing.table.DefaultTableModel;
  */
 
 
-public class ticket extends javax.swing.JInternalFrame {
+public class TicketController extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ticket
+     * Creates new form TicketController
      */
-    public ticket() {
+    public TicketController() {
         initComponents();
-        autoIncrementTicketNo();
+        autoID();
     }
 
     Connection con;
     PreparedStatement pst;
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,9 +84,9 @@ public class ticket extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select Country", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        txtsource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"India", "Srilanka", "Uk", "Usa", "Canada", "Chinna"}));
+        txtsource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "India", "Srilanka", "Uk", "Usa", "Canada", "Chinna" }));
 
-        txtdepart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "Chinna"}));
+        txtdepart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "India\t", "Srilanka", "Uk", "Usa", "Canada", "Chinna" }));
 
         jLabel1.setText("Source");
 
@@ -463,9 +463,9 @@ public class ticket extends javax.swing.JInternalFrame {
                 Df.addRow(v2);
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -495,9 +495,9 @@ public class ticket extends javax.swing.JInternalFrame {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -525,26 +525,35 @@ public class ticket extends javax.swing.JInternalFrame {
 
             if (rs.next() == false) {
                 JOptionPane.showMessageDialog(this, "Record not Found");
-            } else {
-                String fname = rs.getString("firstname");
-                String lname = rs.getString("lastname");
-
-                String passport = rs.getString("passport");
-
-
-                txtfirstname.setText(fname.trim());
-                txtlastname.setText(lname.trim());
-
-                txtpassport.setText(passport.trim());
             }
+            else
+            {
+                 String fname = rs.getString("firstname");
+                 String lname = rs.getString("lastname");
+               
+                 String passport = rs.getString("passport");
+        
+                 
+                 txtfirstname.setText(fname.trim());
+                 txtlastname.setText(lname.trim());
+               
+                  txtpassport.setText(passport.trim());
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+
+            
+        } 
+            
+      
+                
+            } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
+        
+        
+        
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -607,9 +616,9 @@ public class ticket extends javax.swing.JInternalFrame {
 
             JOptionPane.showMessageDialog(null, "Ticket Bookeed.........");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 

@@ -13,7 +13,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,12 +33,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 
 
-public class searchCustomer extends javax.swing.JInternalFrame {
+public class CustomerSearchController extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form addCustomer
+     * Creates new form CustomerCreationController
      */
-    public searchCustomer() {
+    public CustomerSearchController() {
         initComponents();
        
     }
@@ -393,7 +392,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
             userimage=baos.toByteArray();
 
         } catch (IOException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
        
@@ -458,9 +457,9 @@ public class searchCustomer extends javax.swing.JInternalFrame {
             
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
             
          
@@ -564,11 +563,11 @@ public class searchCustomer extends javax.swing.JInternalFrame {
               
               
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
-            Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
         }
           
         
