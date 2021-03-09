@@ -22,12 +22,12 @@ import javax.swing.table.DefaultTableModel;
  */
 
 
-public class ticket extends javax.swing.JInternalFrame {
+public class TicketController extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ticket
      */
-    public ticket() {
+    public TicketController() {
         initComponents();
         autoIncrementTicketNo();
     }
@@ -464,9 +464,9 @@ public class ticket extends javax.swing.JInternalFrame {
                 Df.addRow(v2);
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -496,9 +496,9 @@ public class ticket extends javax.swing.JInternalFrame {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -540,9 +540,9 @@ public class ticket extends javax.swing.JInternalFrame {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -619,9 +619,9 @@ public class ticket extends javax.swing.JInternalFrame {
 
                 JOptionPane.showMessageDialog(null, "Ticket Booked.");
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{
             JOptionPane.showMessageDialog(null, "Ticket could not be booked.");

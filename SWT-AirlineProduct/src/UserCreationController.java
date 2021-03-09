@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -18,12 +16,12 @@ import javax.swing.JOptionPane;
  */
 
 
-public class userCreation extends javax.swing.JInternalFrame {
+public class UserCreationController extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form userCreation
+     * Creates new form UserCreationController
      */
-    public userCreation() {
+    public UserCreationController() {
         initComponents();
         autoID();
     }
@@ -194,9 +192,9 @@ public class userCreation extends javax.swing.JInternalFrame {
             
             JOptionPane.showMessageDialog(null,"User Createdd.........");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
         }
            
             
@@ -248,9 +246,9 @@ public class userCreation extends javax.swing.JInternalFrame {
             
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     
     
