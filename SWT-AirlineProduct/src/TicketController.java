@@ -29,7 +29,7 @@ public class TicketController extends javax.swing.JInternalFrame {
      */
     public TicketController() {
         initComponents();
-        autoID();
+        autoIncrementTicketNo();
     }
 
     Connection con;
