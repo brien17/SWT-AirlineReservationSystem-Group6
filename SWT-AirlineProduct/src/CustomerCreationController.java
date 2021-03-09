@@ -1,5 +1,3 @@
-
-
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -11,9 +9,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -57,6 +57,9 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
   private javax.swing.JLabel genderLabel;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
+  private javax.swing.JLabel customerPhoto;
+  private javax.swing.JLabel customerID;
+  private String id;
 
   private javax.swing.JScrollPane addressBox;
   private javax.swing.JRadioButton maleButton;
@@ -65,11 +68,9 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
   private javax.swing.JTextArea addressInput;
   private javax.swing.JTextField contactInput;
   private javax.swing.JTextField firstNameInput;
-  private javax.swing.JLabel customerID;
   private javax.swing.JTextField lastNameInput;
   private javax.swing.JTextField nicNumInput;
   private javax.swing.JTextField passportIDInput;
-  private javax.swing.JLabel customerPhoto;
   private com.toedter.calendar.JDateChooser dateOfBirthInput;
   // End of variables declaration//GEN-END:variables
 
@@ -101,9 +102,11 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
     femaleButton = new javax.swing.JRadioButton();
     contactInput = new javax.swing.JTextField();
     customerPhoto = new javax.swing.JLabel();
+
     browseButton = new javax.swing.JButton();
     addButton = new javax.swing.JButton();
     closeButton = new javax.swing.JButton();
+
     dateOfBirthInput = new com.toedter.calendar.JDateChooser();
     lastNameInput = new javax.swing.JTextField();
     passportIDInput = new javax.swing.JTextField();
@@ -469,28 +472,73 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
    * the Customer table in the database
    * @param evt
    */
-  private void addCustomerActionPerformed(
+  private void addCustomerActionPerformed (
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    // TODO add your handling code here:
+//      boolean isValidSex = false;
+//      boolean isValidFirstName = false;
+//      boolean isValidLastName = false;
+//      boolean isValidPassport = false;
+//      boolean isValidDateOfBirth = false;
 
-    String id = customerID.getText();
-    String firstname = firstNameInput.getText();
-    String lastname = lastNameInput.getText();
-    String nic = nicNumInput.getText();
-    String passport = passportIDInput.getText();
-    String address = addressInput.getText();
+//      String userErrorOutput = "Please enter the incorrect/missing information:";
 
-    DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-    String date = da.format(dateOfBirthInput.getDate());
-    String Gender;
+      id = customerID.getText();
 
-    if (maleButton.isSelected()) {
-      Gender = "Male";
-    } else {
-      Gender = "FeMale";
+      String firstname = firstNameInput.getText();
+//        if(firstname.equals("")) {
+//          isValidFirstName = false;
+//       } else {
+//          isValidFirstName = true;
+//          userErrorOutput += "\nFirst Name";
+//
+//        }
+      String lastname = lastNameInput.getText();
+      String nic = nicNumInput.getText();
+      String passport = passportIDInput.getText();
+      String address = addressInput.getText();
+
+      DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+      Date date = new Date();
+      String dateString = "";
+      String errorTrace = "";
+      try {
+        date = dateOfBirthInput.getDate();
+        dateString = da.format(date);
+
+      } catch (NullPointerException ex){
+        errorTrace = ex.toString();
     }
+    System.out.println(errorTrace);
 
-    String contact = contactInput.getText();
+
+//      if(date != null) {
+//        dateString = da.format(date);
+//        isValidDateOfBirth = true;
+//      } else{
+//        userErrorOutput += "\nDate of Birth";
+//      }
+      String sex = "";
+
+      if (maleButton.isSelected()) {
+        sex = "Male";
+      } else {
+        sex = "Female";
+
+      }
+//
+//      else {
+//        isValidSex = false;
+//      }
+
+      String contact = contactInput.getText();
+
+      String output = addCustomer(firstname,lastname,nic,passport,address,dateString,sex,contact,userimage,errorTrace);
+      System.out.println(output);
+
+  }//GEN-LAST:event_jButton2ActionPerformed
+
+  String addCustomer(String firstName, String lastName, String nic, String passportID, String address, String date,
+      String sex, String contact, byte[] userImage, String errorTrace){
 
     try {
       Class.forName("com.mysql.jdbc.Driver");
@@ -499,28 +547,30 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
           "insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
 
       pst.setString(1, id);
-      pst.setString(2, firstname);
-      pst.setString(3, lastname);
+      pst.setString(2, firstName);
+      pst.setString(3, lastName);
       pst.setString(4, nic);
-      pst.setString(5, passport);
+      pst.setString(5, passportID);
       pst.setString(6, address);
       pst.setString(7, date);
-      pst.setString(8, Gender);
+      pst.setString(8, sex);
       pst.setString(9, contact);
-      pst.setBytes(10, userimage);
+      pst.setBytes(10, userImage);
       pst.executeUpdate();
 
       JOptionPane.showMessageDialog(null, "Registation Createdd.........");
-
+      return "Registation Createdd.........";
 
     } catch (ClassNotFoundException ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
+      errorTrace += ex.toString();
+
     }
+    return errorTrace;
 
-
-  }//GEN-LAST:event_jButton2ActionPerformed
+  }
 
   /**
    * Closes the customer Creation window

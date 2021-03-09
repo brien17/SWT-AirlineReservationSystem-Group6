@@ -46,7 +46,7 @@ PreparedStatement pst;
 
             },
             new String [] {
-                "TicketNo", "Flight No", "Customer ID", "Class", "Price", "Seats", "Date"
+                "TicketNo", "Flight No", "CustomerView ID", "Class", "Price", "Seats", "Date"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

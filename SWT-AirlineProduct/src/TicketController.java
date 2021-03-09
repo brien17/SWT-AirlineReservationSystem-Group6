@@ -157,7 +157,7 @@ public class TicketController extends javax.swing.JInternalFrame {
         txtticketno.setForeground(new java.awt.Color(255, 0, 0));
         txtticketno.setText("Ticket NO");
 
-        jLabel5.setText("Customer ID");
+        jLabel5.setText("CustomerView ID");
 
         jLabel6.setText("FirstName");
 

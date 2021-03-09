@@ -4,9 +4,11 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 
-public class FlightAdditionTest {
+public class CustomerTest {
   @Test
-  public void validFlightTest() {
+  public void validCustomerTest() {
+    CustomerCreationController validTest = new CustomerCreationController();
+
 //    Login login = new Login();
 //    String username = "cbrien";
 //    String password = "password";
@@ -16,7 +18,8 @@ public class FlightAdditionTest {
   }
 
   @Test
-  public void invalidFlightTest() throws AWTException, InterruptedException {
+  public void invalidCustomerTest() throws AWTException, InterruptedException {
+
 //    Login login = new Login();
 //    String username = "cbrien";
 //    String password = "123";
@@ -27,7 +30,7 @@ public class FlightAdditionTest {
   }
 
   @Test
-  public void emptyFlightTest() {
+  public void emptyCustomerTest() {
 //    Login login = new Login();
 //    String username = "";
 //    String password = "";
@@ -36,4 +39,5 @@ public class FlightAdditionTest {
 //
 //    assertEquals("blank", output);
   }
+
 }
