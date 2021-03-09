@@ -28,8 +28,8 @@ public class LoginTest {
 
     @Test
     public void invalidLoginTest() {
-        String username = "j";
-        String password = "123";
+        String username = "john";
+        String password = "password";
         Connection con = null;
         String output = login.login(username, password, con);
 
