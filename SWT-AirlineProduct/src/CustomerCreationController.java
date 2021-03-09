@@ -532,12 +532,12 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
 
       String contact = contactInput.getText();
 
-      String output = addCustomer(firstname,lastname,nic,passport,address,dateString,sex,contact,userimage,errorTrace);
+      String output = addCustomer(id,firstname,lastname,nic,passport,address,dateString,sex,contact,userimage,errorTrace);
       System.out.println(output);
 
   }//GEN-LAST:event_jButton2ActionPerformed
 
-  String addCustomer(String firstName, String lastName, String nic, String passportID, String address, String date,
+  String addCustomer(String id, String firstName, String lastName, String nic, String passportID, String address, String date,
       String sex, String contact, byte[] userImage, String errorTrace){
 
     try {
