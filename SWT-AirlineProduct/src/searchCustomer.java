@@ -10,7 +10,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,8 +36,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
      * Creates new form addCustomer
      */
     public searchCustomer() {
-        initComponents();
 
+        initComponents();
     }
 
     Connection con;
@@ -276,13 +275,15 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
         jButton1.setText("Browse");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) { browseButtonActionPerformed(evt); }
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseButtonActionPerformed(evt);
+            }
         });
 
         jButton2.setText("Update");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCustomerActionPerformed(evt);
+                updateCustomerActionPerformed(evt);
             }
         });
 
@@ -295,7 +296,9 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
         jButton4.setText("Find");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) { updateButtonActionPerformed(evt); }
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findButtonActionPerformed(evt);
+            }
         });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -373,6 +376,10 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
+        browse();
+    }
+
+    void browse() {
 
         try {
             JFileChooser picchooser = new JFileChooser();
@@ -405,7 +412,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void addCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void updateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
         String id = txtcustid.getText();
@@ -416,7 +423,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         String address = txtaddress.getText();
 
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-        //String date = da.format(txtdob.getDate());
         String date = "";
         String Gender;
 
@@ -428,11 +434,15 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
         String contact = txtcontact.getText();
 
+        update(id, firstname, lastname, nic, passport, address, date, Gender, contact, userimage);
+    }
+
+    String update(String id, String firstname, String lastname, String nic, String passport, String address, String date, String gender, String contact, byte[] userimage) {
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
             pst = con.prepareStatement("update customer set firstname = ?,lastname = ?,nic = ?,passport = ?,address= ?,dob = ?,gender = ?,contact = ?,photo = ? where id = ?");
-
 
             pst.setString(1, firstname);
             pst.setString(2, lastname);
@@ -440,20 +450,23 @@ public class searchCustomer extends javax.swing.JInternalFrame {
             pst.setString(4, passport);
             pst.setString(5, address);
             pst.setString(6, date);
-            pst.setString(7, Gender);
+            pst.setString(7, gender);
             pst.setString(8, contact);
             pst.setBytes(9, userimage);
             pst.setString(10, id);
             pst.executeUpdate();
 
 
-            JOptionPane.showMessageDialog(null, "Registation Updateddddd.........");
+            JOptionPane.showMessageDialog(null, "Registration Updated.........");
+            return "true";
 
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            return "class not found";
         } catch (SQLException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            return "sql error";
         }
 
 
@@ -465,11 +478,14 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void findButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
 
         String id = txtcustid.getText();
+        find(id, con);
+    }
 
+    String find(String id, Connection con) {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -480,6 +496,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
             if (rs.next() == false) {
                 JOptionPane.showMessageDialog(this, "Record not Found");
+                return "false";
             } else {
                 String fname = rs.getString("firstname");
                 String lname = rs.getString("lastname");
@@ -498,7 +515,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                 Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon newImage = new ImageIcon(myImg);
 
-
                 if (gender.equals("Female")) {
                     r1.setSelected(false);
                     r2.setSelected(true);
@@ -508,7 +524,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                     r2.setSelected(false);
                 }
                 String contact = rs.getString("contact");
-
 
                 txtfirstname.setText(fname.trim());
                 txtlastname.setText(lname.trim());
@@ -520,18 +535,18 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
                 txtphoto.setIcon(newImage);
 
+                return "true";
 
             }
-
-
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            return "class not found";
         } catch (SQLException ex) {
             Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            return "sql error";
         } catch (ParseException ex) {
             Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            return "parse error";
         }
-
-
     }//GEN-LAST:event_jButton4ActionPerformed
 }

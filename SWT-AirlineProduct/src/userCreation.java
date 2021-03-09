@@ -187,14 +187,31 @@ public class userCreation extends javax.swing.JInternalFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        String id = txtuserid.getText();
         String firstname = txtfirstname.getText();
         String lastname = txtlastname.getText();
         String username = txtusername.getText();
         String password = txtpassword.getText();
 
+        add(firstname, lastname, username, password, con);
+
+    }
+
+    /**
+     * This method is called from within addButtonActionPerformed. It uses information provided by user
+     * to store first name, lastname, username, and password into the database.
+     *
+     * @param firstname - the user's first name
+     * @param lastname  - the user's last name
+     * @param username  - the user's desired username for logging in
+     * @param password  - the usre's desired password for logging in
+     * @param con       - a database connection to connect to the user table
+     * @return String - set of returns for error testing, "true" if the user was stored in the database,
+     * "class not found" or "sql error" occur if either exception is thrown.
+     */
+    String add(String firstname, String lastname, String username, String password, Connection con) {
 
         try {
+            String id = txtuserid.getText();
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
             pst = con.prepareStatement("insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
@@ -205,18 +222,17 @@ public class userCreation extends javax.swing.JInternalFrame {
             pst.setString(4, username);
             pst.setString(5, password);
 
-
             pst.executeUpdate();
 
-
-            JOptionPane.showMessageDialog(null, "User Createdd.........");
+            JOptionPane.showMessageDialog(null, "User Created.........");
+            return "true";
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+            return "class not found";
         } catch (SQLException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+            return "sql error";
         }
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -239,20 +255,14 @@ public class userCreation extends javax.swing.JInternalFrame {
                 long id = Long.parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
                 id++;
                 txtuserid.setText("UO" + String.format("%03d", id));
-
-
             }
-
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }
-
 
 
 }
