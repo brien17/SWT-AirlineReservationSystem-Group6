@@ -636,24 +636,24 @@ public class TicketController extends javax.swing.JInternalFrame {
 
          if(flightid.equals("")){
              isValid = false;
-             JOptionPane.showMessageDialog(null, " Flight number cannot be empty. " +
-                     "Please select a flight to book.");
+//             JOptionPane.showMessageDialog(null, " Flight number cannot be empty. " +
+//                     "Please select a flight to book.");
          }
 
          if(custid.equals("")){
              isValid = false;
-             JOptionPane.showMessageDialog(null, " Customer ID cannot be empty. " +
-                     "Please select a customer ID.");
+//             JOptionPane.showMessageDialog(null, " Customer ID cannot be empty. " +
+//                     "Please select a customer ID.");
          }
 
          if(numSeats <= 0){
              isValid = false;
-             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
-                     "and less than 10.");
+//             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
+//                     "and less than 10.");
          }else if(numSeats > 9){
              isValid = false;
-             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
-                     "and less than 10.");
+//             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
+//                     "and less than 10.");
          }
 
         return isValid;
