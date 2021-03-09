@@ -1,5 +1,8 @@
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,7 +38,8 @@ public class CustomerTest {
     String nic = "00000000A";
     String passport = "123456789";
     String address = "1600 Pennsylvania Avenue NW Washington, DC, 20500";
-    String dateString = "Apr. 8, 1949";
+
+    Date date = new Date(1949,4,8);
     String sex = "Male";
     String contact = "2392392939";
     String errorTrace = "";
@@ -50,7 +54,7 @@ public class CustomerTest {
     userimage = baos.toByteArray();
 
 
-    String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,dateString,sex,contact,userimage,errorTrace);
+    String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
 
     assertEquals("Registation Createdd.........", output);
   }
@@ -63,7 +67,9 @@ public class CustomerTest {
     String nic = "two";
     String passport = "three";
     String address = "2392392939";
-    String dateString = "Mar. 4 1850";
+
+    Date date = new Date(1850,3,4);
+
     String sex = "MaleFemale";
     String contact = "2392392939";
     String errorTrace = "";
@@ -71,7 +77,7 @@ public class CustomerTest {
     invalidImage = convertFileToByteArray(sampleText);
 
 
-    String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,dateString,sex,contact,invalidImage,errorTrace);
+    String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,date,sex,contact,invalidImage,errorTrace);
 
 // ErrorTrace should be empty and caught by GUI before causing runtime error
 // GUI should update user as to what is incorrect and why
@@ -86,12 +92,12 @@ public class CustomerTest {
     String nic = "";
     String passport = "";
     String address = "";
-    String dateString = "";
+    Date date = null;
     String sex = "";
     String contact = "";
     String errorTrace = "";
     userimage = null;
-    String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,dateString,sex,contact,userimage,errorTrace);
+    String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
 //GUI should show what is missing, not output errors to console
     assertEquals("", output);
   }

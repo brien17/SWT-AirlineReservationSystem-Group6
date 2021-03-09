@@ -501,14 +501,14 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       Date date = new Date();
       String dateString = "";
       String errorTrace = "";
-      try {
+     // try {
         date = dateOfBirthInput.getDate();
         dateString = da.format(date);
 
-      } catch (NullPointerException ex){
-        errorTrace = ex.toString();
-    }
-    System.out.println(errorTrace);
+//      } catch (NullPointerException ex){
+//        errorTrace = ex.toString();
+//    }
+//    System.out.println(errorTrace);
 
 
 //      if(date != null) {
@@ -532,13 +532,15 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
 
       String contact = contactInput.getText();
 
-      String output = addCustomer(id,firstname,lastname,nic,passport,address,dateString,sex,contact,userimage,errorTrace);
+      String output = addCustomer(id,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
       System.out.println(output);
 
   }//GEN-LAST:event_jButton2ActionPerformed
 
-  String addCustomer(String id, String firstName, String lastName, String nic, String passportID, String address, String date,
+  String addCustomer(String id, String firstName, String lastName, String nic, String passportID, String address, Date date,
       String sex, String contact, byte[] userImage, String errorTrace){
+
+
 
     try {
       Class.forName("com.mysql.jdbc.Driver");
@@ -546,13 +548,19 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       pst = con.prepareStatement(
           "insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
 
+
       pst.setString(1, id);
       pst.setString(2, firstName);
       pst.setString(3, lastName);
       pst.setString(4, nic);
       pst.setString(5, passportID);
       pst.setString(6, address);
-      pst.setString(7, date);
+
+      DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+
+      String dateString = da.format(date);
+
+      pst.setString(7, dateString);
       pst.setString(8, sex);
       pst.setString(9, contact);
       pst.setBytes(10, userImage);
