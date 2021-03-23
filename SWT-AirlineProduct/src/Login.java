@@ -212,7 +212,7 @@ public class Login extends javax.swing.JFrame {
   String login(String username, String password, Connection con) {
     if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
-      return "blank";
+      return "UserName or Password Blank";
     } else {
       try {
         Class.forName("com.mysql.jdbc.Driver");
@@ -235,7 +235,7 @@ public class Login extends javax.swing.JFrame {
           txtuser.setText("");
           txtpass.setText("");
           txtuser.requestFocus();
-          return "invalid";
+          return "UserName or Password do not Match";
         }
 
       } catch (ClassNotFoundException | SQLException | NullPointerException ex) {

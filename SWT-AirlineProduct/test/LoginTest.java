@@ -33,7 +33,7 @@ public class LoginTest {
         Connection con = null;
         String output = login.login(username, password, con);
 
-        assertEquals("invalid", output);
+        assertEquals("UserName or Password do not Match", output);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class LoginTest {
         Connection con = null;
         String output = login.login(username, password, con);
 
-        assertEquals("blank", output);
+        assertEquals("UserName or Password Blank", output);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class LoginTest {
         Connection con = null;
         String output = login.login(username, password, con);
 
-        assertEquals("blank", output);
+        assertEquals("UserName or Password Blank", output);
     }
 
 }
