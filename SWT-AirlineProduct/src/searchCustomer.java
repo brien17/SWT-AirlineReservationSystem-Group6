@@ -494,6 +494,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
             pst.setString(1, id);
             ResultSet rs = pst.executeQuery();
 
+
             if (rs.next() == false) {
                 JOptionPane.showMessageDialog(this, "Record not Found");
                 return "false";
@@ -512,7 +513,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                 byte[] _imagebytes = blob.getBytes(1, (int) blob.length());
                 ImageIcon image = new ImageIcon(_imagebytes);
                 Image im = image.getImage();
-                Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
+                Image myImg = im.getScaledInstance(250, 250, Image.SCALE_DEFAULT);
                 ImageIcon newImage = new ImageIcon(myImg);
 
                 if (gender.equals("Female")) {

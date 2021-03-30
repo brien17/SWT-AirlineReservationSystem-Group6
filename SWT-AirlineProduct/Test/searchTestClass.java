@@ -56,6 +56,7 @@ public class searchTestClass {
         assertEquals("false", output);
     }
 
+    @Test
     public void validUpdateTest() throws IOException {
         String customerID = "CS001";
         String firstname = "Randy";
@@ -63,9 +64,9 @@ public class searchTestClass {
         String nic = "00000000A";
         String passport = "123456789";
         String address = "1600 Pennsylvania Avenue NW Washington, DC, 20500";
-        String dateString = "Apr. 8, 1949";
+        String dateString = "1949-04-08";
         String sex = "Male";
-        String contact = "2392392939";
+        String contact = "1234567890";
 
         File image = new File("./resources/default.jpg");
         FileInputStream fis = new FileInputStream(image);

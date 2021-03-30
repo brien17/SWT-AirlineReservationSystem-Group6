@@ -36,7 +36,7 @@ CREATE TABLE `customer` (
   `address` text NOT NULL,
   `dob` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
-  `contact` int(11) NOT NULL,
+  `contact` varchar(255) NOT NULL,
   `photo` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
