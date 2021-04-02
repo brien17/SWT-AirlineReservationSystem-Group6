@@ -173,7 +173,9 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
                                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(dateLabel)
                                 .addComponent(departureTimeLabel)
-                                .addComponent(arrivalTimeLabel))
+                                .addComponent(arrivalTimeLabel)
+                                .addComponent(flightChargeLabel)
+                            )
                             .addGap(62, 62, 62)
                             .addGroup(jPanel1Layout
                                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
@@ -181,12 +183,10 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
                                 .addComponent(dateInput, javax.swing.GroupLayout.DEFAULT_SIZE, 174,
                                     Short.MAX_VALUE)
                                 .addComponent(departureTimeInput)
-                                .addComponent(arrivalTimeInput)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(flightChargeLabel)
-                            .addGap(52, 52, 52)
-                            .addComponent(flightChargeInput, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(arrivalTimeInput)
+                                .addComponent(flightChargeInput))
+                        )
+                        )
                 .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
                 jPanel1Layout.createSequentialGroup()
@@ -363,7 +363,6 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
     } catch (SQLException ex) {
       Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
     }
-
 
   }//GEN-LAST:event_jButton1ActionPerformed
 
