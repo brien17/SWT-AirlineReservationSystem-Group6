@@ -199,7 +199,7 @@ public class Login extends javax.swing.JFrame {
     String username = txtuser.getText();
     String password = txtpass.getText();
 
-    login(username, password, con);
+    login(username, password, con, new Main());
   } // GEN-LAST:event_jButton1ActionPerformed
 
   /**
@@ -209,7 +209,7 @@ public class Login extends javax.swing.JFrame {
    * @param username the username of the user to log in
    * @param password the password of the user to log in
    */
-  String login(String username, String password, Connection con) {
+  String login(String username, String password, Connection con, Main main) {
     if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
       return "UserName or Password Blank";
@@ -225,9 +225,8 @@ public class Login extends javax.swing.JFrame {
         rs = pst.executeQuery();
 
         if (rs.next()) {
-          Main m = new Main();
           this.dispose();
-          m.setVisible(true);
+          main.setVisible(true);
           return "valid";
 
         } else {
