@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -214,6 +215,7 @@ public class Login extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
       return "UserName or Password Blank";
     } else {
+      String out = "";
       try {
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
@@ -223,24 +225,22 @@ public class Login extends javax.swing.JFrame {
 
         ResultSet rs;
         rs = pst.executeQuery();
-
         if (rs.next()) {
           this.dispose();
           main.setVisible(true);
-          return "valid";
-
+          out = "valid";
         } else {
           JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
           txtuser.setText("");
           txtpass.setText("");
           txtuser.requestFocus();
-          return "UserName or Password do not Match";
+          out = "UserName or Password do not Match";
         }
-
       } catch (ClassNotFoundException | SQLException | NullPointerException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        return "sql error";
+        out = "sql error";
       }
+      return out;
     }
   }
 

@@ -117,7 +117,6 @@ public class LoginTest {
 
     @Test
     public void validLoginMockTest() {
-        login = new Login();
         String username = "john";
         String password = "123";
 
@@ -130,7 +129,6 @@ public class LoginTest {
 
     @Test
     public void invalidLoginMockTest() {
-        login = new Login();
         String username = "john";
         String password = "password";
 
