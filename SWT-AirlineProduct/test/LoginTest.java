@@ -42,9 +42,7 @@ public class LoginTest {
         login = new Login();
         String username = "john";
         String password = "123";
-
-        Connection con = null;
-        String output = login.login(username, password, con, new Main());
+        String output = login.login(username, password, new Main());
         assertEquals("valid", output);
     }
 
@@ -64,8 +62,7 @@ public class LoginTest {
     public void invalidLoginTest() {
         String username = "john";
         String password = "password";
-        Connection con = null;
-        String output = login.login(username, password, con, new Main());
+        String output = login.login(username, password, new Main());
 
         assertEquals("UserName or Password do not Match", output);
     }
@@ -86,8 +83,7 @@ public class LoginTest {
     public void emptyUsernameLoginTest() {
         String username = "";
         String password = "123";
-        Connection con = null;
-        String output = login.login(username, password, con, new Main());
+        String output = login.login(username, password, new Main());
 
         assertEquals("UserName or Password Blank", output);
     }
@@ -96,7 +92,7 @@ public class LoginTest {
      * Test Case ID: TC-04
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user will be denied access and a special message will be displayed when attempting to
-     *          login with a blank UserId.
+     *          login with a blank password.
      * Test Setup: An instance of the Login class is created and the login method is called with a non-blank username and
      *              a blank password passed into it as parameters. The output is compared to the expected output.
      * Test Strategy: A decision table was used to determine what inputs to test to test this functionality
@@ -108,34 +104,54 @@ public class LoginTest {
     public void emptyPasswordLoginTest() {
         String username = "john";
         String password = "";
-        Connection con = null;
-        String output = login.login(username, password, con, new Main());
+        String output = login.login(username, password, new Main());
 
         assertEquals("UserName or Password Blank", output);
     }
 
-
+    /**
+     * Test Case ID: TC-05
+     * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
+     * Purpose: Test that after a user supplies a correct userId and password the Main object will be made visible on
+     *          the screen.
+     * Test Setup: An instance of the Login class is created and the login method is called with a valid username and
+     *             password combination and an instance of the MainMock passed into it as parameters. The output is
+     *             compared to the expected output.
+     * Test Strategy: TODO: Finish Me
+     * Input: Username: “john”
+     *        Password: “123”
+     * Expected Output: true
+     */
     @Test
     public void validLoginMockTest() {
         String username = "john";
         String password = "123";
+        Main mainMock =  new MainMock();
 
-        Connection con = null;
-        Main mainStub =  new MainMock();
-
-        login.login(username, password, con, mainStub);
-        assertTrue(mainStub.isVisible());
+        login.login(username, password, mainMock);
+        assertTrue(mainMock.isVisible());
     }
 
+    /**
+     * Test Case ID: TC-06
+     * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
+     * Purpose: Test that after a user supplies an invalid userId and password the Main object will not be made visible
+     *          on the screen.
+     * Test Setup: An instance of the Login class is created and the login method is called with a valid username and
+     *             password combination and an instance of the MainMock passed into it as parameters. The output is
+     *             compared to the expected output.
+     * Test Strategy: TODO: Finish Me
+     * Input: Username: “john”
+     *        Password: “123”
+     * Expected Output: false
+     */
     @Test
     public void invalidLoginMockTest() {
         String username = "john";
         String password = "password";
+        Main mainMock =  new MainMock();
 
-        Connection con = null;
-        Main mainStub =  new MainMock();
-
-        login.login(username, password, con, mainStub);
-        assertFalse(mainStub.isVisible());
+        login.login(username, password, mainMock);
+        assertFalse(mainMock.isVisible());
     }
 }
