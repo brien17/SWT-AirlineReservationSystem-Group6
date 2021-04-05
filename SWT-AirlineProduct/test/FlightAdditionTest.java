@@ -5,12 +5,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+
 
 public class FlightAdditionTest {
+
+  @Mock
+  List mockedList;
 
   FlightAdditionController flightAdditionTest = null;
   @BeforeEach
   public void setUp(){
+    MockitoAnnotations.initMocks(this);
+
     flightAdditionTest = new FlightAdditionController();
 
   }

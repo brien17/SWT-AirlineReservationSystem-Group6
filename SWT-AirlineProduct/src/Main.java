@@ -104,7 +104,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenu4.setText("User");
 
-        jMenuItem5.setText("UserCreationController");
+        jMenuItem5.setText("User Creation");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
