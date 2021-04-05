@@ -27,7 +27,7 @@ public class LoginTestIntegration {
      * Test Setup: An instance of the Login class is created and the login method is called with a valid username and
      *             password combination and an instance of the MainMock passed into it as parameters. The output is
      *             compared to the expected output.
-     * Test Strategy: TODO: Finish Me
+     * Test Strategy: Top down integration testing using a mock for the Main class.
      * Input: Username: “john”
      *        Password: “123”
      * Expected Output: true
@@ -38,7 +38,7 @@ public class LoginTestIntegration {
         String password = "123";
         Main mainMock =  new MainMock();
 
-        login.login(username, password, mainMock);
+        login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
         assertTrue(mainMock.isVisible());
     }
 
@@ -50,7 +50,7 @@ public class LoginTestIntegration {
      * Test Setup: An instance of the Login class is created and the login method is called with a valid username and
      *             password combination and an instance of the MainMock passed into it as parameters. The output is
      *             compared to the expected output.
-     * Test Strategy: TODO: Finish Me
+     * Test Strategy: Top down integration testing using a mock for the Main class.
      * Input: Username: “john”
      *        Password: “123”
      * Expected Output: false
@@ -61,7 +61,7 @@ public class LoginTestIntegration {
         String password = "password";
         Main mainMock =  new MainMock();
 
-        login.login(username, password, mainMock);
+        login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
         assertFalse(mainMock.isVisible());
     }
 }
