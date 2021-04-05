@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.sql.Connection;
 import java.util.Arrays;
 
-public class LoginTest {
+public class LoginTestUnit {
 
     /**
      *  input selection strategy
