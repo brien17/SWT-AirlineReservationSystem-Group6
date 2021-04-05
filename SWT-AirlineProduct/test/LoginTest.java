@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.sql.Connection;
+import java.util.Arrays;
 
 public class LoginTest {
 
@@ -39,7 +40,6 @@ public class LoginTest {
      */
     @Test
     public void validLoginTest() {
-        login = new Login();
         String username = "john";
         String password = "123";
         String output = login.login(username, password, new Main());
@@ -62,6 +62,9 @@ public class LoginTest {
     public void invalidLoginTest() {
         String username = "john";
         String password = "password";
+        login.txtuser.setText(username);
+        login.txtpass.setText(password);
+        login.loginButton.doClick();
         String output = login.login(username, password, new Main());
 
         assertEquals("UserName or Password do not Match", output);
