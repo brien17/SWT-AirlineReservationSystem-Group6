@@ -18,9 +18,9 @@ import javax.imageio.ImageIO;
 /**
  * Tests for the CustomerCreationController class
  */
-public class CustomerTest {
+public class CustomerCreationTest {
 
-  public CustomerTest() {
+  public CustomerCreationTest() {
 
   }
 

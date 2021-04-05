@@ -68,7 +68,7 @@ public class FlightAdditionTest {
   }
 
 /*
-public CustomerTest() {
+public CustomerCreationTest() {
 
   }
 
