@@ -1,3 +1,4 @@
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -14,6 +15,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import javax.imageio.ImageIO;
 
+/**
+ * Tests for the CustomerCreationController class
+ */
 public class CustomerTest {
 
   public CustomerTest() {
@@ -53,6 +57,7 @@ public class CustomerTest {
     }
     userimage = baos.toByteArray();
 
+    customerCreationTest.generateCustomerID("test");
 
     String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
 
@@ -97,8 +102,10 @@ public class CustomerTest {
     String contact = "";
     String errorTrace = "";
     userimage = null;
+    customerCreationTest.browseButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
+    customerCreationTest.addCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
     String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
-//GUI should show what is missing, not output errors to console
+    //GUI should show what is missing, not output errors to console
     assertEquals("", output);
   }
 

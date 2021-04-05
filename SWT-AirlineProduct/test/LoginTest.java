@@ -56,7 +56,7 @@ public class LoginTest {
   }
 
   @Test
-  public void oneEmptyLoginTest() {
+  public void passEmptyLoginTest() {
     String username = "user";
     String password = "";
     Connection con = null;
