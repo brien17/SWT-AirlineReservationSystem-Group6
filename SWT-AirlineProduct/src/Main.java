@@ -198,9 +198,13 @@ public class Main extends javax.swing.JFrame {
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem6ActionPerformed
 
     TicketReportController ti = new TicketReportController();
-    jDesktopPane1.add(ti);
-    ti.setVisible(true);
+    showTicketReport(ti);
   } // GEN-LAST:event_jMenuItem6ActionPerformed
+
+  void showTicketReport(TicketReportController ticketController) {
+    jDesktopPane1.add(ticketController);
+    ticketController.setVisible(true);
+  }
 
   /**
    * This method runs when the create user button is clicked, it creates a new instance of the
@@ -256,7 +260,7 @@ public class Main extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JDesktopPane jDesktopPane1;
+  javax.swing.JDesktopPane jDesktopPane1;
   private javax.swing.JMenu customerMenu;
   private javax.swing.JMenu ticketMenu;
   private javax.swing.JMenu flightMenu;
