@@ -427,7 +427,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
 
 
       }
-      
+
     } catch (Exception ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
     }
