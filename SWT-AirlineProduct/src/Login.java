@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -54,8 +55,12 @@ public class Login extends javax.swing.JFrame {
     passwordLabel.setText("Password");
 
     loginButton.setText("Login");
-//    loginButton.addActionListener(
-//        evt -> loginButtonClicked(evt));
+    loginButton.addActionListener(
+        new java.awt.event.ActionListener() {
+          public void actionPerformed(java.awt.event.ActionEvent evt) {
+            loginButtonClicked(evt);
+          }
+        });
 
     cancelButton.setText("Cancel");
 
@@ -189,18 +194,14 @@ public class Login extends javax.swing.JFrame {
    *
    * @param evt The click event provided by the user clicking the button
    */
-//  public void loginButtonClicked(
-//      java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
-//
-//    String username = "";
-//    String password = "";
-//    if(!txtuser.getText().equals("") && !txtpass.getText().equals("")){
-//    username = txtuser.getText();
-//    password = txtpass.getText();
-//    }
-//
-//    login(username, password, con);
-//  } // GEN-LAST:event_jButton1ActionPerformed
+  private void loginButtonClicked(
+      java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
+
+    String username = txtuser.getText();
+    String password = txtpass.getText();
+
+    login(username, password, new Main());
+  } // GEN-LAST:event_jButton1ActionPerformed
 
   /**
    * This method is called from within the method loginButtonClicked. It uses the information
@@ -209,14 +210,13 @@ public class Login extends javax.swing.JFrame {
    * @param username the username of the user to log in
    * @param password the password of the user to log in
    */
-  String login(String username, String password, Connection con) {
-
+  String login(String username, String password, Main main) {
+    if (username.isEmpty() || password.isEmpty()) {
+      JOptionPane.showMessageDialog(this, "UserName or Password Blank");
+      return "UserName or Password Blank";
+    } else {
+      String out = "";
       try {
-        if (username.isEmpty() || password.isEmpty()) {
-          JOptionPane.showMessageDialog(this, "UserName or Password Blank");
-          throw new Exception();
-
-        }
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
         pst = con.prepareStatement("select * from user where username = ? and password = ?");
@@ -225,68 +225,65 @@ public class Login extends javax.swing.JFrame {
 
         ResultSet rs;
         rs = pst.executeQuery();
-
         if (rs.next()) {
-          Main m = new Main();
           this.dispose();
-          m.setVisible(true);
-          return "valid";
-
+          main.setVisible(true);
+          out = "valid";
         } else {
           JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
           txtuser.setText("");
           txtpass.setText("");
           txtuser.requestFocus();
-          return "invalid";
+          out = "UserName or Password do not Match";
         }
-
-      } catch (Exception ex) {
+      } catch (ClassNotFoundException | SQLException | NullPointerException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        return "blank";
+        out = "sql error";
       }
+      return out;
+    }
   }
 
-//  /** @param args the command line arguments */
-//  public static void main(String args[]) {
-//    /* Set the Nimbus look and feel */
-//    // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//     * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-//     */
-////    try {
-////      for (javax.swing.UIManager.LookAndFeelInfo info :
-////          javax.swing.UIManager.getInstalledLookAndFeels()) {
-////        if ("Nimbus".equals(info.getName())) {
-////          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-////          break;
-////        }
-////      }
-////    } catch (ClassNotFoundException
-////        | InstantiationException
-////        | IllegalAccessException
-////        | UnsupportedLookAndFeelException ex) {
-////      java.util.logging.Logger.getLogger(Login.class.getName())
-////          .log(java.util.logging.Level.SEVERE, null, ex);
-////    }
-////    // </editor-fold>
-//
-//    /* Create and display the form */
-//    java.awt.EventQueue.invokeLater(
-//        new Runnable() {
-//          public void run() {
-//            new Login().setVisible(true);
-//          }
-//        });
-//  }
+  /** @param args the command line arguments */
+  public static void main(String args[]) {
+    /* Set the Nimbus look and feel */
+    // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+     * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+     */
+    try {
+      for (javax.swing.UIManager.LookAndFeelInfo info :
+          javax.swing.UIManager.getInstalledLookAndFeels()) {
+        if ("Nimbus".equals(info.getName())) {
+          javax.swing.UIManager.setLookAndFeel(info.getClassName());
+          break;
+        }
+      }
+    } catch (ClassNotFoundException
+        | InstantiationException
+        | IllegalAccessException
+        | UnsupportedLookAndFeelException ex) {
+      java.util.logging.Logger.getLogger(Login.class.getName())
+          .log(java.util.logging.Level.SEVERE, null, ex);
+    }
+    // </editor-fold>
 
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(
+        new Runnable() {
+          public void run() {
+            new Login().setVisible(true);
+          }
+        });
+  }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  public javax.swing.JButton loginButton;
+  javax.swing.JButton loginButton;
   private javax.swing.JButton cancelButton;
   private javax.swing.JLabel usernameLabel;
   private javax.swing.JLabel passwordLabel;
   private javax.swing.JPanel jPanel1;
-  public javax.swing.JPasswordField txtpass;
-  public javax.swing.JTextField txtuser;
+  javax.swing.JPasswordField txtpass;
+  javax.swing.JTextField txtuser;
   // End of variables declaration//GEN-END:variables
 }
