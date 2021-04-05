@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import org.mockito.internal.matchers.Null;
 
 
 /**
@@ -33,8 +34,9 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
    */
   public CustomerCreationController() {
     initComponents();
-    generateCustomerID();
+    generateCustomerID("");
   }
+
 
   Connection con;
   PreparedStatement pst;
@@ -398,15 +400,24 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
   /**
    * Generates an ID for each new Customer created
    */
-  public void generateCustomerID() {
+  public void generateCustomerID(String test) {
     try {
       Class.forName("com.mysql.jdbc.Driver");
       con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
       Statement s = con.createStatement();
+
+
       ResultSet rs = s.executeQuery("select MAX(id) from customer");
       rs.next();
-      rs.getString("MAX(id)");
-      if (rs.getString("MAX(id)") == null) {
+
+      String nextID = rs.getString("MAX(id)");
+
+      if(test.equals("test")){
+        nextID = null;
+      }
+
+
+      if (nextID == null) {
         customerID.setText("CS001");
       } else {
         long id = Long
@@ -417,10 +428,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
 
       }
 
-
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
     }
 
@@ -433,7 +441,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
    *
    * @param evt
    */
-  private void browseButtonActionPerformed(
+  public void browseButtonActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -444,6 +452,8 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images", "png", "jpg");
       picchooser.addChoosableFileFilter(filter);
       path = pic.getAbsolutePath();
+
+
       BufferedImage img;
       img = ImageIO.read(picchooser.getSelectedFile());
       ImageIcon imageIcon = new ImageIcon(new
@@ -460,7 +470,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       userimage = baos.toByteArray();
 
 
-    } catch (IOException ex) {
+    } catch (IOException | NullPointerException ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
     }
 
@@ -472,7 +482,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
    * the Customer table in the database
    * @param evt
    */
-  private void addCustomerActionPerformed (
+  public void addCustomerActionPerformed (
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //      boolean isValidSex = false;
 //      boolean isValidFirstName = false;
@@ -569,12 +579,8 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       JOptionPane.showMessageDialog(null, "Registation Createdd.........");
       return "Registation Createdd.........";
 
-    } catch (ClassNotFoundException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
-      Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
-      errorTrace += ex.toString();
-
     }
     return errorTrace;
 
