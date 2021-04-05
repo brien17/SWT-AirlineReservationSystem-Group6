@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -199,7 +200,7 @@ public class Login extends javax.swing.JFrame {
     String username = txtuser.getText();
     String password = txtpass.getText();
 
-    login(username, password, con);
+    login(username, password, new Main());
   } // GEN-LAST:event_jButton1ActionPerformed
 
   /**
@@ -209,11 +210,12 @@ public class Login extends javax.swing.JFrame {
    * @param username the username of the user to log in
    * @param password the password of the user to log in
    */
-  String login(String username, String password, Connection con) {
+  String login(String username, String password, Main main) {
     if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
-      return "blank";
+      return "UserName or Password Blank";
     } else {
+      String out = "";
       try {
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
@@ -223,25 +225,22 @@ public class Login extends javax.swing.JFrame {
 
         ResultSet rs;
         rs = pst.executeQuery();
-
         if (rs.next()) {
-          Main m = new Main();
           this.dispose();
-          m.setVisible(true);
-          return "valid";
-
+          main.setVisible(true);
+          out = "valid";
         } else {
           JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
           txtuser.setText("");
           txtpass.setText("");
           txtuser.requestFocus();
-          return "invalid";
+          out = "UserName or Password do not Match";
         }
-
       } catch (ClassNotFoundException | SQLException | NullPointerException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        return "sql error";
+        out = "sql error";
       }
+      return out;
     }
   }
 
