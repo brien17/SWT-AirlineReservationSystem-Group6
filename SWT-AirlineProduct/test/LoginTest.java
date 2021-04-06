@@ -42,7 +42,7 @@ public class LoginTest {
         login = new Login();
         String username = "john";
         String password = "123";
-        String output = login.login(username, password, new Main());
+        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
         assertEquals("valid", output);
     }
 
@@ -62,7 +62,7 @@ public class LoginTest {
     public void invalidLoginTest() {
         String username = "john";
         String password = "password";
-        String output = login.login(username, password, new Main());
+        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
 
         assertEquals("UserName or Password do not Match", output);
     }
@@ -83,7 +83,7 @@ public class LoginTest {
     public void emptyUsernameLoginTest() {
         String username = "";
         String password = "123";
-        String output = login.login(username, password, new Main());
+        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
 
         assertEquals("UserName or Password Blank", output);
     }
@@ -104,7 +104,7 @@ public class LoginTest {
     public void emptyPasswordLoginTest() {
         String username = "john";
         String password = "";
-        String output = login.login(username, password, new Main());
+        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
 
         assertEquals("UserName or Password Blank", output);
     }
@@ -128,7 +128,7 @@ public class LoginTest {
         String password = "123";
         Main mainMock =  new MainMock();
 
-        login.login(username, password, mainMock);
+        login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
         assertTrue(mainMock.isVisible());
     }
 
@@ -151,7 +151,7 @@ public class LoginTest {
         String password = "password";
         Main mainMock =  new MainMock();
 
-        login.login(username, password, mainMock);
+        login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
         assertFalse(mainMock.isVisible());
     }
 }

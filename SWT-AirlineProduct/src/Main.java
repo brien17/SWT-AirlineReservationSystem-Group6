@@ -6,7 +6,9 @@
 
 public class Main extends javax.swing.JFrame {
 
-    /** Creates new form Main */
+    /**
+     * Creates new form Main
+     */
     public Main() {
         initComponents();
     }
@@ -220,7 +222,9 @@ public class Main extends javax.swing.JFrame {
         u.setVisible(true);
     } // GEN-LAST:event_jMenuItem5ActionPerformed
 
-    /** @param args the command line arguments */
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

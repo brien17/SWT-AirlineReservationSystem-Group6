@@ -11,16 +11,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class searchTestClass {
 
     // Declare and Create search and update objects
-    private searchCustomer find;
-    private searchCustomer update;
+    private CustomerSearchController find;
+    private CustomerSearchController update;
 
     byte[] userimage;
 
     // Initialize the find and update objects
     @BeforeEach
     public void searchBuild() {
-        find = new searchCustomer();
-        update = new searchCustomer();
+        find = new CustomerSearchController();
+        update = new CustomerSearchController();
     }
 
     // Equivalence Testing - Locating a user from the database after hitting the find button

@@ -11,12 +11,12 @@ import java.sql.SQLException;
 
 public class userTestClass {
     // Declare and Create user object
-    private userCreation add;
+    private UserCreationController create;
 
     // Initialize the user creation object
     @BeforeEach
     public void userBuild() {
-        add = new userCreation();
+        create = new UserCreationController();
     }
 
     // Positive Testing - Showing that a user is generated from clicking the add button
@@ -29,7 +29,7 @@ public class userTestClass {
         String password = "testpass";
         Connection con = null;
 
-        String output = add.add(firstname, lastname, username, password, con);
+        String output = create.create(firstname, lastname, username, password, con);
         assertEquals("true", output);
     }
 
@@ -54,6 +54,6 @@ public class userTestClass {
     // Tear down the user creation object
     @AfterEach
     public void userTear() {
-        add = null;
+        create = null;
     }
 }

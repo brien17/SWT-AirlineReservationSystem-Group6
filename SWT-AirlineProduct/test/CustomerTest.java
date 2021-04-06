@@ -41,7 +41,7 @@ public class CustomerTest {
 
     Date date = new Date(1949,4,8);
     String sex = "Male";
-    String contact = "2392392939";
+    String contact = "239239239";
     String errorTrace = "";
 
     File image = new File("./resources/default.jpg");

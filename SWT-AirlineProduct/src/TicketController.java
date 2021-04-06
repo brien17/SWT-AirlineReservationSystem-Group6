@@ -598,7 +598,7 @@ public class TicketController extends javax.swing.JInternalFrame {
 
         boolean isValid = validateTicketDetails(flightid, custid, seats);
 
-        if(isValid) {
+        if (isValid) {
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
@@ -623,7 +623,7 @@ public class TicketController extends javax.swing.JInternalFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ticket could not be booked.");
         }
 
@@ -634,27 +634,27 @@ public class TicketController extends javax.swing.JInternalFrame {
         boolean isValid = true;
         int numSeats = Integer.parseInt(seats);
 
-         if(flightid.equals("")){
-             isValid = false;
+        if (flightid.equals("")) {
+            isValid = false;
 //             JOptionPane.showMessageDialog(null, " Flight number cannot be empty. " +
 //                     "Please select a flight to book.");
-         }
+        }
 
-         if(custid.equals("")){
-             isValid = false;
+        if (custid.equals("")) {
+            isValid = false;
 //             JOptionPane.showMessageDialog(null, " Customer ID cannot be empty. " +
 //                     "Please select a customer ID.");
-         }
+        }
 
-         if(numSeats <= 0){
-             isValid = false;
+        if (numSeats <= 0) {
+            isValid = false;
 //             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
 //                     "and less than 10.");
-         }else if(numSeats > 9){
-             isValid = false;
+        } else if (numSeats > 9) {
+            isValid = false;
 //             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
 //                     "and less than 10.");
-         }
+        }
 
         return isValid;
     }
