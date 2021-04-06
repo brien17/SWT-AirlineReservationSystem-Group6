@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.sql.Connection;
 import java.util.Arrays;
+import org.mockito.Mock;
 
 public class LoginTestUnit {
 

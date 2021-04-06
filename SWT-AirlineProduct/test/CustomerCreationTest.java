@@ -21,7 +21,6 @@ import javax.imageio.ImageIO;
 public class CustomerCreationTest {
 
   public CustomerCreationTest() {
-
   }
 
   byte[] userimage;
