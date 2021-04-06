@@ -200,7 +200,7 @@ public class Login extends javax.swing.JFrame {
     String username = txtuser.getText();
     String password = txtpass.getText();
 
-    login(username, password, new Main());
+    login(username, password, new Main(), "com.mysql.jdbc.Driver");
   } // GEN-LAST:event_jButton1ActionPerformed
 
   /**
@@ -210,14 +210,14 @@ public class Login extends javax.swing.JFrame {
    * @param username the username of the user to log in
    * @param password the password of the user to log in
    */
-  String login(String username, String password, Main main) {
+  String login(String username, String password, Main main, String sqlDriver) {
     if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
       return "UserName or Password Blank";
     } else {
       String out = "";
       try {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName(sqlDriver);
         con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
         pst = con.prepareStatement("select * from user where username = ? and password = ?");
         pst.setString(1, username);
@@ -251,22 +251,22 @@ public class Login extends javax.swing.JFrame {
     /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
      * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
      */
-    try {
-      for (javax.swing.UIManager.LookAndFeelInfo info :
-          javax.swing.UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-          break;
-        }
-      }
-    } catch (ClassNotFoundException
-        | InstantiationException
-        | IllegalAccessException
-        | UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(Login.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    // </editor-fold>
+//    try {
+//      for (javax.swing.UIManager.LookAndFeelInfo info :
+//          javax.swing.UIManager.getInstalledLookAndFeels()) {
+//        if ("Nimbus".equals(info.getName())) {
+//          javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//          break;
+//        }
+//      }
+//    } catch (ClassNotFoundException
+//        | InstantiationException
+//        | IllegalAccessException
+//        | UnsupportedLookAndFeelException ex) {
+//      java.util.logging.Logger.getLogger(Login.class.getName())
+//          .log(java.util.logging.Level.SEVERE, null, ex);
+//    }
+//    // </editor-fold>
 
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(
