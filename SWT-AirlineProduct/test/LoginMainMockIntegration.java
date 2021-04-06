@@ -1,5 +1,9 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,11 +19,13 @@ public class LoginMainMockIntegration {
   @BeforeEach
   public void setup() {
     login = new Login();
+    mainMock = mock(Main.class);
   }
 
   @AfterEach
   public void tearDown() {
     login = null;
+    mainMock = null;
   }
 
   /**
@@ -39,11 +45,11 @@ public class LoginMainMockIntegration {
   public void validLoginMockTest() {
     String username = "john";
     String password = "123";
-    mainMock =  new MainMock();
 
     login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
-    System.out.println(mainMock.isVisible());
-    assertTrue(mainMock.isVisible());
+
+    // Verify that setVisible was called once with it being set to true
+    verify(mainMock, times(1)).setVisible(true);
   }
 
   /**
@@ -63,10 +69,11 @@ public class LoginMainMockIntegration {
   public void invalidLoginMockTest() {
     String username = "john";
     String password = "password";
-    mainMock =  new MainMock();
 
     login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
-    assertFalse(mainMock.isVisible());
+
+    // Verify that setVisible was called zero times with it being set to true
+    verify(mainMock, times(0)).setVisible(true);
   }
 
   /**
@@ -84,13 +91,13 @@ public class LoginMainMockIntegration {
    */
   @Test
   public void blankUsernameLoginMockTest() {
-    String username = "j";
+    String username = "john";
     String password = "";
-    mainMock =  new MainMock();
 
     login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
-    assertFalse(mainMock.isVisible());
-  }
+
+    // Verify that setVisible was called zero times with it being set to true
+    verify(mainMock, times(0)).setVisible(true);  }
 
   /**
    * Test Case ID: TC-08
@@ -109,9 +116,17 @@ public class LoginMainMockIntegration {
   public void blankPasswordLoginMockTest() {
     String username = "";
     String password = "1";
-    mainMock =  new MainMock();
 
     login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
-    assertFalse(mainMock.isVisible());
-  }
+
+    // Verify that setVisible was called zero times with it being set to true
+    verify(mainMock, times(0)).setVisible(true);  }
+
+  // TODO: Give me comment
+  @Test
+  public void invalidSqlDriverTest() {
+    login.login("john", "123", new Main(), "");
+
+    // Verify that setVisible was called zero times with it being set to true
+    verify(mainMock, times(0)).setVisible(true);  }
 }
