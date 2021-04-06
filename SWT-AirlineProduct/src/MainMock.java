@@ -1,4 +1,7 @@
+import org.mockito.Mock;
+
 public class MainMock extends Main {
+
 
     private boolean visible = false;
 
