@@ -1,5 +1,3 @@
-import org.mockito.Mock;
-
 public class MainMock extends Main {
 
 
