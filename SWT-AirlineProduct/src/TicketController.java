@@ -147,7 +147,7 @@ public class TicketController extends javax.swing.JInternalFrame {
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                flightSelectionActionPerformed(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -548,7 +548,14 @@ public class TicketController extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    /**
+     * When a flight is selected from the menu, its details are then populated
+     * into the DefaultTableModel to be displayed back to the user.
+     *
+     * @param evt click event when a flight is selected from the DefaultTableModel.
+     */
+
+    private void flightSelectionActionPerformed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
 
         DefaultTableModel Df = (DefaultTableModel) jTable1.getModel();
@@ -562,6 +569,13 @@ public class TicketController extends javax.swing.JInternalFrame {
         txtprice.setText(Df.getValueAt(selectIndex, 7).toString());
 
     }//GEN-LAST:event_jTable1MouseClicked
+
+    /**
+     * When the quantity of selected seats is incremented or decremented, the state is updated
+     * here and updates the current price of the ticket.
+     *
+     * @param evt click event whenever seat quantity is incremented or decremented.
+     */
 
     private void txtseatsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtseatsStateChanged
         // TODO add your handling code here:
@@ -630,30 +644,41 @@ public class TicketController extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * This method is called from bookButtonActionPerformed() to ensure the current
+     * flight ID, customer ID, and seat quantity values are valid before submitting
+     * to the database. It is also the method used for the TicketControllerTest class.
+     *
+     * @param flightid the current flight ID being passed from the TicketController form.
+     * @param custid the current customer ID being passed from the TicketController form.
+     * @param seats the current seat quantity being passed from the TicketController form.
+     * @return returns false if the current ticket details are not acceptable.
+     */
+
     public boolean validateTicketDetails(String flightid, String custid, String seats) {
         boolean isValid = true;
         int numSeats = Integer.parseInt(seats);
 
          if(flightid.equals("")){
              isValid = false;
-//             JOptionPane.showMessageDialog(null, " Flight number cannot be empty. " +
-//                     "Please select a flight to book.");
+             JOptionPane.showMessageDialog(null, " Flight number cannot be empty. " +
+                     "Please select a flight to book.");
          }
 
          if(custid.equals("")){
              isValid = false;
-//             JOptionPane.showMessageDialog(null, " Customer ID cannot be empty. " +
-//                     "Please select a customer ID.");
+             JOptionPane.showMessageDialog(null, " Customer ID cannot be empty. " +
+                     "Please select a customer ID.");
          }
 
          if(numSeats <= 0){
              isValid = false;
-//             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
-//                     "and less than 10.");
+             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
+                     "and less than 10.");
          }else if(numSeats > 9){
              isValid = false;
-//             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
-//                     "and less than 10.");
+             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
+                     "and less than 10.");
          }
 
         return isValid;

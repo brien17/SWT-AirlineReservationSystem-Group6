@@ -10,10 +10,8 @@ class TicketControllerTest {
      */
 
 
-
-
     @Test
-    void invalidSeat_ValidFlightCustomer(){
+    void invalidSeat_ValidFlightCustomer() {
         TicketController ticket = new TicketController();
         String flightID = "FO0003";
         String customerID = "CS004";
@@ -23,7 +21,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void invalidSeatCustomer_ValidFlight(){
+    void invalidSeatCustomer_ValidFlight() {
         TicketController ticket = new TicketController();
         String flightID = "FO0003";
         String customerID = "";
@@ -33,7 +31,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void invalidSeatFlight_ValidCustomer(){
+    void invalidSeatFlight_ValidCustomer() {
         TicketController ticket = new TicketController();
         String flightID = "";
         String customerID = "CS004";
@@ -43,7 +41,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void invalidSeatFlightCustomer(){
+    void invalidSeatFlightCustomer() {
         TicketController ticket = new TicketController();
         String flightID = "";
         String customerID = "";
@@ -53,7 +51,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void validSeatFlightCustomer(){
+    void validSeatFlightCustomer() {
         TicketController ticket = new TicketController();
         String flightID = "FO005";
         String customerID = "CS005";
@@ -63,7 +61,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void validSeatCustomer_InvalidFlight(){
+    void validSeatCustomer_InvalidFlight() {
         TicketController ticket = new TicketController();
         String flightID = "";
         String customerID = "CS004";
@@ -73,7 +71,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void validSeatFlight_InvalidCustomer(){
+    void validSeatFlight_InvalidCustomer() {
         TicketController ticket = new TicketController();
         String flightID = "FO002";
         String customerID = "";
@@ -83,7 +81,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void validSeat_InvalidFlightCustomer(){
+    void validSeat_InvalidFlightCustomer() {
         TicketController ticket = new TicketController();
         String flightID = "";
         String customerID = "";
@@ -93,7 +91,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void seatsOver_ValidFlightCustomer(){
+    void seatsOver_ValidFlightCustomer() {
         TicketController ticket = new TicketController();
         String flightID = "FO002";
         String customerID = "CS004";
@@ -103,7 +101,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void seatsOver_ValidFlight(){
+    void seatsOver_ValidFlight() {
         TicketController ticket = new TicketController();
         String flightID = "FO002";
         String customerID = "";
@@ -113,7 +111,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void seatsOver_ValidCustomer(){
+    void seatsOver_ValidCustomer() {
         TicketController ticket = new TicketController();
         String flightID = "";
         String customerID = "CS001";
@@ -123,7 +121,7 @@ class TicketControllerTest {
     }
 
     @Test
-    void seatsOver_InvalidFlightCustomer(){
+    void seatsOver_InvalidFlightCustomer() {
         TicketController ticket = new TicketController();
         String flightID = "";
         String customerID = "";
