@@ -1,9 +1,11 @@
 <component name="libraryTable">
   <library name="src">
-    <CLASSES />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jcalendar-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/junit-jupiter-api-5.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mysql-connector-java-8.0.23.jar!/" />
+    </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/../jcalendar-1.4/src" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>
