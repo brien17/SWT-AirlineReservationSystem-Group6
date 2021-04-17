@@ -1,12 +1,9 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.sql.Connection;
-import java.util.Arrays;
+
 
 public class MainTest {
 
@@ -24,11 +21,57 @@ public class MainTest {
   }
 
   @Test
-  void testShowTicketReport() {
-    TicketReportController ticketReportController = new TicketReportControllerStub();
-    main.showTicketReport(ticketReportController);
-
-    // Check that the stub controller has been added to the layout pane
-    assertTrue(Arrays.asList(main.jDesktopPane1.getComponents()).contains(ticketReportController));
+  void testOpenMain() {
+    try {
+    Main.main(null);
+    main.setVisible(true);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    assertTrue(main.isVisible());
   }
+
+  @Test
+  void testAddCustomerButton() {
+    main = new Main();
+    main.addCustomerButtonClicked(null);
+    // Check that the controller has been added to the layout pane
+    assertTrue(main.jDesktopPane1.getComponents()[0] instanceof CustomerCreationController);
+  }
+
+  @Test
+  void testSearchCustomerCreationButton() {
+    main.searchCustomerButtonClicked(null);
+    // Check that the controller has been added to the layout pane
+    assertTrue(main.jDesktopPane1.getComponents()[0] instanceof CustomerSearchController);
+  }
+
+  @Test
+  void testAddFlightButton() {
+    main.addFlightButtonClicked(null);
+    // Check that the controller has been added to the layout pane
+    assertTrue(main.jDesktopPane1.getComponents()[0] instanceof FlightAdditionController);
+  }
+
+  @Test
+  void testBookTicketButton() {
+    main.bookTicketButtonClicked(null);
+    // Check that the controller has been added to the layout pane
+    assertTrue(main.jDesktopPane1.getComponents()[0] instanceof TicketController);
+  }
+
+  @Test
+  void testShowTicketReport() {
+    main.ticketReportButtonClicked(null);
+    // Check that the controller has been added to the layout pane
+    assertTrue(main.jDesktopPane1.getComponents()[0] instanceof TicketReportController);
+  }
+
+  @Test
+  void testCreateUserButton() {
+    main.createUserButtonClicked(null);
+    // Check that the controller has been added to the layout pane
+    assertTrue(main.jDesktopPane1.getComponents()[0] instanceof UserCreationController);
+  }
+
 }

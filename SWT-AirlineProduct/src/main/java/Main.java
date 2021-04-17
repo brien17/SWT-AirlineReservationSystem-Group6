@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
+
 public class Main extends javax.swing.JFrame {
 
   /** Creates new form Main */
@@ -138,7 +140,7 @@ public class Main extends javax.swing.JFrame {
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void addCustomerButtonClicked(
+  void addCustomerButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem1ActionPerformed
 
     CustomerCreationController cus = new CustomerCreationController();
@@ -150,8 +152,12 @@ public class Main extends javax.swing.JFrame {
    * @param customerCreationController
    */
   void showCustomerCreation(CustomerCreationController customerCreationController) {
-    jDesktopPane1.add(customerCreationController);
-    customerCreationController.setVisible(true);
+    try {
+      jDesktopPane1.add(customerCreationController);
+      customerCreationController.setVisible(true);
+    } catch (NullPointerException np) {
+      customerCreationController.setVisible(true);
+    }
   }
 
   /**
@@ -160,7 +166,7 @@ public class Main extends javax.swing.JFrame {
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void searchCustomerButtonClicked(
+  void searchCustomerButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem2ActionPerformed
 
     CustomerSearchController scus = new CustomerSearchController();
@@ -172,8 +178,12 @@ public class Main extends javax.swing.JFrame {
    * @param customerSearchController
    */
   void showSearchCustomer(CustomerSearchController customerSearchController) {
-    jDesktopPane1.add(customerSearchController);
-    customerSearchController.setVisible(true);
+    try {
+      jDesktopPane1.add(customerSearchController);
+      customerSearchController.setVisible(true);
+    } catch (NullPointerException np) {
+      customerSearchController.setVisible(true);
+    }
   }
 
   /**
@@ -182,7 +192,7 @@ public class Main extends javax.swing.JFrame {
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void addFlightButtonClicked(
+  void addFlightButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem4ActionPerformed
 
     FlightAdditionController f = new FlightAdditionController();
@@ -194,8 +204,13 @@ public class Main extends javax.swing.JFrame {
    * @param flightAdditionController
    */
   void showAddFlight(FlightAdditionController flightAdditionController) {
-    jDesktopPane1.add(flightAdditionController);
-    flightAdditionController.setVisible(true);
+    try{
+      jDesktopPane1.add(flightAdditionController);
+      flightAdditionController.setVisible(true);
+    } catch (NullPointerException np) {
+      flightAdditionController.setVisible(true);
+
+    }
   }
 
   /**
@@ -204,7 +219,7 @@ public class Main extends javax.swing.JFrame {
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void bookTicketButtonClicked(
+  void bookTicketButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem3ActionPerformed
 
     TicketController t = new TicketController();
@@ -216,8 +231,12 @@ public class Main extends javax.swing.JFrame {
    * @param ticketController
    */
   void showBookTicket(TicketController ticketController) {
-    jDesktopPane1.add(ticketController);
-    ticketController.setVisible(true);
+    try {
+      jDesktopPane1.add(ticketController);
+      ticketController.setVisible(true);
+    } catch (NullPointerException np) {
+      ticketController.setVisible(true);
+    }
   }
 
 
@@ -227,7 +246,7 @@ public class Main extends javax.swing.JFrame {
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void ticketReportButtonClicked(
+  void ticketReportButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem6ActionPerformed
 
     TicketReportController ti = new TicketReportController();
@@ -239,8 +258,13 @@ public class Main extends javax.swing.JFrame {
    * @param ticketController
    */
   void showTicketReport(TicketReportController ticketController) {
-    jDesktopPane1.add(ticketController);
-    ticketController.setVisible(true);
+    try {
+      jDesktopPane1.add(ticketController);
+      ticketController.setVisible(true);
+    } catch (NullPointerException np) {
+      ticketController.setVisible(true);
+
+    }
   }
 
   /**
@@ -249,7 +273,7 @@ public class Main extends javax.swing.JFrame {
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void createUserButtonClicked(
+  void createUserButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem5ActionPerformed
 
     UserCreationController u = new UserCreationController();
@@ -261,18 +285,23 @@ public class Main extends javax.swing.JFrame {
    * @param userCreationController
    */
   void showCreateUserScreen(UserCreationController userCreationController) {
-    jDesktopPane1.add(userCreationController);
-    userCreationController.setVisible(true);
+    try {
+      jDesktopPane1.add(userCreationController);
+      userCreationController.setVisible(true);
+    } catch (NullPointerException np) {
+      userCreationController.setVisible(true);
+
+    }
   }
 
   /** @param args the command line arguments */
-  public static void main(String args[]) {
+  public static void main(String args[]) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
     /* Set the Nimbus look and feel */
     // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
     /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
      * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
      */
-    try {
+
       for (javax.swing.UIManager.LookAndFeelInfo info :
           javax.swing.UIManager.getInstalledLookAndFeels()) {
         if ("Nimbus".equals(info.getName())) {
@@ -280,19 +309,7 @@ public class Main extends javax.swing.JFrame {
           break;
         }
       }
-    } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(Main.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(Main.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(Main.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(Main.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
-    }
+
     // </editor-fold>
 
     /* Create and display the form */

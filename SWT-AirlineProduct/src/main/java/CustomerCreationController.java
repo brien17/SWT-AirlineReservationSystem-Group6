@@ -599,5 +599,4 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
     this.hide();
   }//GEN-LAST:event_jButton3ActionPerformed
 
-
 }
