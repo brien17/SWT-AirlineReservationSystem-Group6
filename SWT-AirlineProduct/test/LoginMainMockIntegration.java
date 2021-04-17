@@ -91,8 +91,8 @@ public class LoginMainMockIntegration {
    */
   @Test
   public void blankUsernameLoginMockTest() {
-    String username = "john";
-    String password = "";
+    String username = "";
+    String password = "1";
 
     login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
 
@@ -105,7 +105,7 @@ public class LoginMainMockIntegration {
    * Purpose: Test that after a user supplies an invalid userId and password the Main object will not be made visible
    *          on the screen.
    * Test Setup: An instance of the Login class is created and the login method is called with a valid username and
-   *             password combination and an instance of the MainMock passed into it as parameters. The output is
+   *             blank password and an instance of the MainMock passed into it as parameters. The output is
    *             compared to the expected output.
    * Test Strategy: Top down integration testing with mock
    * Input: Username: “john”
@@ -114,15 +114,27 @@ public class LoginMainMockIntegration {
    */
   @Test
   public void blankPasswordLoginMockTest() {
-    String username = "";
-    String password = "1";
+    String username = "john";
+    String password = "";
 
     login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
 
     // Verify that setVisible was called zero times with it being set to true
     verify(mainMock, times(0)).setVisible(true);  }
 
-  // TODO: Give me comment
+  /**
+   * Test Case ID: TC-09
+   * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
+   * Purpose: Test that if a connection to the database cannot be made the Main object will not be made visible
+   *          on the screen.
+   * Test Setup: An instance of the Login class is created and the login method is called with a valid username and
+   *             password combination, an instance of the MainMock, and an invalid sql driver name passed into it as
+   *             parameters. The output is compared to the expected output.
+   * Test Strategy: Top down integration testing with mock
+   * Input: Username: “john”
+   *        Password: “123”
+   * Expected Output: false
+   */
   @Test
   public void invalidSqlDriverTest() {
     login.login("john", "123", new Main(), "");
