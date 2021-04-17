@@ -1,27 +1,41 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
+
+/**
+ * Test class to perform integration testing on the Login class
+ * TODO: add testing methodology used here
+ */
 public class LoginMainMockIntegration {
 
+  /**
+   * Mock of the Main class used for testing
+   */
   @Mock
   Main mainMock;
+
+  /**
+   * Instance of the Login class used for testing
+   */
   private Login login;
 
+  /**
+   * Assign a new Login object to login and a mock of the Main class to mainMock to setup for testing
+   */
   @BeforeEach
   public void setup() {
     login = new Login();
     mainMock = mock(Main.class);
   }
 
+  /**
+   * Make the login and mainMock objects null to cleanup after the test
+   */
   @AfterEach
   public void tearDown() {
     login = null;
@@ -137,7 +151,7 @@ public class LoginMainMockIntegration {
    */
   @Test
   public void invalidSqlDriverTest() {
-    login.login("john", "123", new Main(), "");
+    login.login("john", "123", mainMock, "");
 
     // Verify that setVisible was called zero times with it being set to true
     verify(mainMock, times(0)).setVisible(true);  }

@@ -142,9 +142,17 @@ public class Main extends javax.swing.JFrame {
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem1ActionPerformed
 
     CustomerCreationController cus = new CustomerCreationController();
-    jDesktopPane1.add(cus);
-    cus.setVisible(true);
+    showCustomerCreation(cus);
   } // GEN-LAST:event_jMenuItem1ActionPerformed
+
+  /**
+   * TODO:
+   * @param customerCreationController
+   */
+  void showCustomerCreation(CustomerCreationController customerCreationController) {
+    jDesktopPane1.add(customerCreationController);
+    customerCreationController.setVisible(true);
+  }
 
   /**
    * This method runs when the search customer button is clicked, it creates a new instance of the
@@ -156,9 +164,17 @@ public class Main extends javax.swing.JFrame {
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem2ActionPerformed
 
     CustomerSearchController scus = new CustomerSearchController();
-    jDesktopPane1.add(scus);
-    scus.setVisible(true);
+    showSearchCustomer(scus);
   } // GEN-LAST:event_jMenuItem2ActionPerformed
+
+  /**
+   * TODO:
+   * @param customerSearchController
+   */
+  void showSearchCustomer(CustomerSearchController customerSearchController) {
+    jDesktopPane1.add(customerSearchController);
+    customerSearchController.setVisible(true);
+  }
 
   /**
    * This method runs when the add flight button is clicked, it creates a new instance of the
@@ -170,9 +186,17 @@ public class Main extends javax.swing.JFrame {
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem4ActionPerformed
 
     FlightAdditionController f = new FlightAdditionController();
-    jDesktopPane1.add(f);
-    f.setVisible(true);
+    showAddFlight(f);
   } // GEN-LAST:event_jMenuItem4ActionPerformed
+
+  /**
+   * TODO
+   * @param flightAdditionController
+   */
+  void showAddFlight(FlightAdditionController flightAdditionController) {
+    jDesktopPane1.add(flightAdditionController);
+    flightAdditionController.setVisible(true);
+  }
 
   /**
    * This method runs when the book ticket button is clicked, it creates a new instance of the
@@ -184,13 +208,22 @@ public class Main extends javax.swing.JFrame {
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem3ActionPerformed
 
     TicketController t = new TicketController();
-    jDesktopPane1.add(t);
-    t.setVisible(true);
+    showBookTicket(t);
   } // GEN-LAST:event_jMenuItem3ActionPerformed
 
   /**
+   * Todo: finish me
+   * @param ticketController
+   */
+  void showBookTicket(TicketController ticketController) {
+    jDesktopPane1.add(ticketController);
+    ticketController.setVisible(true);
+  }
+
+
+  /**
    * This method runs when the search ticket report button is clicked, it creates a new instance of
-   * the TicketReportController class and sets it as visible on the screen.
+   * the TicketReportController class and passes it into the showTicketReport method.
    *
    * @param evt The click event provided by the user clicking the button
    */
@@ -201,6 +234,10 @@ public class Main extends javax.swing.JFrame {
     showTicketReport(ti);
   } // GEN-LAST:event_jMenuItem6ActionPerformed
 
+  /**
+   * TODO: Finish me
+   * @param ticketController
+   */
   void showTicketReport(TicketReportController ticketController) {
     jDesktopPane1.add(ticketController);
     ticketController.setVisible(true);
@@ -216,9 +253,17 @@ public class Main extends javax.swing.JFrame {
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem5ActionPerformed
 
     UserCreationController u = new UserCreationController();
-    jDesktopPane1.add(u);
-    u.setVisible(true);
+    showCreateUserScreen(u);
   } // GEN-LAST:event_jMenuItem5ActionPerformed
+
+  /**
+   * TODO
+   * @param userCreationController
+   */
+  void showCreateUserScreen(UserCreationController userCreationController) {
+    jDesktopPane1.add(userCreationController);
+    userCreationController.setVisible(true);
+  }
 
   /** @param args the command line arguments */
   public static void main(String args[]) {
