@@ -1,3 +1,4 @@
+import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,7 +9,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 /**
@@ -21,7 +24,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
    */
   public FlightAdditionController() {
     initComponents();
-    generateFlightID();
+    generateFlightID("");
   }
 
   Connection con;
@@ -39,16 +42,43 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
   private javax.swing.JLabel arrivalTimeLabel;
   private javax.swing.JLabel flightChargeLabel;
   private javax.swing.JPanel jPanel1;
-  
-  private javax.swing.JTextField arrivalTimeInput;
-  private com.toedter.calendar.JDateChooser dateInput;
-  private javax.swing.JComboBox<String> destinationInput;
-  private javax.swing.JTextField departureTimeInput;
-  private javax.swing.JTextField flightChargeInput;
+
+  public javax.swing.JTextField arrivalTimeInput;
+  public com.toedter.calendar.JDateChooser dateInput;
+  public javax.swing.JComboBox<String> destinationInput;
+  public javax.swing.JTextField departureTimeInput;
+  public javax.swing.JTextField flightChargeInput;
   private javax.swing.JLabel flightID;
-  private javax.swing.JTextField airlineNameInput;
-  private javax.swing.JComboBox<String> sourceInput;
-  // End of variables declaration//GEN-END:variables
+  public javax.swing.JTextField airlineNameInput;
+  public javax.swing.JComboBox<String> sourceInput;
+
+//  public void setArrivalTimeInput(JTextField arrivalTimeInput) {
+//    this.arrivalTimeInput = arrivalTimeInput;
+//  }
+//
+//  public void setDateInput(JDateChooser dateInput) {
+//    this.dateInput = dateInput;
+//  }
+//
+//  public void setDestinationInput(JComboBox<String> destinationInput) {
+//    this.destinationInput = destinationInput;
+//  }
+//
+//  public void setDepartureTimeInput(JTextField departureTimeInput) {
+//    this.departureTimeInput = departureTimeInput;
+//  }
+//
+//  public void setFlightChargeInput(JTextField flightChargeInput) {
+//    this.flightChargeInput = flightChargeInput;
+//  }
+//
+//  public void setAirlineNameInput(JTextField airlineNameInput) {
+//    this.airlineNameInput = airlineNameInput;
+//  }
+//
+//  public void setSourceInput(JComboBox<String> sourceInput) {
+//    this.sourceInput = sourceInput;
+//  }
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -289,15 +319,20 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
   /**
    * This method automatically generates the next FlightID for the flight to be added
    */
-  public void generateFlightID() {
+  public void generateFlightID(String test) {
     try {
       Class.forName("com.mysql.jdbc.Driver");
       con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
       Statement s = con.createStatement();
       ResultSet rs = s.executeQuery("select MAX(id) from flight");
       rs.next();
-      rs.getString("MAX(id)");
-      if (rs.getString("MAX(id)") == null) {
+      String nextID = rs.getString("MAX(id)");
+
+      if(test.equals("test")){
+        nextID = null;
+      }
+
+      if (nextID == null) {
         flightID.setText("FO001");
       } else {
         long id = Long
@@ -323,7 +358,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
    *
    * @param evt
    */
-  private void addFlightActionPerformed(
+  public String addFlightActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -339,6 +374,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
     String departtime = departureTimeInput.getText();
     String arrtime = arrivalTimeInput.getText();
     String flightcharge = flightChargeInput.getText();
+    String errorTrace = "";
 
     try {
       Class.forName("com.mysql.jdbc.Driver");
@@ -358,13 +394,15 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
       pst.executeUpdate();
 
       JOptionPane.showMessageDialog(null, "Flight Createdd.........");
+      return "valid";
     } catch (ClassNotFoundException ex) {
       Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
+      errorTrace = ex.getMessage();
     }
-
-  }//GEN-LAST:event_jButton1ActionPerformed
+    return errorTrace;
+  }
 
   /**
    * Closes the Flight Addition window
@@ -375,5 +413,5 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
     // TODO add your handling code here:
 
     this.hide();
-  }//GEN-LAST:event_jButton2ActionPerformed
+  }
 }

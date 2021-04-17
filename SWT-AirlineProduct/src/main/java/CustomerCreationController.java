@@ -547,8 +547,23 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       String output = addCustomer(id,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
       System.out.println(output);
 
-  }//GEN-LAST:event_jButton2ActionPerformed
+  }
 
+  /**
+   * Method addCustomer returns a String to the CustomerCreationTest class for assertion
+   * @param id
+   * @param firstName
+   * @param lastName
+   * @param nic
+   * @param passportID
+   * @param address
+   * @param date
+   * @param sex
+   * @param contact
+   * @param userImage
+   * @param errorTrace
+   * @return output for CustomerCreationTest class
+   */
   String addCustomer(String id, String firstName, String lastName, String nic, String passportID, String address, Date date,
       String sex, String contact, byte[] userImage, String errorTrace){
 

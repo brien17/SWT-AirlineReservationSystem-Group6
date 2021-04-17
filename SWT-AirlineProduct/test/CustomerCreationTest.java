@@ -33,6 +33,15 @@ public class CustomerCreationTest {
 
   }
 
+  /**
+   * Test Case ID:
+   * Requirement ID/Description:
+   * Purpose:
+   * Test Setup:
+   * Test Strategy:
+   * Input:
+   * Expected Output: "valid"
+   */
   @Test
   public void validCustomerTest() throws IOException {
     String customerID = "CS001";
@@ -63,6 +72,15 @@ public class CustomerCreationTest {
     assertEquals("Registation Createdd.........", output);
   }
 
+  /**
+   * Test Case ID:
+   * Requirement ID/Description:
+   * Purpose:
+   * Test Setup:
+   * Test Strategy:
+   * Input:
+   * Expected Output:
+   */
   @Test
   public void invalidCustomerTest() throws AWTException, InterruptedException, SQLException {
     String customerID = "1";
@@ -82,12 +100,24 @@ public class CustomerCreationTest {
 
 
     String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,date,sex,contact,invalidImage,errorTrace);
-
-// ErrorTrace should be empty and caught by GUI before causing runtime error
-// GUI should update user as to what is incorrect and why
+/*
+ ErrorTrace should be empty and caught by GUI before causing runtime error
+ GUI should update user as to what is invalid and why, code erroneously adds
+     to the database
+     */
     assertEquals("", output);
   }
 
+
+  /**
+   * Test Case ID:
+   * Requirement ID/Description:
+   * Purpose:
+   * Test Setup:
+   * Test Strategy:
+   * Input:
+   * Expected Output:
+   */
   @Test
   public void emptyCustomerTest() {
     String customerID = "";
@@ -104,7 +134,7 @@ public class CustomerCreationTest {
     customerCreationTest.browseButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
     customerCreationTest.addCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
     String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
-    //GUI should show what is missing, not output errors to console
+    //GUI should alert user to what is missing, not output errors to console
     assertEquals("", output);
   }
 
@@ -113,6 +143,11 @@ public class CustomerCreationTest {
     customerCreationTest = null;
   }
 
+  /**
+   * Helper method to create an invalid byte array from a text file.
+   * @param file
+   * @return byte array from file
+   */
   private static byte[] convertFileToByteArray(File file){
     FileInputStream fis = null;
     // Creating bytearray of same length as file
@@ -129,7 +164,6 @@ public class CustomerCreationTest {
         try {
           fis.close();
         } catch (IOException e) {
-          // TODO Auto-generated catch block
           e.printStackTrace();
         }
       }
