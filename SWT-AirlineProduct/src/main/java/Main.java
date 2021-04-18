@@ -136,7 +136,7 @@ public class Main extends javax.swing.JFrame {
 
   /**
    * This method runs when the add customer button is clicked, it creates a new instance of the
-   * CustomerCreationController class and sets it as visible on the screen.
+   * CustomerCreationController class and passes it into the showCustomerCreation method.
    *
    * @param evt The click event provided by the user clicking the button
    */
@@ -148,8 +148,9 @@ public class Main extends javax.swing.JFrame {
   } // GEN-LAST:event_jMenuItem1ActionPerformed
 
   /**
-   * TODO:
-   * @param customerCreationController
+   * This method takes in instance of the CustomerCreationController class and adds it to the desktop pane and sets its
+   * visibility true
+   * @param customerCreationController The instance to add to the desktop pane and make visible
    */
   void showCustomerCreation(CustomerCreationController customerCreationController) {
     try {
@@ -162,7 +163,7 @@ public class Main extends javax.swing.JFrame {
 
   /**
    * This method runs when the search customer button is clicked, it creates a new instance of the
-   * CustomerSearchController class and sets it as visible on the screen.
+   * CustomerSearchController class and passes it into the showSearchCustomer method.
    *
    * @param evt The click event provided by the user clicking the button
    */
@@ -174,8 +175,9 @@ public class Main extends javax.swing.JFrame {
   } // GEN-LAST:event_jMenuItem2ActionPerformed
 
   /**
-   * TODO:
-   * @param customerSearchController
+   * This method takes in instance of the CustomerSearchController class and adds it to the desktop pane and sets its
+   * visibility true.
+   * @param customerSearchController The instance to add to the desktop pane and make visible
    */
   void showSearchCustomer(CustomerSearchController customerSearchController) {
     try {
@@ -188,7 +190,7 @@ public class Main extends javax.swing.JFrame {
 
   /**
    * This method runs when the add flight button is clicked, it creates a new instance of the
-   * FlightAdditionController class and sets it as visible on the screen.
+   * FlightAdditionController class and passes it into the showAddFlight method.
    *
    * @param evt The click event provided by the user clicking the button
    */
@@ -200,8 +202,9 @@ public class Main extends javax.swing.JFrame {
   } // GEN-LAST:event_jMenuItem4ActionPerformed
 
   /**
-   * TODO
-   * @param flightAdditionController
+   * This method takes in instance of the FlightAdditionController class and adds it to the desktop pane and sets its
+   * visibility true.
+   * @param flightAdditionController The instance to add to the desktop pane and make visible
    */
   void showAddFlight(FlightAdditionController flightAdditionController) {
     try{
@@ -215,7 +218,7 @@ public class Main extends javax.swing.JFrame {
 
   /**
    * This method runs when the book ticket button is clicked, it creates a new instance of the
-   * TicketController class and sets it as visible on the screen.
+   * TicketController class and passes it into the showBookTicket method.
    *
    * @param evt The click event provided by the user clicking the button
    */
@@ -227,8 +230,9 @@ public class Main extends javax.swing.JFrame {
   } // GEN-LAST:event_jMenuItem3ActionPerformed
 
   /**
-   * Todo: finish me
-   * @param ticketController
+   * This method takes in instance of the TicketController class and adds it to the desktop pane and sets its
+   * visibility true.
+   * @param ticketController The instance to add to the desktop pane and make visible
    */
   void showBookTicket(TicketController ticketController) {
     try {
@@ -254,22 +258,23 @@ public class Main extends javax.swing.JFrame {
   } // GEN-LAST:event_jMenuItem6ActionPerformed
 
   /**
-   * TODO: Finish me
-   * @param ticketController
+   * This method takes in instance of the TicketReportController class and adds it to the desktop pane and sets its
+   * visibility true.
+   * @param ticketReportController The instance to add to the desktop pane and make visible
    */
-  void showTicketReport(TicketReportController ticketController) {
+  void showTicketReport(TicketReportController ticketReportController) {
     try {
-      jDesktopPane1.add(ticketController);
-      ticketController.setVisible(true);
+      jDesktopPane1.add(ticketReportController);
+      ticketReportController.setVisible(true);
     } catch (NullPointerException np) {
-      ticketController.setVisible(true);
+      ticketReportController.setVisible(true);
 
     }
   }
 
   /**
    * This method runs when the create user button is clicked, it creates a new instance of the
-   * UserCreationController class and sets it as visible on the screen.
+   * UserCreationController class and passes it into the showCreateUserScreen method.
    *
    * @param evt The click event provided by the user clicking the button
    */
@@ -281,8 +286,9 @@ public class Main extends javax.swing.JFrame {
   } // GEN-LAST:event_jMenuItem5ActionPerformed
 
   /**
-   * TODO
-   * @param userCreationController
+   * This method takes in instance of the UserCreationController class and adds it to the desktop pane and sets its
+   * visibility true.
+   * @param userCreationController The instance to add to the desktop pane and make visible
    */
   void showCreateUserScreen(UserCreationController userCreationController) {
     try {
@@ -295,18 +301,11 @@ public class Main extends javax.swing.JFrame {
   }
 
   /** @param args the command line arguments */
-  public static void main(String args[]) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
-    /* Set the Nimbus look and feel */
-    // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-     * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-     */
-
+  public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
       for (javax.swing.UIManager.LookAndFeelInfo info :
           javax.swing.UIManager.getInstalledLookAndFeels()) {
         if ("Nimbus".equals(info.getName())) {
           javax.swing.UIManager.setLookAndFeel(info.getClassName());
-          break;
         }
       }
 

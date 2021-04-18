@@ -20,17 +20,22 @@ public class MainTest {
     main = null;
   }
 
+  /**
+   * Todo
+   */
   @Test
   void testOpenMain() {
     try {
-    Main.main(null);
-    main.setVisible(true);
+      Main.main(null);
     } catch (Exception e) {
       e.printStackTrace();
     }
-    assertTrue(main.isVisible());
+    assertTrue(true);
   }
 
+  /**
+   * Todo
+   */
   @Test
   void testAddCustomerButton() {
     main = new Main();
@@ -39,13 +44,20 @@ public class MainTest {
     assertTrue(main.jDesktopPane1.getComponents()[0] instanceof CustomerCreationController);
   }
 
+  /**
+   * Todo
+   */
   @Test
   void testSearchCustomerCreationButton() {
     main.searchCustomerButtonClicked(null);
     // Check that the controller has been added to the layout pane
+
     assertTrue(main.jDesktopPane1.getComponents()[0] instanceof CustomerSearchController);
   }
 
+  /**
+   * Todo
+   */
   @Test
   void testAddFlightButton() {
     main.addFlightButtonClicked(null);
@@ -53,6 +65,9 @@ public class MainTest {
     assertTrue(main.jDesktopPane1.getComponents()[0] instanceof FlightAdditionController);
   }
 
+  /**
+   * Todo
+   */
   @Test
   void testBookTicketButton() {
     main.bookTicketButtonClicked(null);
@@ -60,6 +75,9 @@ public class MainTest {
     assertTrue(main.jDesktopPane1.getComponents()[0] instanceof TicketController);
   }
 
+  /**
+   * Todo
+   */
   @Test
   void testShowTicketReport() {
     main.ticketReportButtonClicked(null);
@@ -67,6 +85,9 @@ public class MainTest {
     assertTrue(main.jDesktopPane1.getComponents()[0] instanceof TicketReportController);
   }
 
+  /**
+   * Todo
+   */
   @Test
   void testCreateUserButton() {
     main.createUserButtonClicked(null);
