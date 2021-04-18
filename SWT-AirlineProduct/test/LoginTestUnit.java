@@ -2,27 +2,30 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.sql.Connection;
-import java.util.Arrays;
-import org.mockito.Mock;
+/**
+ * Test class to perform unit testing on the Login class
+ * Inputs were selected using decision table testing.
+ */
 
 public class LoginTestUnit {
 
     /**
-     *  input selection strategy
+     * Instance of the Login class used for testing
      */
-
-
     private Login login;
 
+    /**
+     * Assign a new Login object to login to setup for the test
+     */
     @BeforeEach
     public void setup() {
         login = new Login();
     }
 
+    /**
+     * Make the login object null to cleanup after the test
+     */
     @AfterEach
     public void tearDown() {
         login = null;

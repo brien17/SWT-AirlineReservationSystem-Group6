@@ -9,7 +9,9 @@ import org.mockito.Mock;
 
 /**
  * Test class to perform integration testing on the Login class
- * TODO: add testing methodology used here
+ * Integration testing is performed using the top down integration method. The individual test cases
+ * are derived from a decision table to test the interaction between the Login class and the Main class and ensure
+ * that the Login class is calling the correct method from the Main class with the correct parameter.
  */
 public class LoginMainMockIntegration {
 
@@ -43,7 +45,7 @@ public class LoginMainMockIntegration {
   }
 
   /**
-   * Test Case ID: TC-05
+   * Test Case ID: TC-06
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that after a user supplies a correct userId and password the Main object will be made visible on
    *          the screen.
@@ -67,7 +69,7 @@ public class LoginMainMockIntegration {
   }
 
   /**
-   * Test Case ID: TC-06
+   * Test Case ID: TC-07
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that after a user supplies an invalid userId and password the Main object will not be made visible
    *          on the screen.
@@ -91,7 +93,7 @@ public class LoginMainMockIntegration {
   }
 
   /**
-   * Test Case ID: TC-07
+   * Test Case ID: TC-08
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that after a user supplies an invalid userId and password the Main object will not be made visible
    *          on the screen.
@@ -114,7 +116,7 @@ public class LoginMainMockIntegration {
     verify(mainMock, times(0)).setVisible(true);  }
 
   /**
-   * Test Case ID: TC-08
+   * Test Case ID: TC-09
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that after a user supplies an invalid userId and password the Main object will not be made visible
    *          on the screen.
@@ -137,7 +139,7 @@ public class LoginMainMockIntegration {
     verify(mainMock, times(0)).setVisible(true);  }
 
   /**
-   * Test Case ID: TC-09
+   * Test Case ID: TC-10
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that if a connection to the database cannot be made the Main object will not be made visible
    *          on the screen.

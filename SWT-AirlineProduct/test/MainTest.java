@@ -3,18 +3,26 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
+/** input selection strategy */
 
 public class MainTest {
 
-  /** input selection strategy */
+  /**
+   * Instance of the Main class used for testing
+   */
   private Main main;
 
+  /**
+   * Assigns a new Main object to main to setup for testing
+   */
   @BeforeEach
   public void setup() {
     main = new Main();
   }
 
+  /**
+   * Makes the main object null to cleanup after the test
+   */
   @AfterEach
   public void tearDown() {
     main = null;
@@ -38,7 +46,6 @@ public class MainTest {
    */
   @Test
   void testAddCustomerButton() {
-    main = new Main();
     main.addCustomerButtonClicked(null);
     // Check that the controller has been added to the layout pane
     assertTrue(main.jDesktopPane1.getComponents()[0] instanceof CustomerCreationController);
