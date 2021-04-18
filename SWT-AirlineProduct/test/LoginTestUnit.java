@@ -37,6 +37,8 @@ public class LoginTestUnit {
      * Test Strategy: A decision table was used to determine what inputs to test to test this functionality
      * Input: Username: “john”
      *        Password: “123”
+     *        Main: new Main()
+     *        sqlDriver: "com.mysql.jdbc.Driver"
      * Expected Output: "valid"
      */
     @Test
@@ -57,6 +59,8 @@ public class LoginTestUnit {
      * Test Strategy: A decision table was used to determine what inputs to test to test this functionality
      * Input: Username: “john”
      *        Password: “password”
+     *        Main: new Main()
+     *        sqlDriver: "com.mysql.jdbc.Driver"
      * Expected Output: "UserName or Password do not Match"
      */
     @Test
@@ -81,6 +85,8 @@ public class LoginTestUnit {
      * Test Strategy: A decision table was used to determine what inputs to test to test this functionality
      * Input: Username: “”
      *        Password: “123”
+     *        Main: new Main()
+     *        sqlDriver: "com.mysql.jdbc.Driver"
      * Expected Output: "UserName or Password Blank"
      */
     @Test
@@ -102,6 +108,8 @@ public class LoginTestUnit {
      * Test Strategy: A decision table was used to determine what inputs to test to test this functionality
      * Input: Username: “john”
      *        Password: “”
+     *        Main: new Main()
+     *        sqlDriver: "com.mysql.jdbc.Driver"
      * Expected Output: "UserName or Password Blank"
      */
     @Test
@@ -114,11 +122,26 @@ public class LoginTestUnit {
     }
 
 
-    // TODO: Give me comment
+    /**
+     * Test Case ID: TC-05
+     * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
+     * Purpose: Test that a user will be denied access when a connection to the database cannot be established and
+     *          that a message describing the error will be sent to the console and a message describing the error
+     *          will be displayed to the user
+     * Test Setup: An instance of the Login class is created and the login method is called with a valid username
+     *              and password, a new instance of Main and a blank SQL driver string passed into it as parameters.
+     *              The output is compared to the expected output.
+     * Test Strategy: A decision table was used to determine what inputs to test to test this functionality
+     * Input: Username: “john”
+     *        Password: “123”
+     *        Main: new Main()
+     *        sqlDriver: ""
+     * Expected Output: "Cannot connect to database"
+     */
     @Test
     public void invalidSqlDriverTest() {
         String output = login.login("john", "123", new Main(), "");
 
-        assertEquals("sql error", output);
+        assertEquals("Cannot connect to database", output);
     }
 }
