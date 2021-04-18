@@ -29,6 +29,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  * This class builds a CustomerCreationView
  */
+
 public class CustomerCreationController extends javax.swing.JInternalFrame {
 
   /**
