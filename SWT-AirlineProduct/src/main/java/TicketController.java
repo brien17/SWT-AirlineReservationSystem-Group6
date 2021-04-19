@@ -42,7 +42,7 @@ public class TicketController extends javax.swing.JInternalFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         txtsource = new javax.swing.JComboBox<>();
@@ -83,17 +83,20 @@ public class TicketController extends javax.swing.JInternalFrame {
         txttotal = new javax.swing.JLabel();
         txtdate = new com.toedter.calendar.JDateChooser();
 
+        txtcustid.setName("customerId");
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select Country", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         txtsource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"India", "Srilanka", "Uk", "Usa", "Canada", "China"}));
-
+        txtsource.setName("source");
         txtdepart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "China"}));
+        txtdepart.setName("depart");
 
         jLabel1.setText("Source");
 
         jLabel2.setText("Departure");
 
         jButton3.setText("Search");
+        jButton3.setName("searchFlightsButton");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTicketsButtonActionPerformed(evt);
@@ -137,6 +140,7 @@ public class TicketController extends javax.swing.JInternalFrame {
                                 .addContainerGap())
         );
 
+        jTable1.setName("flightMenu");
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
 
@@ -179,6 +183,7 @@ public class TicketController extends javax.swing.JInternalFrame {
         txtpassport.setText("");
 
         jButton4.setText("Search");
+        jButton4.setName("searchCustomerButton");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchCustomerIDButtonActionPerformed(evt);
@@ -248,6 +253,7 @@ public class TicketController extends javax.swing.JInternalFrame {
         flightno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         flightno.setForeground(new java.awt.Color(255, 0, 0));
         flightno.setText("");
+        flightno.setName("flightNumber");
 
         flightname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         flightname.setForeground(new java.awt.Color(255, 0, 0));
@@ -259,6 +265,7 @@ public class TicketController extends javax.swing.JInternalFrame {
 
         txtclass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Economy", "Business"}));
 
+        txtseats.setName("seats");
         txtseats.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 txtseatsStateChanged(evt);
@@ -328,6 +335,7 @@ public class TicketController extends javax.swing.JInternalFrame {
         );
 
         jButton1.setText("Book");
+        jButton1.setName("bookButton");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bookButtonActionPerformed(evt);
@@ -335,6 +343,7 @@ public class TicketController extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Cancel");
+        jButton2.setName("cancelButton");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -431,6 +440,20 @@ public class TicketController extends javax.swing.JInternalFrame {
         String source = txtsource.getSelectedItem().toString().trim();
         String depart = txtdepart.getSelectedItem().toString().trim();
 
+        searchForTickets(source, depart);
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    /**
+     * TODO fill me in
+     *
+     * @param source
+     * @param depart
+     * @return
+     */
+
+    public String searchForTickets(String source, String depart) {
+        String flightName = "";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
@@ -462,14 +485,15 @@ public class TicketController extends javax.swing.JInternalFrame {
                 }
 
                 Df.addRow(v2);
+                flightName = rs.getString("flightname");
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-    }//GEN-LAST:event_jButton3ActionPerformed
+        return flightName;
+    }
 
     /**
      * Queries the database for the maximum ticket id number and automatically
@@ -487,13 +511,17 @@ public class TicketController extends javax.swing.JInternalFrame {
             rs.next();
             rs.getString("MAX(id)");
 
-            if (rs.getString("MAX(id)") == null) {
-                txtticketno.setText("TO001");
-            } else {
-                long id = Long.parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
-                id++;
-                txtticketno.setText("TO" + String.format("%03d", id));
-            }
+//            if (rs.getString("MAX(id)") == null) {
+//                txtticketno.setText("TO001");
+//            } else {
+//                long id = Long.parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
+//                id++;
+//                txtticketno.setText("TO" + String.format("%03d", id));
+//            }
+
+            long id = Long.parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
+            id++;
+            txtticketno.setText("TO" + String.format("%03d", id));
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
@@ -516,6 +544,20 @@ public class TicketController extends javax.swing.JInternalFrame {
     private void searchCustomerIDButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         String id = txtcustid.getText();
+        searchForCustomer(id);
+
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    /**
+     * TODO fill me in
+     *
+     * @param id
+     * @return
+     */
+    public String searchForCustomer(String id) {
+
+        String feedback = "";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -525,7 +567,8 @@ public class TicketController extends javax.swing.JInternalFrame {
             ResultSet rs = pst.executeQuery();
 
             if (rs.next() == false) {
-                JOptionPane.showMessageDialog(this, "Record not Found");
+                JOptionPane.showMessageDialog(this, "Record not found.");
+                feedback = "Record not found";
             } else {
                 String fname = rs.getString("firstname");
                 String lname = rs.getString("lastname");
@@ -537,6 +580,8 @@ public class TicketController extends javax.swing.JInternalFrame {
                 txtlastname.setText(lname.trim());
 
                 txtpassport.setText(passport.trim());
+
+                feedback = "Customer located";
             }
 
         } catch (ClassNotFoundException ex) {
@@ -545,8 +590,8 @@ public class TicketController extends javax.swing.JInternalFrame {
             Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
-    }//GEN-LAST:event_jButton4ActionPerformed
+        return feedback;
+    }
 
     /**
      * When a flight is selected from the menu, its details are then populated
@@ -611,8 +656,17 @@ public class TicketController extends javax.swing.JInternalFrame {
         String date = da.format(new Date());
 
         boolean isValid = validateTicketDetails(flightid, custid, seats);
+        bookTicket(isValid, ticketid, flightid, custid, flightclass, price, seats, date);
 
-        if(isValid) {
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public String bookTicket(boolean isValid, String ticketid, String flightid, String custid,
+                             String flightclass, String price, String seats, String date) {
+
+        String feedback = "";
+
+        if (isValid) {
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
@@ -631,18 +685,22 @@ public class TicketController extends javax.swing.JInternalFrame {
                 pst.executeUpdate();
 
 
-                JOptionPane.showMessageDialog(null, "Ticket Booked.");
+                JOptionPane.showMessageDialog(null, "Ticket booked.");
+                feedback = "ticket booked";
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ticket could not be booked.");
+            feedback = "ticket could not be booked";
         }
+        System.out.println();
+        System.out.println(feedback);
 
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+        return feedback;
+    }
 
     /**
      * This method is called from bookButtonActionPerformed() to ensure the current
@@ -650,8 +708,8 @@ public class TicketController extends javax.swing.JInternalFrame {
      * to the database. It is also the method used for the TicketControllerTest class.
      *
      * @param flightid the current flight ID being passed from the TicketController form.
-     * @param custid the current customer ID being passed from the TicketController form.
-     * @param seats the current seat quantity being passed from the TicketController form.
+     * @param custid   the current customer ID being passed from the TicketController form.
+     * @param seats    the current seat quantity being passed from the TicketController form.
      * @return returns false if the current ticket details are not acceptable.
      */
 
@@ -659,27 +717,17 @@ public class TicketController extends javax.swing.JInternalFrame {
         boolean isValid = true;
         int numSeats = Integer.parseInt(seats);
 
-         if(flightid.equals("")){
-             isValid = false;
-             JOptionPane.showMessageDialog(null, " Flight number cannot be empty. " +
-                     "Please select a flight to book.");
-         }
+        if (flightid.equals("") || custid.equals("")) {
+            isValid = false;
+            JOptionPane.showMessageDialog(null, " Flight number and/or cannot be empty. " +
+                    "Please select a flight and customer to book.");
+        }
 
-         if(custid.equals("")){
-             isValid = false;
-             JOptionPane.showMessageDialog(null, " Customer ID cannot be empty. " +
-                     "Please select a customer ID.");
-         }
-
-         if(numSeats <= 0){
-             isValid = false;
-             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
-                     "and less than 10.");
-         }else if(numSeats > 9){
-             isValid = false;
-             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
-                     "and less than 10.");
-         }
+        if (numSeats <= 0 || numSeats > 9) {
+            isValid = false;
+            JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
+                    "and less than 10.");
+        }
 
         return isValid;
     }
@@ -696,7 +744,6 @@ public class TicketController extends javax.swing.JInternalFrame {
         this.hide();
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel flightname;

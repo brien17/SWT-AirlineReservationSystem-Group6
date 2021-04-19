@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
+
 public class Main extends javax.swing.JFrame {
 
   /** Creates new form Main */
@@ -24,13 +26,20 @@ public class Main extends javax.swing.JFrame {
     customerMenu = new javax.swing.JMenu();
     addCustomerMenuItem = new javax.swing.JMenuItem();
     searchCustomerMenuItem = new javax.swing.JMenuItem();
-    ticketMenu = new javax.swing.JMenu();
+    ticketMenu = new javax.swing.JMenu("ticketMenu");
     bookTicketMenuItem = new javax.swing.JMenuItem();
     ticketReportMenuItem = new javax.swing.JMenuItem();
     flightMenu = new javax.swing.JMenu();
     addFlightMenuItem = new javax.swing.JMenuItem();
     userMenu = new javax.swing.JMenu();
     userCreationMenuItem = new javax.swing.JMenuItem();
+
+    customerMenu.setName("customerMenu");
+    ticketMenu.setName("ticketMenu");
+    flightMenu.setName("flightMenu");
+    userMenu.setName("userMenu");
+
+    addCustomerMenuItem.setName("addCustomerMenuItem");
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -180,7 +189,7 @@ public class Main extends javax.swing.JFrame {
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void bookTicketButtonClicked(
+  public void bookTicketButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem3ActionPerformed
 
     TicketController t = new TicketController();

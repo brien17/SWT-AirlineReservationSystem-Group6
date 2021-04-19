@@ -1,5 +1,6 @@
 public class MainMock extends Main {
 
+
     private boolean visible = false;
 
     @Override

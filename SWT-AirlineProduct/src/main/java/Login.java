@@ -200,7 +200,7 @@ public class Login extends javax.swing.JFrame {
     String username = txtuser.getText();
     String password = txtpass.getText();
 
-    login(username, password, new Main());
+    login(username, password, new Main(), "com.mysql.jdbc.Driver");
   } // GEN-LAST:event_jButton1ActionPerformed
 
   /**
@@ -210,14 +210,14 @@ public class Login extends javax.swing.JFrame {
    * @param username the username of the user to log in
    * @param password the password of the user to log in
    */
-  String login(String username, String password, Main main) {
+  String login(String username, String password, Main main, String sqlDriver) {
     if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
       return "UserName or Password Blank";
     } else {
       String out = "";
       try {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName(sqlDriver);
         con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
         pst = con.prepareStatement("select * from user where username = ? and password = ?");
         pst.setString(1, username);
@@ -278,12 +278,12 @@ public class Login extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton loginButton;
+  javax.swing.JButton loginButton;
   private javax.swing.JButton cancelButton;
   private javax.swing.JLabel usernameLabel;
   private javax.swing.JLabel passwordLabel;
   private javax.swing.JPanel jPanel1;
-  private javax.swing.JPasswordField txtpass;
-  private javax.swing.JTextField txtuser;
+  javax.swing.JPasswordField txtpass;
+  javax.swing.JTextField txtuser;
   // End of variables declaration//GEN-END:variables
 }
