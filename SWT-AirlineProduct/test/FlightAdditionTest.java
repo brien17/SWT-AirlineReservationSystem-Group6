@@ -30,16 +30,18 @@ public class FlightAdditionTest {
   }
 
   /**
-   * Test Case ID:
-   * Requirement ID/Description:
+   * Test Case ID: TC - 15
+   * Requirement ID/Description: SR-F-05 The system shall allow users to create flights by
+   *     entering a flight name, source, destination, date, departure time, arrival time,
+   *     and the price of the flight.
    * Purpose: Test that a user is able to add a valid flight to the database.
-   * Test Setup:
-   * Test Strategy:
+   * Test Setup: An instance of the FlightAdditionController class is created.
+   * Test Strategy: Unidimensional equivalence class partitioning
    * Input: India Air,	India,	Usa	,2021-04-01,	12:00 PM,	1:00 PM	, $100
    * Expected Output: "valid"
    */
   @Test
-  public void validFlightTest() {
+  public void testValidFlight() {
     flightAdditionTest.airlineNameInput.setText("India Air");
     flightAdditionTest.sourceInput.setSelectedItem("India");
     flightAdditionTest.destinationInput.setSelectedItem("Usa");
@@ -72,8 +74,20 @@ public class FlightAdditionTest {
    * Input: 5,	India,	India	,1975-04-01,	13:00 PM,	13:00 AM	, n/a
    * Expected Output: "valid"
    */
+
+  /**
+   * Test Case ID: TC - 16
+   * Requirement ID/Description: SR-F-05 The system shall allow users to create flights by
+   *     entering a flight name, source, destination, date, departure time, arrival time,
+   *     and the price of the flight.
+   * Purpose: Test that a user is unable to add an invalid flight to the database.
+   * Test Setup: An instance of the FlightAdditionController class is created.
+   * Test Strategy: Unidimensional equivalence class partitioning
+   * Input: 5,	India,	India	,1975-04-01,	13:00 PM,	13:00 AM	, n/a
+   * Expected Output: ""
+   */
   @Test
-  public void invalidFlightTest() {
+  public void testInvalidFlight() {
     flightAdditionTest.airlineNameInput.setText("5");
     flightAdditionTest.sourceInput.setSelectedItem("India");
     flightAdditionTest.destinationInput.setSelectedItem("India");
@@ -107,11 +121,21 @@ public class FlightAdditionTest {
    * Purpose: Test that a user is able to add a valid flight to the database.
    * Test Setup:
    * Test Strategy:
-   * Input: "",	India,	India	, null Date,	"",	""	, ""
    * Expected Output: "valid"
    */
+  /**
+   * Test Case ID: TC - 17
+   * Requirement ID/Description: SR-F-05 The system shall allow users to create flights by
+   *     entering a flight name, source, destination, date, departure time, arrival time,
+   *     and the price of the flight.
+   * Purpose: Test that a user is given an error message without runtime errors for null inputs.
+   * Test Setup: An instance of the FlightAdditionController class is created.
+   * Test Strategy: Unidimensional equivalence class partitioning
+   * Input: "",	India,	India	, null Date,	"",	""	, ""
+   * Expected Output: ""
+   */
   @Test
-  public void emptyFlightTest() {
+  public void testEmptyFlight() {
 
     String output = flightAdditionTest.addFlightActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
     /*

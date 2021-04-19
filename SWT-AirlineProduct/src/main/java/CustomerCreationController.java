@@ -66,7 +66,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
   private String id;
 
   private javax.swing.JScrollPane addressBox;
-  private javax.swing.JRadioButton maleButton;
+  public javax.swing.JRadioButton maleButton;
   private javax.swing.JRadioButton femaleButton;
 
   private javax.swing.JTextArea addressInput;
@@ -484,7 +484,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
    * the Customer table in the database
    * @param evt
    */
-  public void addCustomerActionPerformed (
+  public String addCustomerActionPerformed (
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //      boolean isValidSex = false;
 //      boolean isValidFirstName = false;
@@ -513,14 +513,13 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       Date date = new Date();
       String dateString = "";
       String errorTrace = "";
-     // try {
+      try {
         date = dateOfBirthInput.getDate();
         dateString = da.format(date);
 
-//      } catch (NullPointerException ex){
-//        errorTrace = ex.toString();
-//    }
-//    System.out.println(errorTrace);
+      } catch (NullPointerException ex){
+        errorTrace = ex.toString();
+    }
 
 
 //      if(date != null) {
@@ -545,7 +544,8 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       String contact = contactInput.getText();
 
       String output = addCustomer(id,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
-      System.out.println(output);
+//      System.out.println(output);
+      return errorTrace;
 
   }
 
@@ -598,6 +598,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
 
     } catch (Exception ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
+      errorTrace = ex.getMessage();
     }
     return errorTrace;
 

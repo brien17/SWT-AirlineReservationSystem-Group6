@@ -61,7 +61,7 @@ CREATE TABLE `flight` (
   `id` varchar(255) NOT NULL,
   `flightname` varchar(255) NOT NULL,
   `source` varchar(255) NOT NULL,
-  `depart` varchar(255) NOT NULL,
+  `destination` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   `deptime` varchar(255) NOT NULL,
   `arrtime` varchar(255) NOT NULL,
