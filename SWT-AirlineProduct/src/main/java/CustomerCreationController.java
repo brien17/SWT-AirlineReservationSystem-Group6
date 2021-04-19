@@ -23,9 +23,6 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-
-
-
 /**
  * This class builds a CustomerCreationView
  */
@@ -415,7 +412,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
 
       String nextID = rs.getString("MAX(id)");
 
-      if(test.equals("test")){
+      if (test.equals("test")) {
         nextID = null;
       }
 
@@ -473,7 +470,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       userimage = baos.toByteArray();
 
 
-    } catch (IOException | NullPointerException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
     }
 
@@ -483,76 +480,43 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
   /**
    * This method fetches user data from the input fields and inserts it into
    * the Customer table in the database
+   *
    * @param evt
    */
-  public void addCustomerActionPerformed (
-      java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//      boolean isValidSex = false;
-//      boolean isValidFirstName = false;
-//      boolean isValidLastName = false;
-//      boolean isValidPassport = false;
-//      boolean isValidDateOfBirth = false;
+  public void addCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-//      String userErrorOutput = "Please enter the incorrect/missing information:";
+    id = customerID.getText();
 
-      id = customerID.getText();
+    String firstname = firstNameInput.getText();
+    String lastname = lastNameInput.getText();
+    String nic = nicNumInput.getText();
+    String passport = passportIDInput.getText();
+    String address = addressInput.getText();
 
-      String firstname = firstNameInput.getText();
-//        if(firstname.equals("")) {
-//          isValidFirstName = false;
-//       } else {
-//          isValidFirstName = true;
-//          userErrorOutput += "\nFirst Name";
-//
-//        }
-      String lastname = lastNameInput.getText();
-      String nic = nicNumInput.getText();
-      String passport = passportIDInput.getText();
-      String address = addressInput.getText();
+    DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+    Date date = new Date();
+    String dateString = "";
+    String errorTrace = "";
+    date = dateOfBirthInput.getDate();
+    dateString = da.format(date);
 
-      DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-      Date date = new Date();
-      String dateString = "";
-      String errorTrace = "";
-     // try {
-        date = dateOfBirthInput.getDate();
-        dateString = da.format(date);
+    String sex = "";
 
-//      } catch (NullPointerException ex){
-//        errorTrace = ex.toString();
-//    }
-//    System.out.println(errorTrace);
+    if (maleButton.isSelected()) {
+      sex = "Male";
+    } else {
+      sex = "Female";
+    }
 
+    String contact = contactInput.getText();
 
-//      if(date != null) {
-//        dateString = da.format(date);
-//        isValidDateOfBirth = true;
-//      } else{
-//        userErrorOutput += "\nDate of Birth";
-//      }
-      String sex = "";
-
-      if (maleButton.isSelected()) {
-        sex = "Male";
-      } else {
-        sex = "Female";
-
-      }
-//
-//      else {
-//        isValidSex = false;
-//      }
-
-      String contact = contactInput.getText();
-
-      String output = addCustomer(id,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
-      System.out.println(output);
+    String output = addCustomer(id, firstname, lastname, nic, passport, address, date, sex, contact, userimage, errorTrace);
+    System.out.println(output);
 
   }//GEN-LAST:event_jButton2ActionPerformed
 
   String addCustomer(String id, String firstName, String lastName, String nic, String passportID, String address, Date date,
-      String sex, String contact, byte[] userImage, String errorTrace){
-
+                     String sex, String contact, byte[] userImage, String errorTrace) {
 
 
     try {
@@ -580,10 +544,11 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       pst.executeUpdate();
 
       JOptionPane.showMessageDialog(null, "Registation Createdd.........");
-      return "Registation Createdd.........";
+      errorTrace = "Registation Createdd.........";
 
     } catch (Exception ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
+      errorTrace = "";
     }
     return errorTrace;
 
@@ -591,6 +556,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
 
   /**
    * Closes the customer Creation window
+   *
    * @param evt
    */
   private void closeButtonActionPerformed(

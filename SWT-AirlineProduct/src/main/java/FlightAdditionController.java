@@ -39,7 +39,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
   private javax.swing.JLabel arrivalTimeLabel;
   private javax.swing.JLabel flightChargeLabel;
   private javax.swing.JPanel jPanel1;
-  
+
   private javax.swing.JTextField arrivalTimeInput;
   private com.toedter.calendar.JDateChooser dateInput;
   private javax.swing.JComboBox<String> destinationInput;
@@ -186,7 +186,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
                                 .addComponent(arrivalTimeInput)
                                 .addComponent(flightChargeInput))
                         )
-                        )
+                )
                 .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
                 jPanel1Layout.createSequentialGroup()
@@ -364,6 +364,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
 
   /**
    * Closes the Flight Addition window
+   *
    * @param evt
    */
   private void closeButtonActionPerformed(

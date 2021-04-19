@@ -1,5 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -31,7 +34,10 @@ public class CustomerCreationTest {
   public void setUp(){
     customerCreationTest = new CustomerCreationController();
 
+
   }
+
+
 
   @Test
   public void validCustomerTest() throws IOException {
@@ -108,9 +114,12 @@ public class CustomerCreationTest {
     assertEquals("", output);
   }
 
+
   @AfterEach
   public void tearDown(){
+
     customerCreationTest = null;
+
   }
 
   private static byte[] convertFileToByteArray(File file){

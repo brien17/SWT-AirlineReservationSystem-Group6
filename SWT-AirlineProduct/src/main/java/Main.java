@@ -2,7 +2,9 @@ import javax.swing.*;
 
 public class Main extends javax.swing.JFrame {
 
-  /** Creates new form Main */
+  /**
+   * Creates new form Main
+   */
   public Main() {
     initComponents();
   }
@@ -144,6 +146,7 @@ public class Main extends javax.swing.JFrame {
   /**
    * This method takes in instance of the CustomerCreationController class and adds it to the desktop pane and sets its
    * visibility true
+   *
    * @param customerCreationController The instance to add to the desktop pane and make visible
    */
   void showCustomerCreation(CustomerCreationController customerCreationController) {
@@ -171,6 +174,7 @@ public class Main extends javax.swing.JFrame {
   /**
    * This method takes in instance of the CustomerSearchController class and adds it to the desktop pane and sets its
    * visibility true.
+   *
    * @param customerSearchController The instance to add to the desktop pane and make visible
    */
   void showSearchCustomer(CustomerSearchController customerSearchController) {
@@ -198,10 +202,11 @@ public class Main extends javax.swing.JFrame {
   /**
    * This method takes in instance of the FlightAdditionController class and adds it to the desktop pane and sets its
    * visibility true.
+   *
    * @param flightAdditionController The instance to add to the desktop pane and make visible
    */
   void showAddFlight(FlightAdditionController flightAdditionController) {
-    try{
+    try {
       jDesktopPane1.add(flightAdditionController);
       flightAdditionController.setVisible(true);
     } catch (NullPointerException np) {
@@ -226,6 +231,7 @@ public class Main extends javax.swing.JFrame {
   /**
    * This method takes in instance of the TicketController class and adds it to the desktop pane and sets its
    * visibility true.
+   *
    * @param ticketController The instance to add to the desktop pane and make visible
    */
   void showBookTicket(TicketController ticketController) {
@@ -254,6 +260,7 @@ public class Main extends javax.swing.JFrame {
   /**
    * This method takes in instance of the TicketReportController class and adds it to the desktop pane and sets its
    * visibility true.
+   *
    * @param ticketReportController The instance to add to the desktop pane and make visible
    */
   void showTicketReport(TicketReportController ticketReportController) {
@@ -282,6 +289,7 @@ public class Main extends javax.swing.JFrame {
   /**
    * This method takes in instance of the UserCreationController class and adds it to the desktop pane and sets its
    * visibility true.
+   *
    * @param userCreationController The instance to add to the desktop pane and make visible
    */
   void showCreateUserScreen(UserCreationController userCreationController) {
@@ -294,14 +302,16 @@ public class Main extends javax.swing.JFrame {
     }
   }
 
-  /** @param args the command line arguments */
+  /**
+   * @param args the command line arguments
+   */
   public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
-      for (javax.swing.UIManager.LookAndFeelInfo info :
-          javax.swing.UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-        }
+    for (javax.swing.UIManager.LookAndFeelInfo info :
+        javax.swing.UIManager.getInstalledLookAndFeels()) {
+      if ("Nimbus".equals(info.getName())) {
+        javax.swing.UIManager.setLookAndFeel(info.getClassName());
       }
+    }
 
     // </editor-fold>
 
