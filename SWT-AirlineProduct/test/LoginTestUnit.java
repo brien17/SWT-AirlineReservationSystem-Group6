@@ -32,7 +32,7 @@ public class LoginTestUnit {
     }
 
     /**
-     * Test Case ID: TC-01
+     * Test Case ID: TC-L-01
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user is able to log in by providing a valid UserId and Password
      * Test Setup: An instance of the Login class is created and the login method is called with a valid username and
@@ -53,7 +53,7 @@ public class LoginTestUnit {
     }
 
     /**
-     * Test Case ID: TC-02
+     * Test Case ID: TC-L-02
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user will be denied access and a message will be displayed when providing an invalid UserId
      *          and Password combination.
@@ -79,7 +79,7 @@ public class LoginTestUnit {
     }
 
     /**
-     * Test Case ID: TC-03
+     * Test Case ID: TC-L-03
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user will be denied access and a special message will be displayed when attempting to
      *          login with a blank UserId.
@@ -102,7 +102,7 @@ public class LoginTestUnit {
     }
 
     /**
-     * Test Case ID: TC-04
+     * Test Case ID: TC-L-04
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user will be denied access and a special message will be displayed when attempting to
      *          login with a blank password.
@@ -126,7 +126,7 @@ public class LoginTestUnit {
 
 
     /**
-     * Test Case ID: TC-05
+     * Test Case ID: TC-L-05
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user will be denied access when a connection to the database cannot be established and
      *          that a message describing the error will be sent to the console and a message describing the error
