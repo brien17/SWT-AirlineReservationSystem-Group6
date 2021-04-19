@@ -31,27 +31,21 @@ public class CustomerSearchTest {
   }
 
   @Test
-  public void updateButtonTest() {
+  public void custSearchButtonTest() {
 
     update.updateCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
-  }
-
-  @Test
-  public void closeButtonTest() {
-
+    find.findButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
+    browse.browseButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
     update.closeButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
   }
 
-  @Test
-  public void findButtonTest() {
-
-    find.findButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
-  }
 
   @Test
-  public void browseButtonTest() {
+  public void updateSelectorTest() {
 
-    browse.browseButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
+    update.r1.setSelected(true);
+    update.updateCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
+
   }
 
   @Test

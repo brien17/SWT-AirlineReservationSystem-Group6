@@ -22,14 +22,9 @@ public class UserTest {
   }
 
   @Test
-  public void addButtonTest() {
+  public void userButtonTest() {
 
     add.addButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
-  }
-
-  @Test
-  public void cancelButtonTest() {
-
     add.cancelButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
   }
 
