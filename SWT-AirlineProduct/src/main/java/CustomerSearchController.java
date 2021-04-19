@@ -9,9 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -64,17 +62,17 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JRadioButton r1;
-  private javax.swing.JRadioButton r2;
-  private javax.swing.JTextArea txtaddress;
-  private javax.swing.JTextField txtcontact;
-  private javax.swing.JTextField txtcustid;
-  private javax.swing.JTextField txtfirstname;
-  private javax.swing.JTextField txtlastname;
-  private javax.swing.JTextField txtnic;
-  private javax.swing.JTextField txtpassport;
-  private javax.swing.JLabel txtphoto;
-  private com.toedter.calendar.JDateChooser txtdob;
+  javax.swing.JRadioButton r1;
+  javax.swing.JRadioButton r2;
+  javax.swing.JTextArea txtaddress;
+  javax.swing.JTextField txtcontact;
+  javax.swing.JTextField txtcustid;
+  javax.swing.JTextField txtfirstname;
+  javax.swing.JTextField txtlastname;
+  javax.swing.JTextField txtnic;
+  javax.swing.JTextField txtpassport;
+  javax.swing.JLabel txtphoto;
+  com.toedter.calendar.JDateChooser txtdob;
   // End of variables declaration//GEN-END:variables
 
   /**
@@ -86,7 +84,7 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
 
 
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+  void initComponents() {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
@@ -373,28 +371,29 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
     // TODO add your handling code here:
   }//GEN-LAST:event_txtpassportActionPerformed
 
-  private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
-    browse();
+    browse("");
   }
 
-  void browse() {
+  Boolean browse(String path) {
 
+    Boolean retVal = null;
     try {
-      JFileChooser picchooser = new JFileChooser();
-      picchooser.showOpenDialog(null);
-      File pic = picchooser.getSelectedFile();
-      FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images", "png", "jpg");
-      picchooser.addChoosableFileFilter(filter);
-      path = pic.getAbsolutePath();
-      BufferedImage img;
-      img = ImageIO.read(picchooser.getSelectedFile());
-      ImageIcon imageIcon = new ImageIcon(new
-          ImageIcon(img).getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT));
-      txtphoto.setIcon(imageIcon);
-
-
+      if (path.equals("")) {
+        JFileChooser picchooser = new JFileChooser();
+        picchooser.showOpenDialog(null);
+        File pic = picchooser.getSelectedFile();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images", "png", "jpg");
+        picchooser.addChoosableFileFilter(filter);
+        path = pic.getAbsolutePath();
+        BufferedImage img;
+        img = ImageIO.read(picchooser.getSelectedFile());
+        ImageIcon imageIcon = new ImageIcon(new
+            ImageIcon(img).getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT));
+        txtphoto.setIcon(imageIcon);
+      }
       File image = new File(path);
       FileInputStream fis = new FileInputStream(image);
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -403,16 +402,16 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
         baos.write(buff, 0, readNum);
       }
       userimage = baos.toByteArray();
+      retVal = true;
 
-
-    } catch (IOException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
+      retVal = false;
     }
-
-
+    return retVal;
   }//GEN-LAST:event_jButton1ActionPerformed
 
-  private void updateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+  public void updateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
 
     String id = txtcustid.getText();
@@ -421,7 +420,6 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
     String nic = txtnic.getText();
     String passport = txtpassport.getText();
     String address = txtaddress.getText();
-
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
     String date = "";
     String Gender;
@@ -429,20 +427,22 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
     if (r1.isSelected()) {
       Gender = "Male";
     } else {
-      Gender = "FeMale";
+      Gender = "Female";
     }
-
     String contact = txtcontact.getText();
 
-    update(id, firstname, lastname, nic, passport, address, date, Gender, contact, userimage);
+    update(id, firstname, lastname, nic, passport, address, date, Gender, contact, userimage, "com.mysql.jdbc.Driver");
   }
 
-  String update(String id, String firstname, String lastname, String nic, String passport, String address, String date, String gender, String contact, byte[] userimage) {
+  String update(String id, String firstname, String lastname, String nic, String passport, String address,
+                String date, String gender, String contact, byte[] userimage, String sqlDriver) {
 
+    String retVal = "";
     try {
-      Class.forName("com.mysql.jdbc.Driver");
+      Class.forName(sqlDriver);
       con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
-      pst = con.prepareStatement("update customer set firstname = ?,lastname = ?,nic = ?,passport = ?,address= ?,dob = ?,gender = ?,contact = ?,photo = ? where id = ?");
+      pst = con.prepareStatement("update customer set firstname = ?,lastname = ?,nic = ?,passport = ?," +
+          "address= ?, dob = ?,gender = ?,contact = ?,photo = ? where id = ?");
 
       pst.setString(1, firstname);
       pst.setString(2, lastname);
@@ -456,48 +456,41 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
       pst.setString(10, id);
       pst.executeUpdate();
 
-
       JOptionPane.showMessageDialog(null, "Registration Updated.........");
-      return "true";
-
-
-    } catch (ClassNotFoundException ex) {
+      retVal = "true";
+    } catch (Exception ex) {
       Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "class not found";
-    } catch (SQLException ex) {
-      Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "sql error";
+      retVal = "error";
     }
-
-
+    return retVal;
   }//GEN-LAST:event_jButton2ActionPerformed
 
-  private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+  void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     // TODO add your handling code here:
 
     this.hide();
   }//GEN-LAST:event_jButton3ActionPerformed
 
-  private void findButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+  void findButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
     // TODO add your handling code here:
 
     String id = txtcustid.getText();
-    find(id, con);
+    find(id, con, "com.mysql.jdbc.Driver");
   }
 
-  String find(String id, Connection con) {
+  String find(String id, Connection con, String sqlDriver) {
 
+    String retVal = "";
     try {
-      Class.forName("com.mysql.jdbc.Driver");
+      Class.forName(sqlDriver);
       con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
       pst = con.prepareStatement("select * from customer where id = ?");
       pst.setString(1, id);
       ResultSet rs = pst.executeQuery();
 
-
       if (rs.next() == false) {
         JOptionPane.showMessageDialog(this, "Record not Found");
-        return "false";
+        retVal = "false";
       } else {
         String fname = rs.getString("firstname");
         String lname = rs.getString("lastname");
@@ -519,11 +512,11 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
         if (gender.equals("Female")) {
           r1.setSelected(false);
           r2.setSelected(true);
-
         } else {
           r1.setSelected(true);
           r2.setSelected(false);
         }
+
         String contact = rs.getString("contact");
 
         txtfirstname.setText(fname.trim());
@@ -535,19 +528,12 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
         txtdob.setDate(date1);
 
         txtphoto.setIcon(newImage);
-
-        return "true";
-
+        retVal = "true";
       }
-    } catch (ClassNotFoundException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "class not found";
-    } catch (SQLException ex) {
-      Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "sql error";
-    } catch (ParseException ex) {
-      Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "parse error";
+      retVal = "error";
     }
+    return retVal;
   }//GEN-LAST:event_jButton4ActionPerformed
 }

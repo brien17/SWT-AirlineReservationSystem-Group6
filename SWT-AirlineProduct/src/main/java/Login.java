@@ -238,7 +238,8 @@ public class Login extends javax.swing.JFrame {
         }
       } catch (ClassNotFoundException | SQLException | NullPointerException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        out = "sql error";
+        JOptionPane.showMessageDialog(this, "Cannot connect to database");
+        out = "Cannot connect to database";
       }
       return out;
     }

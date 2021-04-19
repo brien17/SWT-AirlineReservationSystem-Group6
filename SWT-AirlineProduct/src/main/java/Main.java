@@ -1,12 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import javax.swing.*;
 
 public class Main extends javax.swing.JFrame {
 
-  /** Creates new form Main */
+  /**
+   * Creates new form Main
+   */
   public Main() {
     initComponents();
   }
@@ -134,120 +132,187 @@ public class Main extends javax.swing.JFrame {
 
   /**
    * This method runs when the add customer button is clicked, it creates a new instance of the
-   * CustomerCreationController class and sets it as visible on the screen.
+   * CustomerCreationController class and passes it into the showCustomerCreation method.
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void addCustomerButtonClicked(
+  void addCustomerButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem1ActionPerformed
 
     CustomerCreationController cus = new CustomerCreationController();
-    jDesktopPane1.add(cus);
-    cus.setVisible(true);
+    showCustomerCreation(cus);
   } // GEN-LAST:event_jMenuItem1ActionPerformed
 
   /**
+   * This method takes in instance of the CustomerCreationController class and adds it to the desktop pane and sets its
+   * visibility true
+   *
+   * @param customerCreationController The instance to add to the desktop pane and make visible
+   */
+  void showCustomerCreation(CustomerCreationController customerCreationController) {
+    try {
+      jDesktopPane1.add(customerCreationController);
+      customerCreationController.setVisible(true);
+    } catch (NullPointerException np) {
+      customerCreationController.setVisible(true);
+    }
+  }
+
+  /**
    * This method runs when the search customer button is clicked, it creates a new instance of the
-   * CustomerSearchController class and sets it as visible on the screen.
+   * CustomerSearchController class and passes it into the showSearchCustomer method.
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void searchCustomerButtonClicked(
+  void searchCustomerButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem2ActionPerformed
 
     CustomerSearchController scus = new CustomerSearchController();
-    jDesktopPane1.add(scus);
-    scus.setVisible(true);
+    showSearchCustomer(scus);
   } // GEN-LAST:event_jMenuItem2ActionPerformed
 
   /**
+   * This method takes in instance of the CustomerSearchController class and adds it to the desktop pane and sets its
+   * visibility true.
+   *
+   * @param customerSearchController The instance to add to the desktop pane and make visible
+   */
+  void showSearchCustomer(CustomerSearchController customerSearchController) {
+    try {
+      jDesktopPane1.add(customerSearchController);
+      customerSearchController.setVisible(true);
+    } catch (NullPointerException np) {
+      customerSearchController.setVisible(true);
+    }
+  }
+
+  /**
    * This method runs when the add flight button is clicked, it creates a new instance of the
-   * FlightAdditionController class and sets it as visible on the screen.
+   * FlightAdditionController class and passes it into the showAddFlight method.
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void addFlightButtonClicked(
+  void addFlightButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem4ActionPerformed
 
     FlightAdditionController f = new FlightAdditionController();
-    jDesktopPane1.add(f);
-    f.setVisible(true);
+    showAddFlight(f);
   } // GEN-LAST:event_jMenuItem4ActionPerformed
 
   /**
+   * This method takes in instance of the FlightAdditionController class and adds it to the desktop pane and sets its
+   * visibility true.
+   *
+   * @param flightAdditionController The instance to add to the desktop pane and make visible
+   */
+  void showAddFlight(FlightAdditionController flightAdditionController) {
+    try {
+      jDesktopPane1.add(flightAdditionController);
+      flightAdditionController.setVisible(true);
+    } catch (NullPointerException np) {
+      flightAdditionController.setVisible(true);
+
+    }
+  }
+
+  /**
    * This method runs when the book ticket button is clicked, it creates a new instance of the
-   * TicketController class and sets it as visible on the screen.
+   * TicketController class and passes it into the showBookTicket method.
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void bookTicketButtonClicked(
+  void bookTicketButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem3ActionPerformed
 
     TicketController t = new TicketController();
-    jDesktopPane1.add(t);
-    t.setVisible(true);
+    showBookTicket(t);
   } // GEN-LAST:event_jMenuItem3ActionPerformed
 
   /**
+   * This method takes in instance of the TicketController class and adds it to the desktop pane and sets its
+   * visibility true.
+   *
+   * @param ticketController The instance to add to the desktop pane and make visible
+   */
+  void showBookTicket(TicketController ticketController) {
+    try {
+      jDesktopPane1.add(ticketController);
+      ticketController.setVisible(true);
+    } catch (NullPointerException np) {
+      ticketController.setVisible(true);
+    }
+  }
+
+
+  /**
    * This method runs when the search ticket report button is clicked, it creates a new instance of
-   * the TicketReportController class and sets it as visible on the screen.
+   * the TicketReportController class and passes it into the showTicketReport method.
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void ticketReportButtonClicked(
+  void ticketReportButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem6ActionPerformed
 
     TicketReportController ti = new TicketReportController();
     showTicketReport(ti);
   } // GEN-LAST:event_jMenuItem6ActionPerformed
 
-  void showTicketReport(TicketReportController ticketController) {
-    jDesktopPane1.add(ticketController);
-    ticketController.setVisible(true);
+  /**
+   * This method takes in instance of the TicketReportController class and adds it to the desktop pane and sets its
+   * visibility true.
+   *
+   * @param ticketReportController The instance to add to the desktop pane and make visible
+   */
+  void showTicketReport(TicketReportController ticketReportController) {
+    try {
+      jDesktopPane1.add(ticketReportController);
+      ticketReportController.setVisible(true);
+    } catch (NullPointerException np) {
+      ticketReportController.setVisible(true);
+
+    }
   }
 
   /**
    * This method runs when the create user button is clicked, it creates a new instance of the
-   * UserCreationController class and sets it as visible on the screen.
+   * UserCreationController class and passes it into the showCreateUserScreen method.
    *
    * @param evt The click event provided by the user clicking the button
    */
-  private void createUserButtonClicked(
+  void createUserButtonClicked(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem5ActionPerformed
 
     UserCreationController u = new UserCreationController();
-    jDesktopPane1.add(u);
-    u.setVisible(true);
+    showCreateUserScreen(u);
   } // GEN-LAST:event_jMenuItem5ActionPerformed
 
-  /** @param args the command line arguments */
-  public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-     * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-     */
+  /**
+   * This method takes in instance of the UserCreationController class and adds it to the desktop pane and sets its
+   * visibility true.
+   *
+   * @param userCreationController The instance to add to the desktop pane and make visible
+   */
+  void showCreateUserScreen(UserCreationController userCreationController) {
     try {
-      for (javax.swing.UIManager.LookAndFeelInfo info :
-          javax.swing.UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-          break;
-        }
-      }
-    } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(Main.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(Main.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(Main.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(Main.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
+      jDesktopPane1.add(userCreationController);
+      userCreationController.setVisible(true);
+    } catch (NullPointerException np) {
+      userCreationController.setVisible(true);
+
     }
+  }
+
+  /**
+   * @param args the command line arguments
+   */
+  public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+    for (javax.swing.UIManager.LookAndFeelInfo info :
+        javax.swing.UIManager.getInstalledLookAndFeels()) {
+      if ("Nimbus".equals(info.getName())) {
+        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+      }
+    }
+
     // </editor-fold>
 
     /* Create and display the form */
