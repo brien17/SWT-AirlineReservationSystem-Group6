@@ -21,7 +21,6 @@ public class CustomerSearchTest {
   byte[] userimage;
 
 
-
   // Initialize the find and update objects
   @BeforeEach
   public void searchBuild() {
@@ -30,56 +29,68 @@ public class CustomerSearchTest {
     browse = new CustomerSearchController();
   }
 
+  /**
+   * Purpose: A simple manual GUI testcase to assist with reaching line and branch coverage of the CustomerSearchController
+   * class. The test pulls button actions from CustomerSearchController to show that the system can perform button clicks
+   * for the update button, find button, browse button, and close button.
+   */
 
   @Test
   public void customerSearchButtonTest() {
 
-    update.updateCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
-    find.findButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
-    browse.browseButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
-    update.closeButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
+    update.updateCustomerActionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, ""));
+    find.findButtonActionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, ""));
+    browse.browseButtonActionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, ""));
+    update.closeButtonActionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, ""));
   }
 
+  /**
+   * Purpose: A simple testcase to assist with reaching line and branch coverage of the CustomerSearchController class.
+   * The test sets a radio option in the GUI to the Male option, and this allows the test case to run through the if
+   * statement block to test if the GUI works.
+   */
 
   @Test
-  public void updateMaleSelectorTest() {
+  public void updateSelectorTest() {
 
     update.r1.setSelected(true);
-    update.updateCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
+    update.updateCustomerActionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, ""));
 
   }
 
   /**
    * Test Case ID: TC-CS-01
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose: Test that the file chooser from the browse button takes a correct file path and completes the browse.
+   * Test Setup: An instance of the CustomerSearchController class is created and the browse method is called with a
+   * file path to the appropriate jpg file. An assertEquals method is used to confirm that the browse method completed
+   * successfully.
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
+   * Input: "./resources/default.jpg"
    * Expected Output: true
    */
   @Test
-    public void validBrowseTest() {
+  public void validBrowseTest() {
 
-      String path = "./resources/default.jpg";
-      Boolean output = browse.browse(path);
+    String path = "./resources/default.jpg";
+    Boolean output = browse.browse(path);
 
-      assertEquals(true, output);
+    assertEquals(true, output);
 
   }
 
   /**
    * Test Case ID: TC-CS-02
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose: Test that the method will fail with an IOException by setting the path parameter to null.
+   * Test Setup: An instance of the CustomerSearchController class is created and the browse method is called with a
+   * null file path. An assertEquals method is used to confirm that the browse method reaches an IO Exception and
+   * returns false.
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
-   * Expected Output: true
+   * Input: null
+   * Expected Output: false
    */
   @Test
   public void invalidBrowseTest() {
@@ -92,16 +103,16 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-03
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose: Test that a user can find a valid male user from the find button by inputting a valid customerID.
+   * Test Setup: An instance of the CustomerSearchController class is created and the find method is called with a valid
+   * male customerID and a proper database connection driver. An assertEquals method is used to confirm that the find
+   * method successfully completes by returning "true".
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
-   * Expected Output: true
+   * Input: "cs001", null, "com.mysql.jdbc.Driver"
+   * Expected Output: "true"
    */
-  // Equivalence Testing - Locating a user from the database after hitting the find button
   @Test
   public void validMaleFindTest() {
     // Sample inputs
@@ -114,16 +125,16 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-04
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose: Test that a user can find a valid female user from the find button by inputting a valid customerID.
+   * Test Setup: An instance of the CustomerSearchController class is created and the find method is called with a valid
+   * female customerID and a proper database connection driver. An assertEquals method is used to confirm that the find
+   * method successfully completes by returning "true".
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
-   * Expected Output: true
+   * Input: "cs002", null, "com.mysql.jdbc.Driver"
+   * Expected Output: "true"
    */
-  // Equivalence Testing - Locating a user from the database after hitting the find button
   @Test
   public void validFemaleFindTest() {
     // Sample inputs
@@ -136,16 +147,16 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-05
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose: Test that if an invalid customerID was submitted, the system will provide an failure to find error message.
+   * Test Setup: An instance of the CustomerSearchController class is created and the find method is called with an
+   * invalid customerID and a proper connection to the mySQL java database. An assertEquals method is used to confirm
+   * that the find method will fail if provided an invalid customerID.
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
-   * Expected Output: true
+   * Input: "CS1", null, "com.mysql.jdbc.Driver"
+   * Expected Output: "false"
    */
-  // Invalid case - incorrect characters
   @Test
   public void failToFindTest() {
     // Sample inputs
@@ -158,14 +169,15 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-06
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose: Test that the system will provide an error message if the system is not properly connected to the database.
+   * Test Setup: An instance of the CustomerSearchController class is created and the find method is called without a
+   * driver to connect to the mySQL java database. An assertEquals method is used to confirm that the find method will
+   * fail due to a lack of a secure connection to the database.
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
-   * Expected Output: true
+   * Input: "CS1", null, ""
+   * Expected Output: "error"
    */
   // Invalid case - incorrect characters
   @Test
@@ -180,13 +192,12 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-07
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose:
+   * Test Setup:
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
+   * Input: "", null, "com.mysql.jdbc.Driver"
    * Expected Output: true
    */
   // Invalid case - blank input
@@ -202,13 +213,13 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-08
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose:
+   * Test Setup:
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
+   * Input: "CS001", "Randy", "Marsh", "00000000A", "123456789", "1600 Pennsylvania Avenue NW Washington, DC, 20500",
+   * "1949-04-08", "Male", "1234567890", userimage, "com.mysql.jdbc.Driver"
    * Expected Output: true
    */
   @Test
@@ -239,13 +250,13 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-09
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose:
+   * Test Setup:
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
+   * Input: "CS002", "Sandy", "Marsh", "00000000A", "123456789", "1600 Pennsylvania Avenue NW Washington, DC, 20500",
+   * "1949-04-08", "Female", "1234567890", userimage, "com.mysql.jdbc.Driver"
    * Expected Output: true
    */
   @Test
@@ -276,14 +287,14 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-10
-   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
-   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
-   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
-   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
-   *              CustomerCreationContoller is added to the desktop pane
+   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * by entering a valid Customer ID.
+   * Purpose:
+   * Test Setup:
    * Test Strategy: Use case testing was used to develop test cases for this requirement
-   * Input: ActionEvent: null
-   * Expected Output: true
+   * Input: "CS001", "Randy", "Marsh", "00000000A", "123456789", "1600 Pennsylvania Avenue NW Washington, DC, 20500",
+   * "1949-04-08", "Male", "1234567890", userimage, ""
+   * Expected Output: "error"
    */
   @Test
   public void failToConnectUpdateTest() throws IOException {
@@ -306,7 +317,8 @@ public class CustomerSearchTest {
     }
     userimage = baos.toByteArray();
 
-    String output = update.update(customerID, firstname, lastname, nic, passport, address, dateString, sex, contact, userimage, "");
+    String output = update.update(customerID, firstname, lastname, nic, passport, address,
+        dateString, sex, contact, userimage, "");
     assertEquals("error", output);
   }
 
