@@ -461,12 +461,9 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
       return "true";
 
 
-    } catch (ClassNotFoundException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "class not found";
-    } catch (SQLException ex) {
-      Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "sql error";
+      return "error";
     }
 
 
@@ -539,15 +536,9 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
         return "true";
 
       }
-    } catch (ClassNotFoundException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "class not found";
-    } catch (SQLException ex) {
-      Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "sql error";
-    } catch (ParseException ex) {
-      Logger.getLogger(CustomerSearchController.class.getName()).log(Level.SEVERE, null, ex);
-      return "parse error";
+      return "error";
     }
   }//GEN-LAST:event_jButton4ActionPerformed
 }

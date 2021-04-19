@@ -309,9 +309,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
       }
 
 
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
     }
 
@@ -358,9 +356,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
       pst.executeUpdate();
 
       JOptionPane.showMessageDialog(null, "Flight Createdd.........");
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
     }
 

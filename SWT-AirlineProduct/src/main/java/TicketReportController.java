@@ -127,9 +127,7 @@ public class TicketReportController extends javax.swing.JInternalFrame {
             }
 
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TicketReportController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(TicketReportController.class.getName()).log(Level.SEVERE, null, ex);
         }
 

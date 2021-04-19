@@ -463,9 +463,7 @@ public class TicketController extends javax.swing.JInternalFrame {
 
                 Df.addRow(v2);
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -495,9 +493,7 @@ public class TicketController extends javax.swing.JInternalFrame {
                 txtticketno.setText("TO" + String.format("%03d", id));
             }
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -539,9 +535,7 @@ public class TicketController extends javax.swing.JInternalFrame {
                 txtpassport.setText(passport.trim());
             }
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -618,9 +612,7 @@ public class TicketController extends javax.swing.JInternalFrame {
 
 
                 JOptionPane.showMessageDialog(null, "Ticket Booked.");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(FlightAdditionController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{
@@ -636,24 +628,16 @@ public class TicketController extends javax.swing.JInternalFrame {
 
          if(flightid.equals("")){
              isValid = false;
-//             JOptionPane.showMessageDialog(null, " Flight number cannot be empty. " +
-//                     "Please select a flight to book.");
          }
 
          if(custid.equals("")){
              isValid = false;
-//             JOptionPane.showMessageDialog(null, " Customer ID cannot be empty. " +
-//                     "Please select a customer ID.");
          }
 
          if(numSeats <= 0){
              isValid = false;
-//             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
-//                     "and less than 10.");
          }else if(numSeats > 9){
              isValid = false;
-//             JOptionPane.showMessageDialog(null, "Number of seats must be greater than 0 " +
-//                     "and less than 10.");
          }
 
         return isValid;

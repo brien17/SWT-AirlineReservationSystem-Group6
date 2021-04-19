@@ -227,12 +227,9 @@ public class UserCreationController extends javax.swing.JInternalFrame {
 
       JOptionPane.showMessageDialog(null, "User Created.........");
       return "true";
-    } catch (ClassNotFoundException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(UserCreationController.class.getName()).log(Level.SEVERE, null, ex);
-      return "class not found";
-    } catch (SQLException ex) {
-      Logger.getLogger(UserCreationController.class.getName()).log(Level.SEVERE, null, ex);
-      return "sql error";
+      return "error";
     }
   }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -258,9 +255,7 @@ public class UserCreationController extends javax.swing.JInternalFrame {
         txtuserid.setText("UO" + String.format("%03d", id));
       }
 
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(UserCreationController.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(UserCreationController.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
