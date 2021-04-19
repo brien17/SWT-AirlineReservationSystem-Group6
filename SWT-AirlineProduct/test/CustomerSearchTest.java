@@ -30,6 +30,7 @@ public class CustomerSearchTest {
     browse = new CustomerSearchController();
   }
 
+
   @Test
   public void customerSearchButtonTest() {
 
@@ -48,14 +49,17 @@ public class CustomerSearchTest {
 
   }
 
-  @Test
-  public void updateFemaleSelectorTest() {
-
-    update.r2.setSelected(true);
-    update.updateCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
-
-  }
-
+  /**
+   * Test Case ID: TC-CS-01
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   @Test
     public void validBrowseTest() {
 
@@ -66,6 +70,17 @@ public class CustomerSearchTest {
 
   }
 
+  /**
+   * Test Case ID: TC-CS-02
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   @Test
   public void invalidBrowseTest() {
 
@@ -75,6 +90,17 @@ public class CustomerSearchTest {
 
   }
 
+  /**
+   * Test Case ID: TC-CS-03
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   // Equivalence Testing - Locating a user from the database after hitting the find button
   @Test
   public void validMaleFindTest() {
@@ -86,6 +112,17 @@ public class CustomerSearchTest {
     assertEquals("true", output);
   }
 
+  /**
+   * Test Case ID: TC-CS-04
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   // Equivalence Testing - Locating a user from the database after hitting the find button
   @Test
   public void validFemaleFindTest() {
@@ -97,6 +134,17 @@ public class CustomerSearchTest {
     assertEquals("true", output);
   }
 
+  /**
+   * Test Case ID: TC-CS-05
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   // Invalid case - incorrect characters
   @Test
   public void failToFindTest() {
@@ -108,6 +156,17 @@ public class CustomerSearchTest {
     assertEquals("false", output);
   }
 
+  /**
+   * Test Case ID: TC-CS-06
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   // Invalid case - incorrect characters
   @Test
   public void failToConnectFindTest() {
@@ -119,6 +178,17 @@ public class CustomerSearchTest {
     assertEquals("error", output);
   }
 
+  /**
+   * Test Case ID: TC-CS-07
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   // Invalid case - blank input
   @Test
   public void blankFindTest() {
@@ -130,6 +200,17 @@ public class CustomerSearchTest {
     assertEquals("false", output);
   }
 
+  /**
+   * Test Case ID: TC-CS-08
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   @Test
   public void validMaleUpdateTest() throws IOException {
     String customerID = "CS001";
@@ -156,6 +237,17 @@ public class CustomerSearchTest {
     assertEquals("true", output);
   }
 
+  /**
+   * Test Case ID: TC-CS-09
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   @Test
   public void validFemaleUpdateTest() throws IOException {
     String customerID = "CS002";
@@ -182,6 +274,17 @@ public class CustomerSearchTest {
     assertEquals("true", output);
   }
 
+  /**
+   * Test Case ID: TC-CS-10
+   * Requirement ID/Description: SR-F-10: The system shall allow the user to open new screens from the Main menu
+   * Purpose: Test that a user is able open the Add Customer screen and that it added to the Main desktop pane
+   * Test Setup: An instance of the Main class is created and the addCustomerButtonClicked method is invoked with
+   *              null passed in as the parameter, then the assertTrue method is used confirm that an instance of the
+   *              CustomerCreationContoller is added to the desktop pane
+   * Test Strategy: Use case testing was used to develop test cases for this requirement
+   * Input: ActionEvent: null
+   * Expected Output: true
+   */
   @Test
   public void failToConnectUpdateTest() throws IOException {
     String customerID = "CS001";
