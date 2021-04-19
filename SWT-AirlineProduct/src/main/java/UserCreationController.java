@@ -1,16 +1,14 @@
 
 
-    import java.sql.Connection;
-    import java.sql.DriverManager;
-    import java.sql.PreparedStatement;
-    import java.sql.ResultSet;
-    import java.sql.SQLException;
-    import java.sql.Statement;
-    import java.text.DateFormat;
-    import java.text.SimpleDateFormat;
-    import java.util.logging.Level;
-    import java.util.logging.Logger;
-    import javax.swing.JOptionPane;
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,7 +24,7 @@ public class UserCreationController extends javax.swing.JInternalFrame {
    */
   public UserCreationController() {
     initComponents();
-    autoID();
+    autoID("com.mysql.jdbc.Driver", false);
   }
 
   Connection con;
@@ -185,7 +183,7 @@ public class UserCreationController extends javax.swing.JInternalFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-  private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
     String firstname = txtfirstname.getText();
@@ -193,7 +191,7 @@ public class UserCreationController extends javax.swing.JInternalFrame {
     String username = txtusername.getText();
     String password = txtpassword.getText();
 
-    add(firstname, lastname, username, password, con);
+    add(firstname, lastname, username, password, con, "com.mysql.jdbc.Driver");
 
   }
 
@@ -209,11 +207,12 @@ public class UserCreationController extends javax.swing.JInternalFrame {
    * @return String - set of returns for error testing, "true" if the user was stored in the database,
    * "class not found" or "sql error" occur if either exception is thrown.
    */
-  String add(String firstname, String lastname, String username, String password, Connection con) {
+  String add(String firstname, String lastname, String username, String password, Connection con, String sqlDriver) {
 
+    String retVal = "";
     try {
       String id = txtuserid.getText();
-      Class.forName("com.mysql.jdbc.Driver");
+      Class.forName(sqlDriver);
       con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
       pst = con.prepareStatement("insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
 
@@ -226,43 +225,49 @@ public class UserCreationController extends javax.swing.JInternalFrame {
       pst.executeUpdate();
 
       JOptionPane.showMessageDialog(null, "User Created.........");
-      return "true";
-    } catch (ClassNotFoundException ex) {
+      retVal = "true";
+    } catch (Exception ex) {
       Logger.getLogger(UserCreationController.class.getName()).log(Level.SEVERE, null, ex);
-      return "class not found";
-    } catch (SQLException ex) {
-      Logger.getLogger(UserCreationController.class.getName()).log(Level.SEVERE, null, ex);
-      return "sql error";
+      retVal = "error";
     }
+    return retVal;
   }//GEN-LAST:event_jButton1ActionPerformed
 
-  private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+  void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
     this.hide();
   }//GEN-LAST:event_jButton2ActionPerformed
 
+  public String autoID(String sqlDriver, boolean testNull) {
 
-  public void autoID() {
+    String retID = "";
     try {
-      Class.forName("com.mysql.jdbc.Driver");
+      Class.forName(sqlDriver);
       con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
       Statement s = con.createStatement();
       ResultSet rs = s.executeQuery("select MAX(id) from user");
       rs.next();
       rs.getString("MAX(id)");
-      if (rs.getString("MAX(id)") == null) {
+
+      String testID = rs.getString("MAX(id)");
+      if (testNull == true) {
+        testID = null;
+      }
+      if (testID == null) {
         txtuserid.setText("UO001");
+        retID = "UO001";
       } else {
         long id = Long.parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
         id++;
         txtuserid.setText("UO" + String.format("%03d", id));
+        retID = ("UO" + String.format("%03d", id));
       }
 
-    } catch (ClassNotFoundException ex) {
+    } catch (Exception ex) {
       Logger.getLogger(UserCreationController.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
-      Logger.getLogger(UserCreationController.class.getName()).log(Level.SEVERE, null, ex);
+      retID = "error";
     }
+    return retID;
   }
 
 
