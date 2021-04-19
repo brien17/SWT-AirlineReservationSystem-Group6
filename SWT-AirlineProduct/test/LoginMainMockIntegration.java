@@ -62,7 +62,7 @@ public class LoginMainMockIntegration {
     String username = "john";
     String password = "123";
 
-    login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
+    login.login(username, password, mainMock, "com.mysql.cj.jdbc.Driver");
 
     // Verify that setVisible was called once with it being set to true
     verify(mainMock, times(1)).setVisible(true);
@@ -86,7 +86,7 @@ public class LoginMainMockIntegration {
     String username = "john";
     String password = "password";
 
-    login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
+    login.login(username, password, mainMock, "com.mysql.cj.jdbc.Driver");
 
     // Verify that setVisible was called zero times with it being set to true
     verify(mainMock, times(0)).setVisible(true);
@@ -110,7 +110,7 @@ public class LoginMainMockIntegration {
     String username = "";
     String password = "123";
 
-    login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
+    login.login(username, password, mainMock, "com.mysql.cj.jdbc.Driver");
 
     // Verify that setVisible was called zero times with it being set to true
     verify(mainMock, times(0)).setVisible(true);
@@ -134,7 +134,7 @@ public class LoginMainMockIntegration {
     String username = "john";
     String password = "";
 
-    login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
+    login.login(username, password, mainMock, "com.mysql.cj.jdbc.Driver");
 
     // Verify that setVisible was called zero times with it being set to true
     verify(mainMock, times(0)).setVisible(true);

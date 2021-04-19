@@ -48,7 +48,7 @@ public class LoginTestUnit {
     public void validLoginTest() {
         String username = "john";
         String password = "123";
-        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
+        String output = login.login(username, password, new Main(), "com.mysql.cj.jdbc.Driver");
         assertEquals("valid", output);
     }
 
@@ -73,7 +73,7 @@ public class LoginTestUnit {
         login.txtuser.setText(username);
         login.txtpass.setText(password);
         login.loginButton.doClick();
-        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
+        String output = login.login(username, password, new Main(), "com.mysql.cj.jdbc.Driver");
 
         assertEquals("UserName or Password do not Match", output);
     }
@@ -96,7 +96,7 @@ public class LoginTestUnit {
     public void emptyUsernameLoginTest() {
         String username = "";
         String password = "123";
-        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
+        String output = login.login(username, password, new Main(), "com.mysql.cj.jdbc.Driver");
 
         assertEquals("UserName or Password Blank", output);
     }
@@ -119,7 +119,7 @@ public class LoginTestUnit {
     public void emptyPasswordLoginTest() {
         String username = "john";
         String password = "";
-        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
+        String output = login.login(username, password, new Main(), "com.mysql.cj.jdbc.Driver");
 
         assertEquals("UserName or Password Blank", output);
     }
