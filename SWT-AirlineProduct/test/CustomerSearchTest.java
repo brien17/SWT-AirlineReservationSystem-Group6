@@ -179,7 +179,6 @@ public class CustomerSearchTest {
    * Input: "CS1", null, ""
    * Expected Output: "error"
    */
-  // Invalid case - incorrect characters
   @Test
   public void failToConnectFindTest() {
     // Sample inputs
@@ -194,13 +193,14 @@ public class CustomerSearchTest {
    * Test Case ID: TC-CS-07
    * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
    * by entering a valid Customer ID.
-   * Purpose:
-   * Test Setup:
+   * Purpose: Test that if an empty customerID was submitted, the system will provide an failure to find error message.
+   * Test Setup: An instance of the CustomerSearchController class is created and the find method is called with an
+   * empty customerID and a proper connection to the mySQL java database. An assertEquals method is used to confirm
+   * that the find method will fail if provided an invalid customerID.
    * Test Strategy: Use case testing was used to develop test cases for this requirement
    * Input: "", null, "com.mysql.jdbc.Driver"
    * Expected Output: true
    */
-  // Invalid case - blank input
   @Test
   public void blankFindTest() {
     // Sample inputs
@@ -215,8 +215,11 @@ public class CustomerSearchTest {
    * Test Case ID: TC-CS-08
    * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
    * by entering a valid Customer ID.
-   * Purpose:
-   * Test Setup:
+   * Purpose: Test that an existing male customer can be updated with the update button on the customer menu.
+   * Test Setup: An instance of the CustomerSearchController class is created and the update method is called with a list
+   * of input variables to test the customer update button by taking the customerID, firstname, lastname, nic, passport,
+   * address, dateString, sex, contact, and a sample image, also with the database driver. An assertEquals method is
+   * used to confirm that the customer information in the database is updated appropriately and successfully.
    * Test Strategy: Use case testing was used to develop test cases for this requirement
    * Input: "CS001", "Randy", "Marsh", "00000000A", "123456789", "1600 Pennsylvania Avenue NW Washington, DC, 20500",
    * "1949-04-08", "Male", "1234567890", userimage, "com.mysql.jdbc.Driver"
@@ -252,8 +255,11 @@ public class CustomerSearchTest {
    * Test Case ID: TC-CS-09
    * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
    * by entering a valid Customer ID.
-   * Purpose:
-   * Test Setup:
+   * Purpose: Test that an existing female customer can be updated with the update button on the customer menu.
+   * Test Setup: An instance of the CustomerSearchController class is created and the update method is called with a list
+   * of input variables to test the customer update button by taking the customerID, firstname, lastname, nic, passport,
+   * address, dateString, sex, contact, and a sample image, also with the database driver. An assertEquals method is
+   * used to confirm that the customer information in the database is updated appropriately and successfully.
    * Test Strategy: Use case testing was used to develop test cases for this requirement
    * Input: "CS002", "Sandy", "Marsh", "00000000A", "123456789", "1600 Pennsylvania Avenue NW Washington, DC, 20500",
    * "1949-04-08", "Female", "1234567890", userimage, "com.mysql.jdbc.Driver"
@@ -289,8 +295,11 @@ public class CustomerSearchTest {
    * Test Case ID: TC-CS-10
    * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
    * by entering a valid Customer ID.
-   * Purpose:
-   * Test Setup:
+   * Purpose: Test that the system will throw an error when unable to connect to the database successfully.
+   * Test Setup: An instance of the CustomerSearchController class is created and the update method is called, lacking
+   * the necessary connection driver to mysql java database to test the customer update button by passing through the
+   * sample set of String information without the database driver. An assertEquals method is used to confirm that an
+   * error will occur due to a lack of connection to the database.
    * Test Strategy: Use case testing was used to develop test cases for this requirement
    * Input: "CS001", "Randy", "Marsh", "00000000A", "123456789", "1600 Pennsylvania Avenue NW Washington, DC, 20500",
    * "1949-04-08", "Male", "1234567890", userimage, ""
