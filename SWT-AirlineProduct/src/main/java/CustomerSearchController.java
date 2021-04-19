@@ -381,18 +381,19 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
 
     Boolean retVal = null;
     try {
-      JFileChooser picchooser = new JFileChooser();
-      picchooser.showOpenDialog(null);
-      File pic = picchooser.getSelectedFile();
-      FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images", "png", "jpg");
-      picchooser.addChoosableFileFilter(filter);
-      path = pic.getAbsolutePath();
-      BufferedImage img;
-      img = ImageIO.read(picchooser.getSelectedFile());
-      ImageIcon imageIcon = new ImageIcon(new
-          ImageIcon(img).getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT));
-      txtphoto.setIcon(imageIcon);
-
+      if (path.equals("")) {
+        JFileChooser picchooser = new JFileChooser();
+        picchooser.showOpenDialog(null);
+        File pic = picchooser.getSelectedFile();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images", "png", "jpg");
+        picchooser.addChoosableFileFilter(filter);
+        path = pic.getAbsolutePath();
+        BufferedImage img;
+        img = ImageIO.read(picchooser.getSelectedFile());
+        ImageIcon imageIcon = new ImageIcon(new
+            ImageIcon(img).getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT));
+        txtphoto.setIcon(imageIcon);
+      }
       File image = new File(path);
       FileInputStream fis = new FileInputStream(image);
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -408,8 +409,6 @@ public class CustomerSearchController extends javax.swing.JInternalFrame {
       retVal = false;
     }
     return retVal;
-
-
   }//GEN-LAST:event_jButton1ActionPerformed
 
   public void updateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

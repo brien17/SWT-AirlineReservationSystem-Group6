@@ -31,7 +31,7 @@ public class CustomerSearchTest {
   }
 
   @Test
-  public void custSearchButtonTest() {
+  public void customerSearchButtonTest() {
 
     update.updateCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
     find.findButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
@@ -41,7 +41,7 @@ public class CustomerSearchTest {
 
 
   @Test
-  public void updateSelectorTest() {
+  public void updateMaleSelectorTest() {
 
     update.r1.setSelected(true);
     update.updateCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
@@ -49,20 +49,27 @@ public class CustomerSearchTest {
   }
 
   @Test
-  public void validBrowseTest() {
+  public void updateFemaleSelectorTest() {
 
-    String path = "./resources/default.jpg";
-    Boolean output = browse.browse(path);
+    update.r2.setSelected(true);
+    update.updateCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
 
-    assertEquals(true, output);
+  }
+
+  @Test
+    public void validBrowseTest() {
+
+      String path = "./resources/default.jpg";
+      Boolean output = browse.browse(path);
+
+      assertEquals(true, output);
 
   }
 
   @Test
   public void invalidBrowseTest() {
 
-    String path = "./resources/default.jpg";
-    Boolean output = browse.browse(path);
+    Boolean output = browse.browse(null);
 
     assertEquals(false, output);
 
