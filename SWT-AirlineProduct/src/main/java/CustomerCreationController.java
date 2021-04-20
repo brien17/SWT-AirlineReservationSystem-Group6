@@ -518,6 +518,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
       dateString = da.format(date);
 
     } catch (NullPointerException ex){
+      date = new Date();
       errorTrace = ex.toString();
     }
 
@@ -585,6 +586,8 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
 
       DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
 
+      System.out.println(date);
+
       String dateString = da.format(date);
 
       pst.setString(7, dateString);
@@ -603,6 +606,7 @@ public class CustomerCreationController extends javax.swing.JInternalFrame {
     return errorTrace;
 
   }
+
 
   /**
    * Closes the customer Creation window

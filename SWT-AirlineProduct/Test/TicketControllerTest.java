@@ -175,7 +175,7 @@ class TicketControllerTest {
     @Test
     void validCustomerId(){
         ticket = new TicketController();
-        String customerId = "CS004";
+        String customerId = "CS001";
 
         assertEquals("Customer located", ticket.searchForCustomer(customerId));
     }
@@ -200,8 +200,8 @@ class TicketControllerTest {
     @Test
     void flightDoesNotExistTest(){
         ticket = new TicketController();
-        String source = "India";
-        String depart = "India";
+        String source = "China";
+        String depart = "China";
 
         assertEquals("", ticket.searchForTickets(source, depart));
     }

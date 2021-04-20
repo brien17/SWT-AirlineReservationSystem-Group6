@@ -25,12 +25,12 @@ public class TicketControllerGuiTest extends AssertJSwingTestCaseTemplate {
     @Test
     public void invalidBookingTest() {
         window.button("bookButton").click();
-        window.dialog("dialog1").requireVisible();
-        window.dialog("dialog1").button().click();
-        window.dialog("dialog2").requireVisible();
-        window.dialog("dialog2").button().click();
-        window.dialog("dialog3").requireVisible();
-        window.dialog("dialog3").button().click();
+        window.dialog().requireVisible();
+        window.dialog().button().click();
+        window.dialog().requireVisible();
+        window.dialog().button().click();
+        window.dialog().requireVisible();
+        window.dialog().button().click();
         window.button("cancelButton").click();
     }
 
@@ -44,8 +44,8 @@ public class TicketControllerGuiTest extends AssertJSwingTestCaseTemplate {
         window.button("searchCustomerButton").click();
         window.spinner("seats").increment(1);
         window.button("bookButton").click();
-        window.dialog("dialog0").requireVisible();
-        window.dialog("dialog0").button().click();
+        window.dialog().requireVisible();
+        window.dialog().button().click();
 
     }
 

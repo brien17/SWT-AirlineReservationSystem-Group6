@@ -1,8 +1,10 @@
+import org.apache.maven.surefire.shared.lang3.math.NumberUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
@@ -127,8 +129,8 @@ public class UserTest {
   public void validAutoIDTest() {
 
     String id = add.autoID("com.mysql.jdbc.Driver", false);
-    assertEquals("UO006", id);
-
+    assertTrue(id.substring(0,2).equals("UO"));
+    assertTrue(NumberUtils.isParsable(id.substring(2)));
   }
 
   /**
