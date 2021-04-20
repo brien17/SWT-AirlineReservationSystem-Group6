@@ -489,7 +489,6 @@ public class TicketController extends javax.swing.JInternalFrame {
       if(test.equals("test"))
         nextID = null;
 
-
       if (nextID == null) {
         txtticketno.setText("TO001");
       } else {

@@ -36,13 +36,13 @@ public class SpeedSystemTest {
 
   @BeforeAll
   public void setUp(){
-    this.loginWindow = new Login();
-    this.customerCreationWindow = new CustomerCreationController();
-    this.customerSearchWindow = new CustomerSearchController();
-    this.flightAdditionWindow = new FlightAdditionController();
-    this.ticketWindow = new TicketController();
-    this.ticketReportWindow = new TicketReportController();
-    this.userCreationWindow = new UserCreationController();
+    loginWindow = new Login();
+    customerCreationWindow = new CustomerCreationController();
+    customerSearchWindow = new CustomerSearchController();
+    flightAdditionWindow = new FlightAdditionController();
+    ticketWindow = new TicketController();
+    ticketReportWindow = new TicketReportController();
+    userCreationWindow = new UserCreationController();
   }
 
   /**
@@ -363,11 +363,11 @@ public class SpeedSystemTest {
 
   @AfterAll
   public void tearDown(){
-    this.loginWindow = null;
-    this.customerCreationWindow = null;
-    this.flightAdditionWindow = null;
-    this.ticketWindow = null;
-    this.ticketReportWindow = null;
+    loginWindow = null;
+    customerCreationWindow = null;
+    flightAdditionWindow = null;
+    ticketWindow = null;
+    ticketReportWindow = null;
   }
 
 }
