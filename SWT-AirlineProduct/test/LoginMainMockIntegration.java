@@ -45,7 +45,7 @@ public class LoginMainMockIntegration {
   }
 
   /**
-   * Test Case ID: TC-06
+   * Test Case ID: TC-L-06
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that after a user supplies a correct userId and password the Main object will be made visible on
    *          the screen.
@@ -62,14 +62,14 @@ public class LoginMainMockIntegration {
     String username = "john";
     String password = "123";
 
-    login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
+    login.login(username, password, mainMock, "com.mysql.cj.jdbc.Driver");
 
     // Verify that setVisible was called once with it being set to true
     verify(mainMock, times(1)).setVisible(true);
   }
 
   /**
-   * Test Case ID: TC-07
+   * Test Case ID: TC-L-07
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that after a user supplies an invalid userId and password the Main object will not be made visible
    *          on the screen.
@@ -86,14 +86,14 @@ public class LoginMainMockIntegration {
     String username = "john";
     String password = "password";
 
-    login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
+    login.login(username, password, mainMock, "com.mysql.cj.jdbc.Driver");
 
     // Verify that setVisible was called zero times with it being set to true
     verify(mainMock, times(0)).setVisible(true);
   }
 
   /**
-   * Test Case ID: TC-08
+   * Test Case ID: TC-L-08
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that after a user supplies an invalid userId and password the Main object will not be made visible
    *          on the screen.
@@ -103,20 +103,21 @@ public class LoginMainMockIntegration {
    * Test Strategy: Top down integration testing with mock
    * Input: Username: “john”
    *        Password: “”
-   * Expected Output: false
+   * Expected Output: true
    */
   @Test
   public void blankUsernameLoginMockTest() {
     String username = "";
-    String password = "1";
+    String password = "123";
 
-    login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
+    login.login(username, password, mainMock, "com.mysql.cj.jdbc.Driver");
 
     // Verify that setVisible was called zero times with it being set to true
-    verify(mainMock, times(0)).setVisible(true);  }
+    verify(mainMock, times(0)).setVisible(true);
+  }
 
   /**
-   * Test Case ID: TC-09
+   * Test Case ID: TC-L-09
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that after a user supplies an invalid userId and password the Main object will not be made visible
    *          on the screen.
@@ -126,20 +127,21 @@ public class LoginMainMockIntegration {
    * Test Strategy: Top down integration testing with mock
    * Input: Username: “john”
    *        Password: “”
-   * Expected Output: false
+   * Expected Output: true
    */
   @Test
   public void blankPasswordLoginMockTest() {
     String username = "john";
     String password = "";
 
-    login.login(username, password, mainMock, "com.mysql.jdbc.Driver");
+    login.login(username, password, mainMock, "com.mysql.cj.jdbc.Driver");
 
     // Verify that setVisible was called zero times with it being set to true
-    verify(mainMock, times(0)).setVisible(true);  }
+    verify(mainMock, times(0)).setVisible(true);
+  }
 
   /**
-   * Test Case ID: TC-10
+   * Test Case ID: TC-L-10
    * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
    * Purpose: Test that if a connection to the database cannot be made the Main object will not be made visible
    *          on the screen.
@@ -149,12 +151,13 @@ public class LoginMainMockIntegration {
    * Test Strategy: Top down integration testing with mock
    * Input: Username: “john”
    *        Password: “123”
-   * Expected Output: false
+   * Expected Output: true
    */
   @Test
   public void invalidSqlDriverTest() {
     login.login("john", "123", mainMock, "");
 
     // Verify that setVisible was called zero times with it being set to true
-    verify(mainMock, times(0)).setVisible(true);  }
+    verify(mainMock, times(0)).setVisible(true);
+  }
 }

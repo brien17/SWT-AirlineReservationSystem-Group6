@@ -32,7 +32,7 @@ public class LoginTestUnit {
     }
 
     /**
-     * Test Case ID: TC-01
+     * Test Case ID: TC-L-01
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user is able to log in by providing a valid UserId and Password
      * Test Setup: An instance of the Login class is created and the login method is called with a valid username and
@@ -48,12 +48,12 @@ public class LoginTestUnit {
     public void validLoginTest() {
         String username = "john";
         String password = "123";
-        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
+        String output = login.login(username, password, new Main(), "com.mysql.cj.jdbc.Driver");
         assertEquals("valid", output);
     }
 
     /**
-     * Test Case ID: TC-02
+     * Test Case ID: TC-L-02
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user will be denied access and a message will be displayed when providing an invalid UserId
      *          and Password combination.
@@ -73,13 +73,13 @@ public class LoginTestUnit {
         login.txtuser.setText(username);
         login.txtpass.setText(password);
         login.loginButton.doClick();
-        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
+        String output = login.login(username, password, new Main(), "com.mysql.cj.jdbc.Driver");
 
         assertEquals("UserName or Password do not Match", output);
     }
 
     /**
-     * Test Case ID: TC-03
+     * Test Case ID: TC-L-03
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user will be denied access and a special message will be displayed when attempting to
      *          login with a blank UserId.
@@ -96,13 +96,13 @@ public class LoginTestUnit {
     public void emptyUsernameLoginTest() {
         String username = "";
         String password = "123";
-        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
+        String output = login.login(username, password, new Main(), "com.mysql.cj.jdbc.Driver");
 
         assertEquals("UserName or Password Blank", output);
     }
 
     /**
-     * Test Case ID: TC-04
+     * Test Case ID: TC-L-04
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user will be denied access and a special message will be displayed when attempting to
      *          login with a blank password.
@@ -119,14 +119,14 @@ public class LoginTestUnit {
     public void emptyPasswordLoginTest() {
         String username = "john";
         String password = "";
-        String output = login.login(username, password, new Main(), "com.mysql.jdbc.Driver");
+        String output = login.login(username, password, new Main(), "com.mysql.cj.jdbc.Driver");
 
         assertEquals("UserName or Password Blank", output);
     }
 
 
     /**
-     * Test Case ID: TC-05
+     * Test Case ID: TC-L-05
      * Requirement ID/Description: SR-F-01  The system shall allow users to log in by providing a valid UserId and Password.
      * Purpose: Test that a user will be denied access when a connection to the database cannot be established and
      *          that a message describing the error will be sent to the console and a message describing the error
