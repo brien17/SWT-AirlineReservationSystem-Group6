@@ -116,14 +116,6 @@ public class FlightAdditionTest {
 
 
   /**
-   * Test Case ID:
-   * Requirement ID/Description:
-   * Purpose: Test that a user is able to add a valid flight to the database.
-   * Test Setup:
-   * Test Strategy:
-   * Expected Output: "valid"
-   */
-  /**
    * Test Case ID: TC - 17
    * Requirement ID/Description: SR-F-05 The system shall allow users to create flights by
    *     entering a flight name, source, destination, date, departure time, arrival time,

@@ -88,8 +88,6 @@ public class CustomerCreationTest {
     }
     userimage = baos.toByteArray();
     customerCreationTest.generateCustomerID("test");
-    customerCreationTest.maleButton.setSelected(false);
-    customerCreationTest.addCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
 
     String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,date,sex,contact,userimage,errorTrace);
 
@@ -138,6 +136,8 @@ public class CustomerCreationTest {
     File sampleText = new File("./resources/Sample.txt");
     invalidImage = convertFileToByteArray(sampleText);
 
+    customerCreationTest.maleButton.setSelected(false);
+    customerCreationTest.addCustomerActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
 
     String output = customerCreationTest.addCustomer(customerID,firstname,lastname,nic,passport,address,date,sex,contact,invalidImage,errorTrace);
 /*
@@ -232,7 +232,7 @@ public class CustomerCreationTest {
 
 
     String output = customerCreationTest.addCustomer(
-        customerID,firstname,lastname,nic,passport,address,date,sex,contact,emptyImage,errorTrace);
+            customerID,firstname,lastname,nic,passport,address,date,sex,contact,emptyImage,errorTrace);
 
 /*
  ErrorTrace should be empty and caught by GUI before causing runtime error
@@ -242,6 +242,9 @@ public class CustomerCreationTest {
     assertEquals("", output);
   }
 
+  /**
+   * Sets customerCreationTest object to null.
+   */
   @AfterEach
   public void tearDown(){
     customerCreationTest = null;

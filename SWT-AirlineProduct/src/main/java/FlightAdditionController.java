@@ -154,163 +154,163 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
     });
 
     sourceInput.setModel(new javax.swing.DefaultComboBoxModel<>(
-        new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "Chinna"}));
+            new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "Chinna"}));
 
     destinationInput.setModel(new javax.swing.DefaultComboBoxModel<>(
-        new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "Chinna"}));
+            new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "Chinna"}));
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout
-                    .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout
-                            .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(flightIDLabel)
-                            .addComponent(airlineNameLabel))
-                        .addGroup(jPanel1Layout
-                            .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(flightID))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(airlineNameInput, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                    136, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                        jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(sourceLabel)
-                                .addComponent(destinationLabel))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                    false)
-                                .addComponent(sourceInput, 0, 136, Short.MAX_VALUE)
-                                .addComponent(destinationInput, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                    Short.MAX_VALUE))))
-                .addGap(103, 103, 103)
-                .addGroup(
-                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(dateLabel)
-                                .addComponent(departureTimeLabel)
-                                .addComponent(arrivalTimeLabel)
-                                .addComponent(flightChargeLabel)
-                            )
-                            .addGap(62, 62, 62)
-                            .addGroup(jPanel1Layout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                    false)
-                                .addComponent(dateInput, javax.swing.GroupLayout.DEFAULT_SIZE, 174,
-                                    Short.MAX_VALUE)
-                                .addComponent(departureTimeInput)
-                                .addComponent(arrivalTimeInput)
-                                .addComponent(flightChargeInput))
-                        )
-                        )
-                .addContainerGap(95, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
-                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(29, 29, 29)
-                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
-                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(39, 39, 39))
-    );
-    jPanel1Layout.setVerticalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(
-                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout
-                            .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(flightIDLabel)
-                            .addComponent(flightID)
-                            .addComponent(dateLabel))
-                        .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(
-                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(airlineNameLabel)
-                        .addComponent(airlineNameInput, javax.swing.GroupLayout.PREFERRED_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(departureTimeLabel)
-                        .addComponent(departureTimeInput, javax.swing.GroupLayout.PREFERRED_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(
-                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(sourceLabel)
-                        .addComponent(arrivalTimeInput, javax.swing.GroupLayout.PREFERRED_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(arrivalTimeLabel)
-                        .addComponent(sourceInput, javax.swing.GroupLayout.PREFERRED_SIZE,
-                            javax.swing.GroupLayout.DEFAULT_SIZE,
-                            javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(
-                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(24, 24, 24)
-                            .addGroup(jPanel1Layout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(destinationLabel)
-                                .addComponent(destinationInput, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                    javax.swing.GroupLayout.DEFAULT_SIZE,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(34, 34, 34)
                             .addGroup(jPanel1Layout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(flightChargeLabel)
-                                .addComponent(flightChargeInput,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE,
-                                    javax.swing.GroupLayout.DEFAULT_SIZE,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93,
-                    Short.MAX_VALUE)
-                .addGroup(
-                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
-                            javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
-                            javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43))
+                                    .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout
+                                                    .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(flightIDLabel)
+                                                    .addComponent(airlineNameLabel))
+                                            .addGroup(jPanel1Layout
+                                                    .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                            .addGap(38, 38, 38)
+                                                            .addComponent(flightID))
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                            .addGap(28, 28, 28)
+                                                            .addComponent(airlineNameInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                    136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                            jPanel1Layout.createSequentialGroup()
+                                                    .addGroup(jPanel1Layout
+                                                            .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(sourceLabel)
+                                                            .addComponent(destinationLabel))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addGroup(jPanel1Layout
+                                                            .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                    false)
+                                                            .addComponent(sourceInput, 0, 136, Short.MAX_VALUE)
+                                                            .addComponent(destinationInput, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                    Short.MAX_VALUE))))
+                            .addGap(103, 103, 103)
+                            .addGroup(
+                                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGroup(jPanel1Layout
+                                                            .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(dateLabel)
+                                                            .addComponent(departureTimeLabel)
+                                                            .addComponent(arrivalTimeLabel)
+                                                            .addComponent(flightChargeLabel)
+                                                    )
+                                                    .addGap(62, 62, 62)
+                                                    .addGroup(jPanel1Layout
+                                                            .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                    false)
+                                                            .addComponent(dateInput, javax.swing.GroupLayout.DEFAULT_SIZE, 174,
+                                                                    Short.MAX_VALUE)
+                                                            .addComponent(departureTimeInput)
+                                                            .addComponent(arrivalTimeInput)
+                                                            .addComponent(flightChargeInput))
+                                            )
+                            )
+                            .addContainerGap(95, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                            jPanel1Layout.createSequentialGroup()
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
+                                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
+                                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(39, 39, 39))
+    );
+    jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(36, 36, 36)
+                            .addGroup(
+                                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel1Layout
+                                                    .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(flightIDLabel)
+                                                    .addComponent(flightID)
+                                                    .addComponent(dateLabel))
+                                            .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                    javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(
+                                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(airlineNameLabel)
+                                            .addComponent(airlineNameInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(departureTimeLabel)
+                                            .addComponent(departureTimeInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                    javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(28, 28, 28)
+                            .addGroup(
+                                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(sourceLabel)
+                                            .addComponent(arrivalTimeInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(arrivalTimeLabel)
+                                            .addComponent(sourceInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                    javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(
+                                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGap(24, 24, 24)
+                                                    .addGroup(jPanel1Layout
+                                                            .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                            .addComponent(destinationLabel)
+                                                            .addComponent(destinationInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                    javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGap(34, 34, 34)
+                                                    .addGroup(jPanel1Layout
+                                                            .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                            .addComponent(flightChargeLabel)
+                                                            .addComponent(flightChargeInput,
+                                                                    javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                    javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93,
+                                    Short.MAX_VALUE)
+                            .addGroup(
+                                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                                    javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(43, 43, 43))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                    javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                            .addGap(34, 34, 34)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(22, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                    javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(39, 39, 39))
     );
 
     pack();
@@ -336,7 +336,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
         flightID.setText("FO001");
       } else {
         long id = Long
-            .parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
+                .parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
         id++;
         flightID.setText("FO" + String.format("%03d", id));
 
@@ -359,7 +359,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
    * @param evt
    */
   public String addFlightActionPerformed(
-      java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
     String id = flightID.getText();
@@ -380,7 +380,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
       Class.forName("com.mysql.jdbc.Driver");
       con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
       pst = con.prepareStatement(
-          "insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
+              "insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
 
       pst.setString(1, id);
       pst.setString(2, flightname);
@@ -409,7 +409,7 @@ public class FlightAdditionController extends javax.swing.JInternalFrame {
    * @param evt
    */
   private void closeButtonActionPerformed(
-      java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+          java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
 
     this.hide();
