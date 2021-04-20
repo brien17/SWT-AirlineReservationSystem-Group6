@@ -94,7 +94,7 @@ public class TicketReportController extends javax.swing.JInternalFrame {
      * @param evt Cancel button event when ticket report form is closed.
      */
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed

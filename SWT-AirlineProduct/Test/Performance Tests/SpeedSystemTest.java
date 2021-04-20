@@ -321,7 +321,7 @@ public class SpeedSystemTest {
         long methodTime = endTime-startTime;
         System.out.println(methodTime);
         assertTrue(methodTime <= 8000);
-        ticketReportWindow.jButton1ActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
+        ticketReportWindow.cancelButtonActionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,""));
 
     }
 

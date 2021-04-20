@@ -29,7 +29,7 @@ public class TicketController extends javax.swing.JInternalFrame {
      */
     public TicketController() {
         initComponents();
-        autoIncrementTicketNo();
+        autoIncrementTicketNo("");
     }
 
     Connection con;
@@ -434,7 +434,7 @@ public class TicketController extends javax.swing.JInternalFrame {
      * @param evt Search button event when searching for a ticket.
      */
 
-    private void searchTicketsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    void searchTicketsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
 
         String source = txtsource.getSelectedItem().toString().trim();
@@ -502,26 +502,25 @@ public class TicketController extends javax.swing.JInternalFrame {
      * If no ticket exists in the database, the default ticket id is "TO001."
      */
 
-    public void autoIncrementTicketNo() {
+    public void autoIncrementTicketNo(String test) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery("select MAX(id) from ticket");
             rs.next();
-            rs.getString("MAX(id)");
+            String nextID = rs.getString("MAX(id)");
+            if(test.equals("test"))
+                nextID = null;
 
-//            if (rs.getString("MAX(id)") == null) {
-//                txtticketno.setText("TO001");
-//            } else {
-//                long id = Long.parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
-//                id++;
-//                txtticketno.setText("TO" + String.format("%03d", id));
-//            }
 
-            long id = Long.parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
-            id++;
-            txtticketno.setText("TO" + String.format("%03d", id));
+            if (nextID == null) {
+                txtticketno.setText("TO001");
+            } else {
+                long id = Long.parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
+                id++;
+                txtticketno.setText("TO" + String.format("%03d", id));
+            }
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CustomerCreationController.class.getName()).log(Level.SEVERE, null, ex);
@@ -541,7 +540,7 @@ public class TicketController extends javax.swing.JInternalFrame {
      * @param evt "Search" button event when searching by customer ID.
      */
 
-    private void searchCustomerIDButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    void searchCustomerIDButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         String id = txtcustid.getText();
         searchForCustomer(id);
@@ -643,7 +642,7 @@ public class TicketController extends javax.swing.JInternalFrame {
      * @param evt "Book" button event when a ticket is booked.
      */
 
-    private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
         String ticketid = txtticketno.getText();
@@ -739,49 +738,49 @@ public class TicketController extends javax.swing.JInternalFrame {
      * @param evt Cancel button event when ticket booking process aborted.
      */
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.hide();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel flightname;
-    private javax.swing.JLabel flightno;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JComboBox<String> txtclass;
-    private javax.swing.JTextField txtcustid;
-    private javax.swing.JComboBox<String> txtdepart;
-    private javax.swing.JLabel txtdept;
-    private javax.swing.JLabel txtfirstname;
-    private javax.swing.JLabel txtlastname;
-    private javax.swing.JLabel txtpassport;
-    private javax.swing.JTextField txtprice;
-    private javax.swing.JSpinner txtseats;
-    private javax.swing.JComboBox<String> txtsource;
-    private javax.swing.JLabel txtticketno;
-    private javax.swing.JLabel txttotal;
-    private com.toedter.calendar.JDateChooser txtdate;
+    javax.swing.JLabel flightname;
+    javax.swing.JLabel flightno;
+    javax.swing.JButton jButton1;
+    javax.swing.JButton jButton2;
+    javax.swing.JButton jButton3;
+    javax.swing.JButton jButton4;
+    javax.swing.JLabel jLabel1;
+    javax.swing.JLabel jLabel12;
+    javax.swing.JLabel jLabel13;
+    javax.swing.JLabel jLabel14;
+    javax.swing.JLabel jLabel15;
+    javax.swing.JLabel jLabel16;
+    javax.swing.JLabel jLabel17;
+    javax.swing.JLabel jLabel2;
+    javax.swing.JLabel jLabel3;
+    javax.swing.JLabel jLabel5;
+    javax.swing.JLabel jLabel6;
+    javax.swing.JLabel jLabel7;
+    javax.swing.JLabel jLabel8;
+    javax.swing.JPanel jPanel1;
+    javax.swing.JPanel jPanel2;
+    javax.swing.JPanel jPanel3;
+    javax.swing.JScrollPane jScrollPane1;
+    javax.swing.JTable jTable1;
+    javax.swing.JComboBox<String> txtclass;
+    javax.swing.JTextField txtcustid;
+    javax.swing.JComboBox<String> txtdepart;
+    javax.swing.JLabel txtdept;
+    javax.swing.JLabel txtfirstname;
+    javax.swing.JLabel txtlastname;
+    javax.swing.JLabel txtpassport;
+    javax.swing.JTextField txtprice;
+    javax.swing.JSpinner txtseats;
+    javax.swing.JComboBox<String> txtsource;
+    javax.swing.JLabel txtticketno;
+    javax.swing.JLabel txttotal;
+    com.toedter.calendar.JDateChooser txtdate;
     // End of variables declaration//GEN-END:variables
 }
