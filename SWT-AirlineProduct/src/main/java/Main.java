@@ -22,13 +22,20 @@ public class Main extends javax.swing.JFrame {
     customerMenu = new javax.swing.JMenu();
     addCustomerMenuItem = new javax.swing.JMenuItem();
     searchCustomerMenuItem = new javax.swing.JMenuItem();
-    ticketMenu = new javax.swing.JMenu();
+    ticketMenu = new javax.swing.JMenu("ticketMenu");
     bookTicketMenuItem = new javax.swing.JMenuItem();
     ticketReportMenuItem = new javax.swing.JMenuItem();
     flightMenu = new javax.swing.JMenu();
     addFlightMenuItem = new javax.swing.JMenuItem();
     userMenu = new javax.swing.JMenu();
     userCreationMenuItem = new javax.swing.JMenuItem();
+
+    customerMenu.setName("customerMenu");
+    ticketMenu.setName("ticketMenu");
+    flightMenu.setName("flightMenu");
+    userMenu.setName("userMenu");
+
+    addCustomerMenuItem.setName("addCustomerMenuItem");
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setPreferredSize(new java.awt.Dimension(1366, 768));
