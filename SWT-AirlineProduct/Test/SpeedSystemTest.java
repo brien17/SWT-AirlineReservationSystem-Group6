@@ -46,7 +46,7 @@ public class SpeedSystemTest {
     }
 
     /**
-     * Test Case ID:
+     * Test Case ID: TC-NF-02
      * Requirement ID/Description: The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
@@ -54,8 +54,8 @@ public class SpeedSystemTest {
      * Test Setup: Instances are created for classes Login, CustomerCreationController,
      *  CustomerSearchController, FlightAdditionController, TicketController, TickerReportController,
      *  and UserCreationController.
-     * Test Strategy: End to end testing, performance testing
-     * Input: methodTime =  end time - start time
+     * Test Strategy: Use case testing
+     * Input: methodTime =  0, "john", "123" (valid)
      *
      * Expected Output: <= 8000 milliseconds (8 seconds)
      */
@@ -82,7 +82,7 @@ public class SpeedSystemTest {
     }
 
     /**
-     * Test Case ID:
+     * Test Case ID: TC-NF-03
      * Requirement ID/Description: The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
@@ -90,8 +90,20 @@ public class SpeedSystemTest {
      * Test Setup: Instances are created for classes Login, CustomerCreationController,
      *  CustomerSearchController, FlightAdditionController, TicketController, TickerReportController,
      *  and UserCreationController.
-     * Test Strategy: End to end testing, performance testing
-     * Input: methodTime =  end time - start time
+     * Test Strategy: Use case testing
+     * Input: methodTime = 0 
+              String customerID = "CS001";
+              String firstname = "Randy";
+              String lastname = "Marsh";
+              String nic = "00000000A";
+              String passport = "123456789";
+              String address = "1600 Pennsylvania Avenue NW Washington, DC, 20500";
+              Date date = new Date(1949,4,8);
+              String sex = "Female";
+              String contact = "2392392939";
+              String errorTrace = "";
+              File image = new File("./resources/default.jpg");
+
      *
      * Expected Output: <= 8000 milliseconds (8 seconds)
      */
@@ -137,7 +149,7 @@ public class SpeedSystemTest {
     }
 
     /**
-     * Test Case ID:
+     * Test Case ID: TC-NF-04
      * Requirement ID/Description: The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
@@ -145,9 +157,18 @@ public class SpeedSystemTest {
      * Test Setup: Instances are created for classes Login, CustomerCreationController,
      *  CustomerSearchController, FlightAdditionController, TicketController, TickerReportController,
      *  and UserCreationController.
-     * Test Strategy: End to end testing, performance testing
-     * Input: methodTime =  end time - start time
-     *
+     * Test Strategy: Use case testing
+     * Input: methodTime =  0
+              String customerID = "CS001";
+              String firstname = "Randy";
+              String lastname = "Marsh";
+              String nic = "00000000A";
+              String passport = "123456789";
+              String address = "1600 Pennsylvania Avenue NW Washington, DC, 20500";
+              String dateString = "1949-04-08";
+              String sex = "Male";
+              String contact = "1234567890";
+              File image = new File("./resources/default.jpg");
      * Expected Output: <= 8000 milliseconds (8 seconds)
      */
     @Test
@@ -200,7 +221,7 @@ public class SpeedSystemTest {
     }
 
     /**
-     * Test Case ID:
+     * Test Case ID: TC-NF-05
      * Requirement ID/Description: The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
@@ -208,9 +229,17 @@ public class SpeedSystemTest {
      * Test Setup: Instances are created for classes Login, CustomerCreationController,
      *  CustomerSearchController, FlightAdditionController, TicketController, TickerReportController,
      *  and UserCreationController.
-     * Test Strategy: End to end testing, performance testing
-     * Input: methodTime =  end time - start time
-     *
+     * Test Strategy: Use case testing
+     * Input: methodTime =  0
+              flightAdditionWindow (FlightAdditionController object)
+              flightAdditionWindow.departureTimeInput.setText("12:00 PM");
+              flightAdditionWindow.arrivalTimeInput.setText("1:00 PM");
+              flightAdditionWindow.flightChargeInput.setText("$100");
+              flightAdditionWindow.airlineNameInput.setText("India Air");
+               flightAdditionWindow.sourceInput.setSelectedItem("India");
+               flightAdditionWindow.destinationInput.setSelectedItem("Usa");
+              String date = "2021-04-01";
+             flightAdditionWindow.generateFlightID("test");
      * Expected Output: <= 8000 milliseconds (8 seconds)
      */
     @Test
@@ -242,7 +271,7 @@ public class SpeedSystemTest {
     }
 
     /**
-     * Test Case ID:
+     * Test Case ID: TC-NF-06
      * Requirement ID/Description: The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
@@ -250,9 +279,12 @@ public class SpeedSystemTest {
      * Test Setup: Instances are created for classes Login, CustomerCreationController,
      *  CustomerSearchController, FlightAdditionController, TicketController, TickerReportController,
      *  and UserCreationController.
-     * Test Strategy: End to end testing, performance testing
-     * Input: methodTime =  end time - start time
-     *
+     * Test Strategy: Use case testing
+     * Input: 
+        methodTime =  0  
+        String flightID = "FO003"; 
+        String customerID = "CS001";
+        String numOfSeats = "";
      * Expected Output: <= 8000 milliseconds (8 seconds)
      */
     @Test
@@ -300,7 +332,7 @@ public class SpeedSystemTest {
     }
 
     /**
-     * Test Case ID:
+     * Test Case ID: TC-NF-07
      * Requirement ID/Description: The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
@@ -308,9 +340,9 @@ public class SpeedSystemTest {
      * Test Setup: Instances are created for classes Login, CustomerCreationController,
      *  CustomerSearchController, FlightAdditionController, TicketController, TickerReportController,
      *  and UserCreationController.
-     * Test Strategy: End to end testing, performance testing
-     * Input: methodTime =  end time - start time
-     *
+     * Test Strategy: Use case testing
+     * Input: methodTime = 0
+              ticketReportWindow (TicketReportController object)
      * Expected Output: <= 8000 milliseconds (8 seconds)
      */
     @Test
@@ -326,7 +358,7 @@ public class SpeedSystemTest {
     }
 
     /**
-     * Test Case ID:
+     * Test Case ID: TC-NF-08
      * Requirement ID/Description: The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
@@ -334,9 +366,13 @@ public class SpeedSystemTest {
      * Test Setup: Instances are created for classes Login, CustomerCreationController,
      *  CustomerSearchController, FlightAdditionController, TicketController, TickerReportController,
      *  and UserCreationController.
-     * Test Strategy: End to end testing, performance testing
-     * Input: methodTime =  end time - start time
-     *
+     * Test Strategy: Use case testing
+     * Input: methodTime =  0
+             String firstname = "Cody";
+              String lastname = "Buckley";
+             String username = "testuser";
+              String password = "testpass";
+              Connection con = null;
      * Expected Output: <= 8000 milliseconds (8 seconds)
      */
     @Test
