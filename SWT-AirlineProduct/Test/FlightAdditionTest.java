@@ -30,7 +30,7 @@ public class FlightAdditionTest {
   }
 
   /**
-   * Test Case ID: TC - 15
+   * Test Case ID: TC -FA-1
    * Requirement ID/Description: SR-F-05 The system shall allow users to create flights by
    *     entering a flight name, source, destination, date, departure time, arrival time,
    *     and the price of the flight.
@@ -65,18 +65,9 @@ public class FlightAdditionTest {
 //    new ActionEvent(this,ActionEvent.ACTION_PERFORMED,"")
   }
 
-  /**
-   * Test Case ID:
-   * Requirement ID/Description:
-   * Purpose: Test that a user is prevented from adding an invalid flight to the database.
-   * Test Setup:
-   * Test Strategy:
-   * Input: 5,	India,	India	,1975-04-01,	13:00 PM,	13:00 AM	, n/a
-   * Expected Output: "valid"
-   */
 
   /**
-   * Test Case ID: TC - 16
+   * Test Case ID: TC - FA-2
    * Requirement ID/Description: SR-F-05 The system shall allow users to create flights by
    *     entering a flight name, source, destination, date, departure time, arrival time,
    *     and the price of the flight.
@@ -116,7 +107,7 @@ public class FlightAdditionTest {
 
 
   /**
-   * Test Case ID: TC - 17
+   * Test Case ID: TC - FA-3
    * Requirement ID/Description: SR-F-05 The system shall allow users to create flights by
    *     entering a flight name, source, destination, date, departure time, arrival time,
    *     and the price of the flight.
