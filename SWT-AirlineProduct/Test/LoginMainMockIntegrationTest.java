@@ -13,7 +13,7 @@ import org.mockito.Mock;
  * are derived from a decision table to test the interaction between the Login class and the Main class and ensure
  * that the Login class is calling the correct method from the Main class with the correct parameter.
  */
-public class LoginMainMockIntegration {
+public class LoginMainMockIntegrationTest {
 
   /**
    * Mock of the Main class used for testing

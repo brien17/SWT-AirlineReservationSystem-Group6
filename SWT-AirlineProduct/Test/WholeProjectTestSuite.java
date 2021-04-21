@@ -4,17 +4,19 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitPlatform.class)
 @SelectClasses({
+        LoginUnitTest.class,
         UserTest.class,
         CustomerCreationTest.class,
         CustomerSearchTest.class,
         FlightAdditionTest.class,
-        LoginUnitTest.class,
         MainTest.class,
         TicketControllerTest.class,
+        LoginMainMockIntegrationTest.class,
+        MainIntegrationTests.class,
+        MainCustomerCreationIntegration.class,
+        MainGuiTest.class,
+        TicketControllerGuiTest.class
 })
-
-
-public class
-UnitTestSuite {
+public class WholeProjectTestSuite {
 
 }

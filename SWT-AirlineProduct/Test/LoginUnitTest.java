@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Inputs were selected using decision table testing.
  */
 
-public class LoginTestUnit {
+public class LoginUnitTest {
 
     /**
      * Instance of the Login class used for testing
