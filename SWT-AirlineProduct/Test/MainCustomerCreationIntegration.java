@@ -13,7 +13,7 @@ public class MainCustomerCreationIntegration {
    * Purpose: Stress test the integration link between Main and lower level components.
    * Test Setup: An instance of the MainChildrenIntegration class is created with
    *            a composed class variable of type main set with a new object
-   * Test Strategy: Top down integration testing with stub
+   * Test Strategy: Use case testing
    * Input: MainChildrenIntegration stressIntegrationTest(object), int view_count = 0
    * Expected Output: 100
    */
