@@ -34,7 +34,7 @@ public class CustomerCreationTest {
   }
 
   /**
-   * Test Case ID: TC - 11
+   * Test Case ID: TC -CC-1
    * Requirement ID/Description: SR-F-03 The system shall allow users to add customer accounts by
    *     entering first and last name, national ID Card number, passport ID,
    *     address, DOB, gender, photo and contact.
@@ -96,7 +96,7 @@ public class CustomerCreationTest {
 
 
   /**
-   * Test Case ID: TC - 12
+   * Test Case ID: TC -CC-2
    * Requirement ID/Description: SR-F-03 The system shall allow users to add customer accounts by
    *     entering first and last name, national ID Card number, passport ID,
    *     address, DOB, gender, photo and contact.
@@ -149,7 +149,7 @@ public class CustomerCreationTest {
   }
 
   /**
-   * Test Case ID: TC - 13
+   * Test Case ID: TC -CC-3
    * Requirement ID/Description: SR-F-03 The system shall allow users to add customer accounts by
    *     entering first and last name, national ID Card number, passport ID,
    *     address, DOB, gender, photo and contact.
@@ -191,7 +191,7 @@ public class CustomerCreationTest {
 
 
   /**
-   * Test Case ID: TC - 14
+   * Test Case ID: TC - CC-4
    * Requirement ID/Description: SR-F-03 The system shall allow users to add customer accounts by
    *     entering first and last name, national ID Card number, passport ID,
    *     address, DOB, gender, photo and contact.
