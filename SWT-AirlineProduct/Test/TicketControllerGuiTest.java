@@ -12,6 +12,9 @@ public class TicketControllerGuiTest extends AssertJSwingTestCaseTemplate {
    private FrameFixture window;
    private javax.swing.JDesktopPane t;
 
+   /**
+     * Instance of TicketController is used for the AssertJ GuiActionRunner for GUI testing.
+     */
     @BeforeEach
     public void setUp(){
         TicketController test = GuiActionRunner.execute(TicketController::new);
@@ -78,8 +81,9 @@ public class TicketControllerGuiTest extends AssertJSwingTestCaseTemplate {
 
     }
 
-
-
+   /**
+     * AssertJ FrameFixture discarded upon tear down.
+     */
     @AfterEach
     public void tearDown() {
         window.cleanUp();
