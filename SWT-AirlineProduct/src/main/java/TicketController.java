@@ -444,12 +444,13 @@ public class TicketController extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * TODO fill me in
+     /**
+     * The user may search for tickets for a flight by selecting the source location
+     * and the departure destination from drop down menues.
      *
-     * @param source
-     * @param depart
-     * @return
+     * @param source the location of the flight source
+     * @param depart the location of the flight departure
+     * @return String of the airline associated with the existing flight
      */
 
     public String searchForTickets(String source, String depart) {
@@ -530,12 +531,8 @@ public class TicketController extends javax.swing.JInternalFrame {
     }
 
     /**
-     * The travel agent may auto-populate the existing customer's details
-     * into the form for booking a ticket by searching by the
-     * customer's unique ID.
-     * <p>
-     * If the customer does not exist in the database, a JOptionPane
-     * renders an error message displaying "Record not Found."
+     * This method is invoked when the search customer button is clicked
+     * by the user.
      *
      * @param evt "Search" button event when searching by customer ID.
      */
@@ -549,10 +546,13 @@ public class TicketController extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
-     * TODO fill me in
+     *  The travel agent may auto-populate the existing customer's details
+     *  into the form for booking a ticket by searching by the
+     *  customer's unique ID. If the customer does not exist in the database, a JOptionPane
+     *  renders an error message displaying "Record not Found."
      *
-     * @param id
-     * @return
+     * @param id the customer id
+     * @return feedback of whether customer was located or not for testing
      */
     public String searchForCustomer(String id) {
 
@@ -635,9 +635,8 @@ public class TicketController extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtseatsStateChanged
 
     /**
-     * When the customer's ticket details are set, the travel agent presses the
-     * "Book" button to create a new ticket that is then inserted into the
-     * database.
+     * This method is invoked when the Book button is clicked by
+     * the user. The ticket details are passed to validateTicketDetails().
      *
      * @param evt "Book" button event when a ticket is booked.
      */
@@ -660,6 +659,22 @@ public class TicketController extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * This method is invoked once the Book button event has transpired and the
+     * validateTicketDetails() method has returned the isValid boolean. The boolean
+     * and ticket details are passed as parameters. If true, the ticket is inserted into 
+     * the database, otherwise the details are discarded.
+     * 
+     * @param isValid boolean determining details are valid.
+     * @param ticketid current ticket id
+     * @param flightid current flight id
+     * @param custid current customer id
+     * @param flightclass selected flight class
+     * @param price price dependent on flight
+     * @param seats number of seats booked
+     * @param date current date of booking
+     * @return feedback detailing whether flight was booked or not for testing
+     */
     public String bookTicket(boolean isValid, String ticketid, String flightid, String custid,
                              String flightclass, String price, String seats, String date) {
 
