@@ -15,6 +15,9 @@ class TicketControllerTest {
 
     private TicketController ticket;
 
+     /**
+     * Instance of TicketController used for testing.
+     */
     @BeforeEach
     public void setup(){
         ticket = new TicketController();
@@ -447,6 +450,9 @@ class TicketControllerTest {
         assertEquals("", ticket.searchForTickets(source, depart));
     }
 
+    /**
+     * Instance of TicketController discarded upon tear down.
+     */
     @AfterEach
     public void tearDown(){
         ticket = null;
