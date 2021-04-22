@@ -34,6 +34,9 @@ public class SpeedSystemTest {
     UserCreationController userCreationWindow;
     byte[] userimage;
 
+    /**
+    * Sets up instances of objects throughout project
+    */
     @BeforeAll
     public void setUp(){
         this.loginWindow = new Login();
@@ -47,7 +50,7 @@ public class SpeedSystemTest {
 
     /**
      * Test Case ID: TC-NF-02
-     * Requirement ID/Description: The system shall complete methods interacting
+     * Requirement ID/Description: SR-NF-07 The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
      *      speed of Login transaction.
@@ -83,7 +86,7 @@ public class SpeedSystemTest {
 
     /**
      * Test Case ID: TC-NF-03
-     * Requirement ID/Description: The system shall complete methods interacting
+     * Requirement ID/Description: SR-NF-07 The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
      *      speed of CustomerCreation transaction.
@@ -150,7 +153,7 @@ public class SpeedSystemTest {
 
     /**
      * Test Case ID: TC-NF-04
-     * Requirement ID/Description: The system shall complete methods interacting
+     * Requirement ID/Description: SR-NF-07 The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
      *      speed of Customer Update transaction.
@@ -222,7 +225,7 @@ public class SpeedSystemTest {
 
     /**
      * Test Case ID: TC-NF-05
-     * Requirement ID/Description: The system shall complete methods interacting
+     * Requirement ID/Description: SR-NF-07 The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
      *      speed of FlightAddition transaction.
@@ -272,7 +275,7 @@ public class SpeedSystemTest {
 
     /**
      * Test Case ID: TC-NF-06
-     * Requirement ID/Description: The system shall complete methods interacting
+     * Requirement ID/Description: SR-NF-07 The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
      *      speed of Ticket Addition transaction.
@@ -333,7 +336,7 @@ public class SpeedSystemTest {
 
     /**
      * Test Case ID: TC-NF-07
-     * Requirement ID/Description: The system shall complete methods interacting
+     * Requirement ID/Description: SR-NF-07 The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
      *      speed of Ticket Report query.
@@ -359,7 +362,7 @@ public class SpeedSystemTest {
 
     /**
      * Test Case ID: TC-NF-08
-     * Requirement ID/Description: The system shall complete methods interacting
+     * Requirement ID/Description: SR-NF-07 The system shall complete methods interacting
      *      with the database in at most 8 seconds.
      * Purpose: Users get frustrated with slow, unresponsive software. To test the
      *      speed of UserCreation transaction.
