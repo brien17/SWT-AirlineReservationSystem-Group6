@@ -213,7 +213,8 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-08
-   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * Requirement ID/Description: SR-F-08: The system shall allow users to update Customer information after searching
+   * for a valid Customer ID
    * by entering a valid Customer ID.
    * Purpose:
    * Test Setup:
@@ -229,7 +230,7 @@ public class CustomerSearchTest {
     String lastname = "Marsh";
     String nic = "00000000A";
     String passport = "123456789";
-    String address = "1600 Pennsylvania Avenue NW Washington, DC, 20500";
+    String address = "  ";
     String dateString = "1949-04-08";
     String sex = "Male";
     String contact = "1234567890";
@@ -250,7 +251,8 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-09
-   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * Requirement ID/Description: SR-F-08: The system shall allow users to update Customer information after searching
+   * for a valid Customer ID
    * by entering a valid Customer ID.
    * Purpose:
    * Test Setup:
@@ -287,7 +289,8 @@ public class CustomerSearchTest {
 
   /**
    * Test Case ID: TC-CS-10
-   * Requirement ID/Description: SR-F-04: The system shall allow users to search for a Customer’s account information
+   * Requirement ID/Description: SR-F-08: The system shall allow users to update Customer information after searching
+   * for a valid Customer ID
    * by entering a valid Customer ID.
    * Purpose:
    * Test Setup:
